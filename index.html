@@ -154,7 +154,22 @@
             color: #fff;
             background-color: #11ffdd;
         }
+
+        #panel{
+            padding: 20px;
+        }
+
+        div.e{
+            font-size: xx-large;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        div.f{
+            font-size: small;
+        }
         </style>
+        <script src="jquery.min.js"></script>
         <script>
             function f1(){
                 alert('警告：我们发现了一个漏洞，请尽快安装zzChat 2.12版本更新以恢复正常使用！')
@@ -168,14 +183,23 @@
                 else document.title=normal_title;
             });
 
-function refresh(){
-window.location.reload();
-}
+            function refresh(){
+                window.location.reload();
+            }
+
+            $(document).ready(function(){
+                $("#flip").click(function(){
+                    $("#panel").slideToggle("slow");
+                });
+            });
         </script>
     </head>
     <body>
         <ul>
             <li><a href="#">某个智障的个人主页</a></li>
+            <li><a id="flip">！</a><div id="panel">&nbsp;&nbsp;<div class="e">濫觴生命</div><div class="f">Orangestar</div><br><audio controls autoplay>
+                <source src="1.mp3" type="audio/mpeg">
+            </audio></div></li>
         </ul>
         <iframe src="index1.html" frameborder="0" width="100%" height="500"><p class="a">请使用Google Chrome或Mozilla Firefox打开。</p></iframe>
         <br>
@@ -222,7 +246,7 @@ window.location.reload();
         <a class="c" href="https://im.noxx.cn">星奕微聊</a><br>
         <a class="c" href="https://pan.mrpig.cf">慕容的储物箱</a><br>
         <a class="c" href="https://lit-bird.github.io/">Bird's Page</a><br>
-<a class="c" href="https://crosst.chat/">十字街聊天室</a><br>
+        <a class="c" href="https://crosst.chat/">十字街聊天室</a><br>
         <br>
         <br>
         <div class="c"><strong>产品</strong></div>
