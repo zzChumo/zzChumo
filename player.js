@@ -14,10 +14,10 @@ $(function(){
     var sHover=$('#s-hover');
     var seekBar=$('#seek-bar');
     var seekT,seekLoc,seekBarPos,cM,ctMinutes,ctSeconds,curMinutes,curSeconds,durMinutes,durSeconds,playProgress,bTime,nTime=0;
-    var musicImgsData=['1.jpg'];
+    var musicImgsData=['https://chumo.sbsbsb.sbs/1.jpg'];
     var musicNameData=['濫觴生命'];
     var artistNameData=['Orangestar'];
-    var musicUrls=['1.mp3'];
+    var musicUrls=['https://chumo.sbsbsb.sbs/1.mp3'];
     var currIndex=-1;
     var buffInterval=null;
     var len=musicNameData.length;
