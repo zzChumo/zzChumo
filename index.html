@@ -210,6 +210,12 @@
                     $("#panel").slideToggle("slow");
                 });
             });
+
+            function adjustIframe(){
+                var ifm= document.getElementById("bi_iframe");
+                ifm.height=document.documentElement.clientHeight;
+                ifm.width=document.documentElement.clientWidth;
+            }
         </script>
     </head>
     <body>
@@ -272,7 +278,10 @@
         <br>
         <h1>慕容的随机图片</h1><a name="main"></a>
         <br>
-        <iframe src="mrpig.html" frameborder="0" width="100%"><p class="a">请使用Google Chrome或Mozilla Firefox打开。</p></iframe>
+        <div class="d"><img src="https://mrpig.cf/" alt="滚去关加速器" width="95%"></div>
+        <br>
+        <br>
+        <div class="d"><a class="z" onclick="refresh()">下一张</a>&nbsp;&nbsp;&nbsp;<a class="z" href="https://app.zzchat.cf/RandomSister">获取客户端</a></div>
         <br>
         <br>
         <br>
