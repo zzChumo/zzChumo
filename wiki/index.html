@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#555555">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="icon" href="index.png">
+<link rel="shortcut-icon" href="index.png">
+<html>
+    <head>
+        <title>hc百科，带你愉快入坑hc</title>
+        <style>
+            body{
+                font-family: "Microsoft Yahei UI Light";
+                margin: 0;
+            }
+
+            p.a{
+                font-size: large;
+            }
+            
+            a{
+			text-decoration: none;
+		}
+
+        p.b{
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 20px;
+            color: #333;
+        }
+
+        div.a{
+            text-align: center;
+            color: #ff3333;
+            background: #ffaaaa;
+            border: 4px solid #ff3333;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.b{
+            text-align: center;
+            color: #3333ff;
+            background: #aaaaff;
+            border: 4px solid #3333ff;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.d{
+            text-align: center;
+            font-size: small;
+            color: #333;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        div.c{
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: large;
+        }
+
+        div.e{
+            color: #333333;
+        }
+
+        h1{
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        a.a{
+            color: #ffffff;
+        }
+
+        a.c{
+            color: #555;
+            padding-left: 20px;
+            font-size: x-small;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a.b{
+            color: #0090d8;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #555555;
+            position: fixed;
+            top: 0;
+            width: 100%;
+		}
+		
+		li {
+		    float: left;
+		}
+		
+		li a, .dropbtn {
+		    display: inline-block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover, .dropdown:hover, .dropbtn {
+		    background-color: #555;
+		}
+		
+		.dropdown {
+		    display: inline-block;
+		}
+		
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 160px;
+		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+		
+		.dropdown-content a {
+		    color: #11ffdd;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+		
+		.dropdown-content a:hover {background-color: #f1f1f1}
+		
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+        footer{
+            background: #eeeeee;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        img{
+            padding-left: 9px;
+            padding-right: 9px;
+            border: 0;
+        }
+
+        a.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #fff;
+            background-color: #11ffdd;
+        }
+
+        #panel{
+            padding: 20px;
+        }
+
+        div.e{
+            font-size: xx-large;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        div.f{
+            font-size: small;
+        }
+
+        #panel{
+            display: none;
+        }
+
+        div.h{
+            padding-left: 5px;
+        }
+        
+        p.z{
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.e{
+            color: #66ccff;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        p.g{
+            color: #fff;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+        </style>
+        <script>
+            function openNav(){
+                document.getElementById('mySidenav').style.width='250px';
+            }
+
+            function closeNav(){
+                document.getElementById('mySidenav').style.width='0';
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a onclick="openNav()">&#9776;</a></li>
+            <li><a href="#">HC百科</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">首页</a>
+            <a href="list.html">全部文档</a>
+        </div>
+        <h1>欢迎来到HC百科！</h1>
+        <p class="z">这里是hc百科，全国第一个Hack.Chat百科全书。</p>
+        <p class="z">这个wiki由<a class="e" href="../index.html">智障初墨</a>创建。创建本站的目的是能让新人快速了解hc，让用户能够快速查阅聊天时所需的资料，让好奇宝宝了解hc历史上的大事记。</p>
+        <p class="z">初墨不可能知道任何一件有关hc的事情，而且他的空闲时间比较少。所以，我们希望各位用户能够积极投稿，尽可能的完善这个wiki。</p>
+        <p class="z">本站目前已有<a class="e" href="list.html">2</a>篇文章。</p>
+        <p class="z">因为某个聊天室站长的原因，部分页面可能需要密码才能访问。</p>
+        <p class="g">垃圾xmzd</p>
+        <br>
+        <br>
+    <footer>
+        <br>
+        <div class="d">该页面版权归属原作者，是否允许商用请参考该页面所使用的协议。</div>
+        <div class="d">本wiki为静态站点，无法在线投稿。请将稿件投至gsguo001@foxmail.com。</div>
+        <hr>
+        <div class="d">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">CC BY-NC 4.0</a>协议</div>
+        <br>
+    </footer>
+</html>
