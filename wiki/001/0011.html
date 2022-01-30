@@ -6,7 +6,7 @@
 <link rel="shortcut-icon" href="index.png">
 <html>
     <head>
-        <title>hc百科，带你愉快入坑hc</title>
+        <title>Hack.Chat-HC百科</title>
         <style>
             body{
                 font-family: "Microsoft Yahei UI Light";
@@ -58,6 +58,19 @@
             padding-bottom: 2px;
         }
 
+        hr{
+            color: #eeeeee;
+        }
+
+        div.d1{
+            font-size: small;
+            color: #333;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
         div.c{
             padding-left: 20px;
             padding-right: 20px;
@@ -68,10 +81,23 @@
             color: #333333;
         }
 
+        p.table{
+            text-align: center;
+        }
+
+        div.table{
+            text-align: center;
+            font-size: x-small;
+        }
+
         h1{
             padding-left: 20px;
             padding-right: 20px;
-            text-align: center;
+        }
+
+        h2{
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         a.a{
@@ -146,10 +172,6 @@
 
         footer{
             background: #eeeeee;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
         }
 
         img{
@@ -190,9 +212,9 @@
         }
         
         p.z{
-            text-align: center;
             padding-left: 20px;
             padding-right: 20px;
+            line-height: 1.7;
         }
 
         a.e{
@@ -246,6 +268,29 @@
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
         }
+
+        div.by{
+            font-size: small;
+            padding-top: 10px;
+        }
+
+        table{
+            border-collapse: collapse;
+            border: 1px #aaa solid;
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        div.red{
+            color: #ff0000;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.red{
+            color: #ff0000;
+        }
         </style>
         <script>
             function openNav(){
@@ -260,7 +305,7 @@
     <body>
         <ul>
             <li><a onclick="openNav()">&#9776;</a></li>
-            <li><a href="#">HC百科</a></li>
+            <li><a href="#">Hack.Chat-HC百科</a></li>
         </ul>
         <br>
         <br>
@@ -268,24 +313,31 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">首页</a>
-            <a href="list.html">全部文档</a>
+            <a href="#">全部文档</a>
         </div>
-        <h1>欢迎来到HC百科！</h1>
-        <p class="z">这里是hc百科，全HC第一个Hack.Chat百科全书。</p>
-        <p class="z">这个wiki由<a class="e" href="../index.html">智障初墨</a>创建。创建本站的目的是能让新人快速了解hc，让用户能够快速查阅聊天时所需的资料，让好奇宝宝了解hc历史上的大事记。</p>
-        <p class="z">初墨不可能知道任何一件有关hc的事情，而且他的空闲时间比较少。所以，我们希望各位用户能够积极投稿，尽可能的完善这个wiki。</p>
-        <p class="z">本站目前已有<a class="e" href="list.html">4</a>篇文章。</p>
-        <p class="z">因为某个聊天室站长的原因，部分页面可能需要密码才能访问。</p>
-        <p class="g">垃圾xmzd</p>
+        <h1>如果你是hc的新成员，这篇文章会对你有所帮助<div class="by">By <a class="e" href="mailto:mailllj@163.com">Light</a></div></h1>
+        <hr>
+        <div class="d1"><a class="e" href="../hc.html">Hack.Chat</a>>此文档</div>
+        <hr>
+        <div class="d1">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>协议</div>
+        <hr>
+        <h2>1.注册</h2>
+        <p class="z">进入https://hack.chat/?your-channel后，你可以看到一个输入框提示你输入“Nickname:”，这个时候你只需要填入你的用户名。如果你想设置一个密码，你可以在名字后加上“#密码”。例如用户名<s>sb</s>sweetbaby，密码123456可以写成sweetbaby#123456。<br><div class="red">注意：没有特殊情况不要修改密码，不然其他人可能就认不出你了</div></p>
         <br>
+        <h2>2.聊天室</h2>
+        <p class="z">如果登录成功，你可以看到“Users online”，这表明有哪些用户在线（也有可能在挂机）。</p>
+        <p class="z">当有人进入房间时会有“xxxx joined”的标志，有人离开时会有“xxxx left”的标志。</p>
+        <p class="z">如果你想要一个自己的私人聊天室，你可以把地址栏url中的“your-channel”改成你自己聊天室的名字。例如，我想要创建一个名叫“happyroom”的聊天室，则它的网址为https://hack.chat/?<a class="red">happyroom</a>。</p>
+        <p class="z">如果你想邀请当前聊天室的某个用户到私人聊天室，你可以在右边菜单的最下方点击这个人的名字。之后随机生成的聊天室会以一条系统消息的形式显示在聊天区域中，并且只有你和被你邀请的人能够看到。</p>
         <br>
+        <h2>3.聊天</h2>
+        <p class="z">在下面的黑框中输入文字并点击回车即可发送消息，大家发送的消息会在上方显示。名字前的几个字符是特征码。特征码是用户唯一的标识，根据密码而定，目的是防止一个人伪装成另一个人。</p>
+        <p class="z">支持使用Markdown和LaTeX发送消息，例如[link](https://www.baidu.com/)和$$\huge hello$$。</p>
+        <p class="z">Hack.Chat也有内置的命令供你使用，我收集了常见的几个命令，如下：<br>| /color #000000<br>改变用户名的颜色，例如将名字改为白色：/color #ffffff<br>| /move your-channel<br>移动至其它房间，例如移动到名为happyroom的房间：/move happyroom<br>| /whisper tom hello<br>私聊其他用户（只有对方能看见，其他人看不见），例如对pig说hi：/whisper pig hi<br>| /me content<br>表面状态，例如表达自己很happy：/me happy</p>
         <br>
     <footer>
         <br>
         <div class="d">该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。</div>
-        <div class="d">本wiki为静态站点，无法在线投稿。请将稿件投至gsguo001@foxmail.com。</div>
-        <hr>
-        <div class="d">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议</div>
         <br>
     </footer>
 </html>
