@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#555555">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="icon" href="index.png">
+<link rel="shortcut-icon" href="index.png">
+<html>
+    <head>
+        <title>流浪者之地。</title>
+        <style>
+            body{
+                font-family: "Microsoft Yahei UI Light";
+                margin: 0;
+                letter-spacing: 2px;
+            }
+
+            p.a{
+                font-size: large;
+            }
+            
+            a{
+			text-decoration: none;
+		}
+
+        p.b{
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 20px;
+            color: #333;
+        }
+
+        div.a{
+            text-align: center;
+            color: #ff3333;
+            background: #ffaaaa;
+            border: 4px solid #ff3333;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.b{
+            text-align: center;
+            color: #3333ff;
+            background: #aaaaff;
+            border: 4px solid #3333ff;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.d{
+            text-align: center;
+            font-size: small;
+            color: #333;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        hr{
+            color: #eeeeee;
+        }
+
+        div.d1{
+            font-size: small;
+            color: #333;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        div.c{
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: large;
+        }
+
+        div.e{
+            color: #333333;
+        }
+
+        p.table{
+            text-align: center;
+        }
+
+        div.table{
+            text-align: center;
+            font-size: x-small;
+        }
+
+        h1{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h2{
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        a.a{
+            color: #ffffff;
+        }
+
+        a.c{
+            color: #555;
+            padding-left: 20px;
+            font-size: x-small;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a.b{
+            color: #0090d8;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+            box-shadow: 0px 2px  2px #00000066;
+		    background-color: #555555;
+            position: fixed;
+            top: 0;
+            width: 100%;
+		}
+		
+		li {
+		    float: left;
+		}
+		
+		li a, .dropbtn {
+		    display: inline-block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover, .dropdown:hover, .dropbtn {
+		    background-color: #555;
+		}
+		
+		.dropdown {
+		    display: inline-block;
+		}
+		
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 160px;
+		    box-shadow: 0px 2px  2px #00000066;
+		}
+		
+		.dropdown-content a {
+		    color: #11ffdd;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+		
+		.dropdown-content a:hover {background-color: #f1f1f1}
+		
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+        footer{
+            background: #eeeeee;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        img{
+            padding-left: 9px;
+            padding-right: 9px;
+            border: 0;
+        }
+
+        a.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #fff;
+            background-color: #11ffdd;
+        }
+
+        #panel{
+            padding: 20px;
+        }
+
+        div.e{
+            font-size: xx-large;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        div.f{
+            font-size: small;
+        }
+
+        #panel{
+            display: none;
+        }
+
+        div.h{
+            padding-left: 5px;
+        }
+        
+        p.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 1.7;
+        }
+
+        a.e{
+            color: #66ccff;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        p.g{
+            color: #fff;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        div.by{
+            font-size: small;
+            padding-top: 10px;
+        }
+
+        table{
+            border-collapse: collapse;
+            border: 1px #aaa solid;
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        div.red{
+            color: #ff0000;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.red{
+            color: #ff0000;
+        }
+
+        hr.x{
+            width: 85%;
+        }
+        </style>
+        <script>
+            function openNav(){
+                document.getElementById('mySidenav').style.width='250px';
+            }
+
+            function closeNav(){
+                document.getElementById('mySidenav').style.width='0';
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a onclick="openNav()">&#9776;</a></li>
+            <li><a href="#">流浪者之地。</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../index.html">首页</a>
+            <a href="../list.html">文档</a>
+            <a href="../story.html">故事</a>
+        </div>
+        <h1>赎罪者与救赎者<div class="by">By <a class="e" href="mailto:thegreatcarl@163.com">13</a></div></h1>
+        <hr>
+        <div class="d1">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议</div>
+        <hr>
+        <br>
+        <p class="z">罗马狂欢节是利迪尔王国的一项传统节日。<br>在节日开始前，会有数名死刑犯将被带到处刑场执行死刑。</p>
+        <p class="z">很不巧的。</p>
+        <p class="z">今天是个阴沉的雨天。<br>凌晨4时才下过小雨，现在依旧是乌云密布。</p>
+        <p class="z">但坏天气也抵挡不住他们对这个节日的热情。</p>
+        <p class="z">此时，处刑场的周围已被围的水泄不通。<br>贵族们看好戏的欢呼声回荡在刑场的上空。<br>他们丝毫不顾牛毛般的细雨噼噼啪啪打在自己身上。</p>
+        <p class="z">更有甚者，在雨中手舞足蹈。</p>
+        <p class="z">「请诸位安静！」<br>在刑场中心的主持人发话。</p>
+        <p class="z">观众席的声音没有变化，甚至变得更大了。</p>
+        <p class="z">「还请诸位安静！」<br>他再次发话，嗓门大了不少。</p>
+        <p class="z">骚动这才平静了下来。</p>
+        <p class="z">有些人在私底下暗自咒骂主持人。</p>
+        <p class="z">「今天，是狂欢节！」<br>「依照传统，今天，将有人被处死！」</p>
+        <p class="z">「……但是，今天要处死的人十分特别。」<br>主持人的话中开始有了神秘感。</p>
+        <p class="z">「她就是……[无法识别]的公爵大小姐！」</p>
+        <p class="z">观众席有了骚动，贵族们都在窃窃私语。<br>但无一例外的，都皱起了眉头，翻着白眼。<br>甚至露出厌恶的表情，目不转睛盯着刑场侧旁的大门。</p>
+        <p class="z">「她的死，将作为狂欢节的开场！」</p>
+        <p class="z">骚动爆发了，变为一阵阵欢呼。仿佛，世间的人对这位罪人是如此厌恶。</p>
+        <p class="z">这时，她走了出来。</p>
+        <p class="z">遍体鳞伤，近乎赤身裸体，头发凌乱不堪。<br>手腕和脚腕上的淤青十分明显。</p>
+        <p class="z">她默默走上断头台。</p>
+        <p class="z">「忏悔吧。」<br>牧师的话中没有感情。</p>
+        <p class="z">「……该赎罪了。」<br>牧师斜着眼，冷冷注视着这位曾是公爵家最疼爱的大小姐的人。<br>现在却成了给公爵家抹黑的千古罪人。</p>
+        <p class="z">「莉莉丝……姐姐这就下来见你。」<br>她喃喃自语，瞳孔中没有光。</p>
+        <p class="z">「……这就……这就下来……」<br>只是一字一顿，不断重复着这句话。</p>
+        <p class="z">「嘭！」<br>手起刀落，只听见一声巨响。</p>
+        <p class="z">观众席上的贵族们屏住呼吸。<br>有的双眼紧闭，有的瞪大双眼，有的将目光移开了。</p>
+        <p class="z">整个世界都安静了。</p>
+        <p class="z">「……我死了吗？」</p>
+        <p class="z">她双眼朦胧。<br>有泪，从干涩红肿的眼角中渗出。</p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">「薇多利亚！」<br>熟悉的声音响起。</p>
+        <p class="z">（啊啊，出现幻听了吗？）</p>
+        <p class="z">「……」<br>「薇！」</p>
+        <p class="z">她没有反应。</p><!--薇多利亚.exe已停止运行.jpg-->
+        <p class="z">「……」<br>「薇！醒醒！」</p>
+        <p class="z">不知这声呼唤持续了多久。<br>不知时间过去了多久。</p>
+        <p class="z">耳边只有若隐若现的脚步声。</p>
+        <p class="z">她睁开朦胧的双眼。<br>映入眼帘的是熟悉但又陌生的脸庞。</p>
+        <p class="z">在她眼前的，是她儿时的玩伴。<br>领地里最具潜力的一个年轻人。<br>26岁左右，剑术超群，深受领主的赏识。</p>
+        <p class="z">尽管他十分有潜力，但却只是个普通平民。<br>与她贵族高贵的身份相差甚远。<br>地位不同，身份不同。</p>
+        <p class="z">两人从幼时的形影不离。<br>到在之后的成长路上渐行渐远。<br>最后，是命运，将他们生生拆开。</p>
+        <p class="z">「雷……雷……雷欧……」<br>她伸手抚摸他的脸，但支撑不久，又放了下去。</p>
+        <p class="z">「坚持住！」<br>他抱着她，从爆炸的烟雾中冲了出来。</p>
+        <p class="z">「为什么……为什么……」</p>
+        <p class="z">「我喜欢你……不，我爱你！」</p>
+        <p class="z">从雷欧口中蹦出的。<br>是她曾认为一辈子都得不到的告白。</p>
+        <p class="z">「……我不值得，我可是……杀了、我亲妹妹啊！」br>她的话中带着哭腔，不经意间流露出了卑微。</p>
+        <p class="z">（头……好晕。）</p>
+        <p class="z">「不是的！你只是被他利用了！我相信你！」<br>雷欧的脚步声急促，但声音是如此坚定不移。</p>
+        <p class="z">他将他怀里的她抱得更紧了。<br>生怕她会挣脱他的怀抱，从他身边逃走。</p>
+        <p class="z">（坚持不住了……不行，不能再……）<br>她的意识开始薄弱，困意涌上心头。</p>
+        <p class="z">（我还想……活下去……）<br>（对……对不起……雷……雷欧。）</p>
+        <p class="z">「我相信你啊！」<br>这是她听到的最后一丝希望。</p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">（……）</p>
+        <p class="z">（我……）</p>
+        <p class="z">不知过了多久，薇多利亚睁开了眼睛。</p>
+        <p class="z">「这里……是……哪里……」</p>
+        <p class="z">明明身处陌生的环境。<br>可薇多利亚感受到的，竟不是不安。<br>而是得知她还活在这世上的欣慰和安全感。</p>
+        <p class="z">「你醒啦，快把药喝下去吧！」<br>她抬头，看见雷欧从外面走进来。</p>
+        <p class="z">（雷欧……这是雷欧吗？）<br>（为什么……会出现在我身边……）</p>
+        <p class="z">「发生了……什么……我在……哪里？」<br>她抓住他的的衣服，有气无力的问。</p>
+        <p class="z">（……我还活着。）</p>
+        <p class="z">「先把药喝了。」<br>雷欧的语气温柔，却不容置疑。</p>
+        <p class="z">她摇摇头，侧过头去。<br>明显的拒绝和赌气。</p>
+        <p class="z">（这是有多久。）<br>（……没向亲密的人撒过娇了。）</p>
+        <p class="z">「薇，你已经昏迷三天了，再不补充一下，身体吃不消。」</p>
+        <p class="z">雷欧摸摸薇多利亚的头。<br>薇多利亚却没有权力躲开。</p>
+        <p class="z">现在，雷欧的地位，已经和她平坐平起。<br>甚至，已经比身为死刑犯的薇多利亚高了。</p>
+        <p class="z">「那你……先回答我的问题。」<br>她的语气虚弱，却同样不容置疑。</p>
+        <p class="z">「哎……」<br>他叹了口气，猛的喝下给她的药。<br>然后抱住她，直接吻了上去。</p>
+        <p class="z">薇多利亚被雷欧突如其来的举动吓到了。<br>来不及躲开，唇与唇间的距离化为了0。</p>
+        <!--草 玛丽苏起来了（-->
+        <p class="z">「咳咳咳。」<br>她连呛几声。<br>脸上泛起一阵烟熏的微红。</p>
+        <!--你脸红个泡泡茶壶（误-->
+        <p class="z">可来自薇多利亚的怒气。<br>到雷欧眼里却变成了闹脾气。</p>
+        <p class="z">「……故事很长。」<br>雷欧朝薇多利亚笑了笑。<br>从她的床边离开，挪来了一把椅子。<br>「自从我们分开后，我离开了你的领地，四处学习。」<br>「通过多年的锻炼和考验，我成为了一名骑士，在德·艾萨克的骑士团中工作。」</p>
+        <p class="z">「我在拉舍罗尔围城是立下功劳，在关键时刻，救下了红衣教主和国王。」<br>「我受到两面的赏识，虽然我仍年轻，但是因为关键的一剑，我成为了荣誉骑士。」</p>
+        <p class="z">「可以与贵族们平起平坐，甚至高他们一等。」<br>「我自己也经营着大量家产，在领地里赫赫有名。」</p>
+        <p class="z">「在狂欢节，所以我打扮成骑士，同时在刑场放了少量炸药和面粉，在迷雾中将你带走。」</p>
+        <p class="z">「不愧是我的雷欧……」<br>「……分别这么多年……变成了全国闻名的骑士。」<br>薇多利亚心中有些许感动，不乏混着酸涩。</p>
+        <p class="z">（我们都变了。）<br>（雷欧……成了全国上下都为他光荣的骑士。）<br>（……而我，只是个手上沾满鲜血……将死的罪人。）</p>
+        <p class="z">「……不管我变成什么，我只知道一件事情。」<br>「不论我身在何处，我永远爱你。」</p>
+        <p class="z">雷欧的脸庞再次向薇多利亚凑近了。<br>他认真地说道。</p>
+        <p class="z">这已经不是雷欧第一次说了。</p>
+        <p class="z">薇多利亚想起来了。<br>从成为青梅竹马开始。<br>两人就时常开过结婚的玩笑。</p>
+        <p class="z">只不过那时候。<br>她心里的那个人不是雷欧。<br>空间渐渐被名为「恨」的情感所占据。</p>
+        <p class="z">久而久之。<br>随着两人的渐行渐远。<br>他们的玩笑也成了一句空话。</p>
+        <!--海绵宝宝，我觉得我们已经渐行渐远了（-->
+        <p class="z">「是吗……」<br>薇多利亚的眼眶慢慢湿润了。</p>
+        <p class="z">（……我，能选择相信雷欧吗？）</p>
+        <p class="z">「不论你问多少次，我的回答永远不变。」<br>「我爱你，薇。」</p>
+        <p class="z">他没有过多的举动，在她耳边轻轻说道。<br>就像爱，不需要过多的修饰。</p>
+        <p class="z">（我……明白了。）</p>
+        <p class="z">薇多利亚轻轻点了点头。</p>
+        <p class="z">雷欧深吸一口气。<br>神情突然变得严肃。</p>
+        <p class="z">「还有一件很重要的事。」<br>雷欧郑重其事地说道。<br>语气中带有几分恳求。</p>
+        <p class="z">「薇多利亚，已经死在刑场上了，要活下去，必须改变你的身份。」<br>「薇多利亚（Victoria）死了，取而代之的，是薇薇安（Vivian）。」</p>
+        <!--《但凡当时有个叫身份证的东西》-->
+        <p class="z">「……」</p>
+        <p class="z">（……我想……活下去……放弃……身份吗？）<br>犹豫使她陷入了沉思。</p>
+        <p class="z">「我……」<br>薇多利亚欲言又止。</p>
+        <p class="z">（是啊，放下我曾经所得的一切。）<br>（……甚至是所有曾犯下的罪。）<br>（一切都可以重来……是吗？）</p>
+        <p class="z">（我想……）</p>
+        <p class="z">「我想复仇。」</p>
+        <p class="z">（是啊，这不是我的错。）<br>（这并不是……我一个人的错。）</p>
+        <p class="z">她回过头来，再次打量他。</p>
+        <p class="z">他穿着朴素，但一眼就能看出来布料上等。<br>细看，还能从朴素中品到一丝优雅。</p>
+        <p class="z">她又看看自己的衣服，不大不小，正好合身。<br>样式也不起眼，但是十分舒适。</p>
+        <p class="z">「好。」<br>薇多利亚坚定地说。</p>
+        <p class="z">（从今往后，我……不再是薇多利亚。）<br>就这样想着，薇薇安慢慢地从床上下来。</p>
+        <p class="z">雷欧像是在担心什么似的。<br>冲过去，想扶住她。</p>
+        <p class="z">「当心，你还没有痊愈，医生说尽量不要下床。」</p>
+        <p class="z">薇薇安的下床动作暂停了。<br>雷欧也停在了伸出双手的动作。</p>
+        <p class="z">「……」<br>双方陷入沉默。</p>
+        <p class="z">「你执意要出去么……」<br>他收回双手，看着她微微泛红的脸。</p>
+        <p class="z">雷欧也没想把她束缚在身边的意思。<br>只是把薇薇安看成病人，希望她好好休息。</p>
+        <p class="z">望着薇薇安想说什么又欲言又止的脸。<br>他稍加思索，抱起她，走出她疗伤的小屋。</p>
+        <p class="z">薇薇安「呀」地一声叫了出来。<br>可在他怀里，却没有抗拒的意思。</p>
+        <p class="z">小屋的外面是绿油油的大草地。</p>
+        <p class="z">突如其来的阳光遮蔽了她的双眼。</p>
+        <p class="z">这是个万里无云的好日子。<br>几天前阴沉的天气早已放晴。<br>雨后大自然的空气是如此清新。<br>草上还带着清晨的露珠，滴答滴答。</p>
+        <p class="z">「好了！薇，快看，今天的天气真好！」<br>雷欧看起来比薇薇安还兴奋，摇了摇他怀中小东西。</p>
+        <p class="z">过一会，薇薇安慢慢睁开眼睛。<br>那是她8年来第一次见到阳光。</p>
+        <p class="z">（好感动……好想哭……）</p>
+        <p class="z">「易！」<br>雷欧突然大喊。</p>
+        <p class="z">「雷！我在！」</p>
+        <p class="z">从远方的草垛中。<br>出现一位浑身沾满草毛的年轻男子。<br>外表的年龄看起来和雷欧差不多大。</p>
+        <p class="z">「帮我推一个轮椅过来。」<br>名为易的男人，丢下手中修建草垛的剪刀。<br>看了看雷欧怀里捂着脸的薇薇安，瞪大了双眼。</p>
+        <p class="z">「喂，你……」</p>
+        <p class="z">「别问，问就是我乐意。」<br>雷欧及时打断了易的话。</p>
+        <p class="z">「好吧~我是管家，你是领主，你说了算。」<br>易转身走了，话中带笑，还时不时回头。</p>
+        <p class="z">「……雷。」</p>
+        <p class="z">「怎么了？」<br>面对薇薇安说话，雷欧显然温柔多了。</p>
+        <p class="z">「他……是谁？」</p>
+        <p class="z">「易？他是我在学习途中遇到的伙伴。」</p>
+        <p class="z">「当时我们还打了一架，你真应该看看他倒在地上的惨样……」<br>回想起易惨痛的过往，雷欧忍不住笑了亿下。</p>
+        <p class="z">「他跟我去参加了战争。」<br>「我离开军队后，他只待了半年就来找我了，来我这里做了管家。」<br>「这里的繁荣，一半是他撑起的，实话说起来，我还真得感谢他啊。」</p>
+        <p class="z">（是吗……）</p>
+        <p class="z">雷欧说得津津有味。<br>薇薇安也感慨万分。</p>
+        <p class="z">「雷SAMA~你要的轮椅~」<br>易推着轮椅，摇摇摆摆跑了回来。<br>整个人弯成了S型，返回的路径也跑成了S型。</p>
+        <p class="z">雷欧小心翼翼的将薇薇安抱到轮椅上。</p>
+        <p class="z">「那，我不打扰~」<br>易可真是一脸姨母笑。<br>就连说出来的话都带着音符。</p>
+        <p class="z">「哎……是个聪明人。」<br>雷欧佯装正经，俯下了身子。<br>「……啊，除了有些时候不太灵光。」<br>薇薇安差点「噗嗤」一声笑出来。</p>
+        <p class="z">「！你你你……」</p>
+        <p class="z">「薇，我们走！」<br>雷欧无视了气得急跺脚的易。<br>推着薇薇安，向更加空旷的地方走去。</p>
+        <p class="z">暖和的阳光洒在身上。<br>薇薇安露出了久违的笑容。</p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">后记：</p>
+        <p class="z">薇薇安/薇多利亚的家族名为「伊夫加登（Evergarden）」。<br>依靠战争时期打造和贩卖高质量的武器起家，是皇室的忠实拥护者。<br>同时，致力于平衡红衣教主与国王的关系。<br>在让国家内部安定的同时，也保证了自己的利益最大化。</p>
+        <p class="z">——节选自『皇室与宗教是如何相互制衡的』 法国历史学家 阿尔伯特·罗平</p>
+        <br>
+        <br>
+        <br>
+    </body>
+    <footer>
+        <br>
+        <div class="d">该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。</div>
+        <br>
+    </footer>
+</html>
