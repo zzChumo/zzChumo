@@ -4,54 +4,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 <html>
     <head>
-        <title>GS Design Demo</title>
+        <title>转跳器</title>
         <style>
             body{
-                font-family: "Google Sans";
+                font-family: "Roboto";
                 margin: 0;
                 letter-spacing: 2px;
             }
 
-            a.z:hover {
-                color: #f1f1f1;
-                background-color: #00aa88;
-            }
-
-            a.float:hover {
-                color: #f1f1f1;
-                background-color: #00aa88;
-            }
-
-            a.float{
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                color: #fff;
-                background-color: #00ccaa;
-                border: 0 solid #00ccaa;
-                border-radius: 50px;
-                box-shadow: 0px 3px  3px #00000066;
-                bottom: 30px;
-                right: 30px;
-                position: fixed;
-                transition: all 0.3s linear;
-            }
-
-            @font-face {
-                font-family: Roboto;
-                src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
-            }
-
-            @font-face{
-                font-family: Google Sans;
-                src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
-            }
-
-            p.a{
-                font-size: large;
-            }
-            
             a{
 			    text-decoration: none;
                 transition: all 0.3s linear;
@@ -61,6 +21,31 @@
                 color: #fff;
                 background-color: #aaa;
             }
+
+            @font-face{
+                font-family: Roboto;
+                src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
+            }
+
+            @font-face{
+                font-family: Google Sans;
+                src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
+            }
+
+            @font-face{
+                font-family: mwfmdl;
+                src: url(https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2);
+            }
+
+            p.a{
+                font-size: large;
+            }
+            
+            a{
+			    text-decoration: none;
+                font-family: 'Roboto';
+                font-size: small;
+		    }
 
             p.b{
                 padding-left: 20px;
@@ -135,13 +120,13 @@
 	    	    margin: 0;
 		        padding: 0;
 		        overflow: hidden;
-    		    background-color: #00ccaa;
+    		    background-color: #00ccaa00;
                 position: fixed;
                 top: 0;
                 width: 100%;
                 box-shadow: 0px 3px  3px #00000066;
                 letter-spacing: 0px;
-                }
+            }
 		
 		    li {
 		        float: left;
@@ -153,6 +138,7 @@
 		        text-align: center;
 		        padding: 15px 16px;
     		    text-decoration: none;
+                font-size: medium;
 	    	}
 
             a.top {
@@ -164,7 +150,7 @@
 	    	}
 		
     		li a:hover, .dropdown:hover, .dropbtn {
-	    	    background-color: #00ccaa;
+	    	    background-color: #00ccaa00;
 		    }
 
             a.menu{
@@ -221,7 +207,7 @@
                 background-color: #00ccaa;
                 box-shadow: 0px 3px  3px #00000066;
                 border: 0 solid #00ccaa;
-                border-radius: 3px;
+                border-radius: 50px;
                 transition: all 0.3s linear;
             }
 
@@ -251,6 +237,17 @@
                 text-align: center;
                 font-size: small;
                 color: #888;
+                font-family: "mwfmdl";
+            }
+
+            div.z11{
+                text-align: center;
+                font-size: 50px;
+                color: #fff;
+                font-family: "mwfmdl";
+                padding-top: 50px;
+                padding-bottom: 20px;
+                text-shadow: 3px 3px 3px #00000066;
             }
 
             .sidenav {
@@ -260,7 +257,7 @@
                 z-index: 1;
                 top: 0;
                 left: 0;
-                background-color: #fff;
+                background-color: #ffffffcc;
                 overflow-x: hidden;
                 transition: 0.5s;
                 padding-top: 60px;
@@ -273,14 +270,13 @@
                 font-size: 15px;
                 color: #555;
                 display: block;
-                transition: 0.3s;
                 border-radius: 50px;
             }
             
             a.sidenav1{
                 padding: 15px 8px 15px 30px;
                 text-decoration: none;
-                font-size: 15px;
+                font-size: 30px;
                 color: #555;
                 display: block;
                 transition: 0.3s;
@@ -298,12 +294,86 @@
                 margin-left: 50px;
             }
 
+            a.z1{
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 16px;
+                padding-bottom: 15px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                font-size: 14px;
+                border-radius: 0px 50px 50px 0px;
+                box-shadow: 0px 3px  3px #00000066;
+                transition: all 0.3s linear;
+            }
+
+            a.z:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.z1:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                bottom: 30px;
+                right: 30px;
+                position: fixed;
+                transition: all 0.3s linear;
+            }
+
             div.sidenavimage{
                 padding-left: 5px;
             }
+
+            input{
+                background-color: #ffffffaa;
+                width: 50%;
+                height: 46px;
+                border: 0px solid #999;
+                border-radius: 50px 0px 0px 50px;
+                padding-left: 20px;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            div.bgimg{
+                position:fixed;
+                top: 0;
+                left: 0;
+                width:102%;
+                height:103%;
+                left: -7px;
+                top: -5px;
+                min-width: 1000px;
+                z-index:-10;
+                zoom: 1;
+                background-color: #fff;
+                background: url(https://mrpig.cf) no-repeat;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+                background-position: center 0;
+                filter: blur(5px);
+            }
         </style>
         <script>
-
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
                     normal_title=document.title;
@@ -335,34 +405,105 @@
             function closeNav(){
                 document.getElementById('mySidenav').style.width='0';
             }
+
+            function about(){
+                window.alert('这是一个转跳器，虽然很简单，但他是我人生中第一个项目的重置版。算是圆自己一个梦吧。\n\n该项目基于GS App应用框架进行构建。')
+            }
+
+            function addresshttp(){
+                var x = document.getElementById("address").value;
+	            var addresshttp=x.indexOf("http");
+	            if (addresshttp>-1){
+		            window.location.href=x;
+  		            return false;
+	            }else{
+                    alert('请输入一个完整、正确的URL。\n如果您输入的是关键词，请点击下面三个按钮进行搜索。');
+                }
+            }
+
+            function baidu(){
+                var x = document.getElementById("address").value;
+                window.location.href='http://baidu.com/s?wd=' + x
+            }
+
+            function bing(){
+                var x = document.getElementById("address").value;
+                window.location.href='http://bing.com/search?q=' + x
+            }
+
+            function so(){
+                var x = document.getElementById("address").value;
+                window.location.href='https://www.so.com/s?src=opensearch&q=' + x
+            }
+
+            function getnow(){
+                var now=new Date(); 
+                var year=now.getFullYear(); 
+                var month=now.getMonth()+1;
+                if(month<10){
+                    month="0"+month;
+                }  
+                var date=now.getDate();
+                if(date<10){
+                    date="0"+date;
+                }
+                var hour=now.getHours();
+                if(hour<10){
+                    hour="0"+hour;
+                }
+                var minute=now.getMinutes();
+                if(minute<10){
+                    minute="0"+minute;
+                } 
+                var second=now.getSeconds();
+                    if(second<10){
+                    second="0"+second;
+                }
+                var nowstr=hour+":"+minute+":"+second;
+                var nowspan=document.getElementById("nowspan");
+                nowspan.innerHTML=nowstr;
+                setTimeout("getnow()", 1000);
+            }
+
+            function socialsetting(){
+                document.getElementById('alive').style.filter='blur(100px)';
+                document.getElementById('alivea').parentNode.removeChild(document.getElementById('alivea'));
+                document.getElementById('aliveb').innerHTML='<a class="float" id="alivea" onclick="homesetting()" href="#">家里蹲模式</a>';
+            }
+
+            function homesetting(){
+                document.getElementById('alive').style.filter='blur(5px)';
+                document.getElementById('alivea').parentNode.removeChild(document.getElementById('alivea'));
+                document.getElementById('aliveb').innerHTML='<a class="float" id="alivea" onclick="socialsetting()" href="#">防社死模式</a>';
+            }
         </script>
     </head>
-    <body>
+    <body onload="getnow()">
+        <div id="alive" class="bgimg"></div>
         <ul>
             <li><a class="menu" onclick="openNav()">&#9776;</a></li>
-            <li><a class="top">Demo</a></li><!--标题-->
+            <li><a>转跳器</a></li><!--标题-->
         </ul>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="sidenavimage"><img src="Demo.png" alt="icon" width="40%"></div>
-            <a class="sidenav1">Demo</a>
+            <a class="sidenav1">转跳器</a>
             <hr>
             <br>
-            <a href="#">text</a>
-            <a href="#">text</a>
-            <a href="#">text</a>
+            <a onclick="about()">关于转跳器</a>
+            <a href="https://www.zzchat.cf/">访问官网</a>
             <!--这里是侧边栏内容-->
         </div>
         <br>
         <br>
         <br>
-        <br>
         <!--下面为正文内容-->
+        <div class="z11"><span id="nowspan"></span></div>
+        <form>
+            <p class="z"><input type="text" id="address" placeholder="请输入一个完整URL或关键词"><a class="z1" href="#" onclick="addresshttp()">开始</a></p>
+        </form>
         <br>
-        <br>
-        <p class="z">这里什么都没有哦</p>
-        <br>
-        <p class="z"><a class="z" href="#">点我什么都不会发生</a></p>
+        <p class="z"><a class="z" href="#" onclick="baidu()">Baidu</a>&nbsp;&nbsp;&nbsp;<a class="z" href="#" onclick="bing()">Bing</a>&nbsp;&nbsp;&nbsp;<a class="z" href="#" onclick="so()">360</a></p>
+        <p id="aliveb"><a class="float" id="alivea" onclick="socialsetting()" href="#">防社死模式</a></p>
         <!--正文结束-->
         <br>
         <br>
