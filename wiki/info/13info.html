@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#555555">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="icon" href="index.png">
+<link rel="shortcut-icon" href="index.png">
+<html>
+    <head>
+        <title>Detele事件-HC百科</title>
+        <style>
+            body{
+                font-family: "Microsoft Yahei UI Light";
+                margin: 0;
+                letter-spacing: 2px;
+            }
+
+            p.a{
+                font-size: large;
+            }
+            
+            a{
+			text-decoration: none;
+		}
+
+        p.b{
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 20px;
+            color: #333;
+        }
+
+        div.a{
+            text-align: center;
+            color: #ff3333;
+            background: #ffaaaa;
+            border: 4px solid #ff3333;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.b{
+            text-align: center;
+            color: #3333ff;
+            background: #aaaaff;
+            border: 4px solid #3333ff;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.d{
+            text-align: center;
+            font-size: small;
+            color: #333;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        hr{
+            color: #eeeeee;
+        }
+
+        div.d1{
+            font-size: small;
+            color: #333;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        div.c{
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: large;
+        }
+
+        div.e{
+            color: #333333;
+        }
+
+        p.table{
+            text-align: center;
+        }
+
+        div.table{
+            text-align: center;
+            font-size: x-small;
+        }
+
+        h1{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h2{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.a{
+            color: #ffffff;
+        }
+
+        a.c{
+            color: #555;
+            padding-left: 20px;
+            font-size: x-small;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a.b{
+            color: #0090d8;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #555555;
+            position: fixed;
+            box-shadow: 0px 1px  1px rgba(0, 0, 0, 0.6);
+            top: 0;
+            width: 100%;
+		}
+		
+		li {
+		    float: left;
+		}
+		
+		li a, .dropbtn {
+		    display: inline-block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover, .dropdown:hover, .dropbtn {
+		    background-color: #555;
+		}
+		
+		.dropdown {
+		    display: inline-block;
+		}
+		
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 160px;
+		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+		
+		.dropdown-content a {
+		    color: #11ffdd;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+		
+		.dropdown-content a:hover {background-color: #f1f1f1}
+		
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+        footer{
+            background: #eeeeee;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        img{
+            width: 65%;
+            border: 2px solid #555;
+            border-radius: 20px;
+            box-shadow: 0px 3px  3px #00000066;
+        }
+
+        img.a{
+            width: 45%;
+            border: 2px solid #555;
+            border-radius: 20px;
+            box-shadow: 0px 3px  3px #00000066;
+        }
+
+        a.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #fff;
+            background-color: #11ffdd;
+        }
+
+        #panel{
+            padding: 20px;
+        }
+
+        div.e{
+            font-size: xx-large;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        div.f{
+            font-size: small;
+        }
+
+        #panel{
+            display: none;
+        }
+
+        div.h{
+            padding-left: 5px;
+        }
+        
+        p.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 1.7;
+        }
+
+        p.zz{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        a.e{
+            color: #66ccff;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        a.ee{
+            color: #ff4444;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        p.g{
+            color: #fff;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        div.by{
+            font-size: small;
+            padding-top: 10px;
+        }
+
+        table{
+            border-collapse: collapse;
+            border: 1px #aaa solid;
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;   
+        }
+
+        hr.x{
+            width: 85%;
+        }
+
+        video{
+            border: 2px solid #555;
+            border-radius: 20px;
+            width: 320px;
+            box-shadow: 0px 3px  3px #00000066;
+        }
+        </style>
+        <script>
+            function openNav(){
+                document.getElementById('mySidenav').style.width='250px';
+            }
+
+            function closeNav(){
+                document.getElementById('mySidenav').style.width='0';
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a onclick="openNav()">&#9776;</a></li>
+            <li><a href="#">Detele事件-HC百科</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../index.html">首页</a>
+            <a href="../list.html">文档</a>
+            <a href="../story.html">故事</a>
+        </div>
+        <h1>由官方组成员13整理的证据<div class="by">By <a class="e" href="mailto:gstchumo@gmail.com">智障初墨</a>,<a class="e" href="mailto:thegreatcarl@163.com">13</a></div></h1>
+        <hr>
+        <div class="d1"><a class="e" href="../notice.html">Detele事件-总条目</a>>此文档</div>
+        <hr>
+        <div class="d1">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议</div>
+        <hr>
+        <p class="z">Detele为<ruby>自己弟弟<rp>(</rp><rt>我们一致认为是他自己</rt><rp>)</rp></ruby>道歉的视频，态度貌似不是很诚恳。</p>
+        <p class="z">以下内容由<a class="e" href="mailto:thegreatcarl@163.com">13</a>提供。</p>
+        <br>
+        <p class="zz"><video controls>
+            <source src="http://182.61.56.65/info.mp4" type="video/mp4">
+        </video></p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">Detele道歉之后，来到your-channel房间，在ee进入房间时进行无诚意的道歉，且夹杂着隐晦的语言攻击。在“道歉”结束以后，Detele离开房间。</p>
+        <p class="z">以下内容由<a class="e" href="mailto:150361308@qq.com">ee</a>提供。</p>
+        <br>
+        <p class="zz"><a href="https://imgtu.com/i/qR3GRO"><img class="a" src="https://s1.ax1x.com/2022/03/31/qR3GRO.jpg" alt="qR3GRO.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qR38JK"><img class="a" src="https://s1.ax1x.com/2022/03/31/qR38JK.jpg" alt="qR38JK.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qR33i6"><img class="a" src="https://s1.ax1x.com/2022/03/31/qR33i6.jpg" alt="qR33i6.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qR3lIx"><img class="a" src="https://s1.ax1x.com/2022/03/31/qR3lIx.jpg" alt="qR3lIx.jpg"></a></p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">不久，Detele再次来到该房间，网友们开始声讨该用户。而Detele自然不甘示弱，直接开骂。</p>
+        <p class="z">以下内容由<a class="e" href="mailto:thegreatcarl@163.com">13</a>提供。</p>
+        <br>
+        <p class="zz"><a href="https://imgtu.com/i/qRMkcj"><img src="https://s1.ax1x.com/2022/03/31/qRMkcj.jpg" alt="qRMkcj.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRMF3Q"><img src="https://s1.ax1x.com/2022/03/31/qRMF3Q.jpg" alt="qRMF3Q.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRMC4S"><img src="https://s1.ax1x.com/2022/03/31/qRMC4S.jpg" alt="qRMC4S.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRMi9g"><img src="https://s1.ax1x.com/2022/03/31/qRMi9g.jpg" alt="qRMi9g.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRM9N8"><img src="https://s1.ax1x.com/2022/03/31/qRM9N8.jpg" alt="qRM9N8.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRMpAf"><img src="https://s1.ax1x.com/2022/03/31/qRMpAf.jpg" alt="qRMpAf.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKzHP"><img src="https://s1.ax1x.com/2022/03/31/qRKzHP.jpg" alt="qRKzHP.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKOcd"><img src="https://s1.ax1x.com/2022/03/31/qRKOcd.jpg" alt="qRKOcd.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKxBt"><img src="https://s1.ax1x.com/2022/03/31/qRKxBt.jpg" alt="qRKxBt.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKvnI"><img src="https://s1.ax1x.com/2022/03/31/qRKvnI.jpg" alt="qRKvnI.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKXjA"><img src="https://s1.ax1x.com/2022/03/31/qRKXjA.jpg" alt="qRKXjA.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRKL1H"><img src="https://s1.ax1x.com/2022/03/31/qRKL1H.jpg" alt="qRKL1H.jpg"></a></p>
+        <br>
+        <hr class="x">
+        <br>
+        <p class="z">次日上午7时，Detele再次骚扰、攻击ee。</p>
+        <p class="z">以下内容由<a class="e" href="mailto:150361308@qq.com">ee</a>提供。</p>
+        <br>
+        <p class="zz"><a href="https://imgtu.com/i/qRvneI"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvneI.jpg" alt="qRvneI.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRvESe"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvESe.jpg" alt="qRvESe.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRveOA"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRveOA.jpg" alt="qRveOA.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRvVQH"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvVQH.jpg" alt="qRvVQH.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRvZyd"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvZyd.jpg" alt="qRvZyd.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRvFJO"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvFJO.jpg" alt="qRvFJO.jpg"></a></p>
+        <p class="zz"><a href="https://imgtu.com/i/qRvCo6"><img class="a" src="https://s1.ax1x.com/2022/03/31/qRvCo6.jpg" alt="qRvCo6.jpg"></a></p>
+        <br>
+        <br>
+        <br>
+    </body>
+    <footer>
+        <br>
+        <div class="d">该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。</div>
+        <br>
+    </footer>
+</html>
