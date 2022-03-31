@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#555555">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="icon" href="index.png">
+<link rel="shortcut-icon" href="index.png">
+<html>
+    <head>
+        <title>Detele事件-HC百科</title>
+        <style>
+            body{
+                font-family: "Microsoft Yahei UI Light";
+                margin: 0;
+                letter-spacing: 2px;
+            }
+
+            p.a{
+                font-size: large;
+            }
+            
+            a{
+			text-decoration: none;
+		}
+
+        p.b{
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 20px;
+            color: #333;
+        }
+
+        div.a{
+            text-align: center;
+            color: #ff3333;
+            background: #ffaaaa;
+            border: 4px solid #ff3333;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.b{
+            text-align: center;
+            color: #3333ff;
+            background: #aaaaff;
+            border: 4px solid #3333ff;
+            border-radius: 40px;
+            margin: 10px 20px;
+            padding: 15px 30px 30px;
+        }
+
+        div.d{
+            text-align: center;
+            font-size: small;
+            color: #333;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        hr{
+            color: #eeeeee;
+        }
+
+        div.d1{
+            font-size: small;
+            color: #333;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        div.c{
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: large;
+        }
+
+        div.e{
+            color: #333333;
+        }
+
+        p.table{
+            text-align: center;
+        }
+
+        div.table{
+            text-align: center;
+            font-size: x-small;
+        }
+
+        h1{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h2{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a.a{
+            color: #ffffff;
+        }
+
+        a.c{
+            color: #555;
+            padding-left: 20px;
+            font-size: x-small;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a.b{
+            color: #0090d8;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #555555;
+            position: fixed;
+                    box-shadow: 0px 1px  1px rgba(0, 0, 0, 0.6);
+            top: 0;
+            width: 100%;
+		}
+		
+		li {
+		    float: left;
+		}
+		
+		li a, .dropbtn {
+		    display: inline-block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		
+		li a:hover, .dropdown:hover, .dropbtn {
+		    background-color: #555;
+		}
+		
+		.dropdown {
+		    display: inline-block;
+		}
+		
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 160px;
+		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+		
+		.dropdown-content a {
+		    color: #11ffdd;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+		
+		.dropdown-content a:hover {background-color: #f1f1f1}
+		
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+        footer{
+            background: #eeeeee;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        img{
+            padding-left: 9px;
+            padding-right: 9px;
+            border: 0;
+        }
+
+        a.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: #fff;
+            background-color: #11ffdd;
+        }
+
+        #panel{
+            padding: 20px;
+        }
+
+        div.e{
+            font-size: xx-large;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        div.f{
+            font-size: small;
+        }
+
+        #panel{
+            display: none;
+        }
+
+        div.h{
+            padding-left: 5px;
+        }
+        
+        p.z{
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 1.7;
+        }
+
+        a.e{
+            color: #66ccff;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        a.ee{
+            color: #ff4444;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        p.g{
+            color: #fff;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        div.by{
+            font-size: small;
+            padding-top: 10px;
+        }
+
+        table{
+            border-collapse: collapse;
+            border: 1px #aaa solid;
+            text-align: center;
+            margin: 0 auto;
+            width: 80%;   
+        }
+
+        hr.x{
+            width: 85%;
+        }
+        </style>
+        <script>
+            function openNav(){
+                document.getElementById('mySidenav').style.width='250px';
+            }
+
+            function closeNav(){
+                document.getElementById('mySidenav').style.width='0';
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a onclick="openNav()">&#9776;</a></li>
+            <li><a href="#">Detele事件-HC百科</a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">首页</a>
+            <a href="list.html">文档</a>
+            <a href="story.html">故事</a>
+        </div>
+        <h1>Detele事件<div class="by">By <a class="e" href="mailto:gstchumo@gmail.com">智障初墨</a></div></h1>
+        <hr>
+        <div class="d1">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议</div>
+        <hr>
+        <p class="z">2022年3月下旬，一位名为Detele的<a class="e" href="hc.html">hc</a>用户在your-channel内恶意刷屏、辱骂他人。经过本hc爱好者wiki官方组协商，我们在此页面公开了该用户对受害者ee进行骚扰的证据。</p>
+        <p class="z"><strong><a class="e" href="https://www.wjx.cn/vm/YH5byZ1.aspx">点击参与有关Detele的问卷调查。</a></strong></p>
+        <br>
+        <hr class="x">
+        <br>
+        <h2>来自官方组及当事人的证据</h2>
+        <p class="z"><a class="ee" href="info/13info.html">【置顶】由官方组成员13整理的证据</a></p>
+        <!--<br>
+        <hr class="x">
+        <br>
+        <h2>由网友披露的细节</h2>-->
+        <br>
+        <br>
+        <br>
+    </body>
+    <footer>
+        <br>
+        <div class="d">该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。</div>
+        <br>
+    </footer>
+</html>
