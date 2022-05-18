@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#55bbee"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<html>
+    <head>
+        <title>GS App Frame</title>
+        <link rel="stylesheet" href="CSS/GAF.css">
+        <style>
+            div.header{
+                background: #66ccff;
+            }
+            
+            div.header h1{
+                color: #fff;
+            }
+            
+            div.header p{
+                color: #fff;
+            }
+            
+            p.bb{
+                text-align: center;
+                font-size: large;
+                color: #66ccff;
+            }
+            
+            p.bbb{
+                font-size: small;
+            }
+            
+            a{
+                color: #66ccff;
+            }
+        </style>
+        <script src="https://www.zzchat.cf/GAF/GAF.js"></script>
+        <script>
+            function aHref(s){
+                window.location.href=s;
+            }
+            
+            function aboutThisPage(){
+                alert('该框架由智障初墨（bilibili@智障初墨）开发。\n\n该页面基于GS App Frame构建。\nhttps://www.zzchat.cf/GAF/')
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a class="menu" onclick="openNav()">&#9776;</a></li>
+            <li><a class="top">GS App Frame</a></li><!--标题-->
+        </ul>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidenavimage"><img src="Demo.png" alt="icon" width="40%"></div>
+            <a class="sidenav1">GS App Frame</a>
+            <hr>
+            <br>
+            <a onclick="aHref('https://www.zzchat.cf')">关于开发者</a>
+            <a onclick="aboutThisPage()">关于该页面</a>
+            <!--这里是侧边栏内容-->
+        </div>
+        <br>
+        <br>
+        <!--下面为正文内容-->
+        <div class="header">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>GS App Frame</h1>
+            <p class="b">一款适用于HTML初学者群体的类Material Design网页美化框架</p>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <br>
+        <br>
+        <p class="bb">什么是GS App Frame？</p>
+        <p class="bbb">GS App Frame（GAF）是一款对HTML初学者比较友好的网页美化框架。它不如Google本家的Material Design Lite（MDL）和第三方的MDUI那样繁琐、复杂；但是相应的，它并不像MDL和MDUI那样强大。<br><br>该框架适用于个人博客/主页以及各种产品发布页。</p>
+        <br>
+        <br>
+        <p class="bb">注意事项</p>
+        <p class="bbb">- <strong>我们建议比较成熟的开发者使用其他的框架进行开发。</strong><br>- 虽然该框架适用于大多数设备，但是我们建议您将其用于手表以外的移动端设备。<br>- <strong>请在使用了该框架的界面中标注该框架的名称的官方网址</strong>（作为本家的GS Team除外）。</p>
+        <br>
+        <br>
+        <p class="bb">调用GAF</p>
+        <p class="bbb">您目前只有一种方法调用GS App Frame。</p>
+        <br>
+        <p class="z"><a class="z" onclick="aHref('http://www.zzchat.cf/GAF/GAF.zip')">下载GAF V2.20</a></p>
+        <!--正文结束-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+    <footer>
+        <br>
+        <div class="d">©Copyright 2017-2022 GS Team.</div>
+        <br>
+    </footer>
+</html>
