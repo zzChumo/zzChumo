@@ -138,6 +138,7 @@ ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请�
 	overflow: hidden;
     background-color: #fff;
     position: fixed;
+	z-index: 114514;
     top: 0;
     width: 100%;
     box-shadow: 0px 3px  3px #00000066;
@@ -327,11 +328,11 @@ p.z{
 
 .sidenav {  /*侧边栏*/
     height: 100%;
-    width: 0;
+    width: 250px;
     position: fixed;
-    z-index: 1;
+    z-index: 114515;
     top: 0;
-    left: 0;
+    left: -260px;
     background-color: #fff;
     overflow-x: hidden;
     transition: 0.5s;
