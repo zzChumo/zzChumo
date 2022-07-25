@@ -28,9 +28,9 @@ function adjustIframe(){
 }    //iframe自适应大小模块
 
 function openNav(){
-    document.getElementById('mySidenav').style.width='250px';
+    document.getElementById('mySidenav').style.left='0';
 }
 
 function closeNav(){
-    document.getElementById('mySidenav').style.width='0';
+    document.getElementById('mySidenav').style.left='-260px';
 }    //侧边栏模块
