@@ -145,11 +145,14 @@
 		        padding: 0;
                 z-index: 114514;
 		        overflow: hidden;
-    		    background-color: #00ccaa;
+    		    background-color: #fff;
                 position: fixed;
                 top: 0;
                 width: 100%;
+                /*
                 box-shadow: 0px 3px  3px #00000066;
+                为尽可能的贴合Material You设计标准，ul的box-shadow属性从GAF V3时开始废弃。
+                */
                 letter-spacing: 0px;
                 }
 		
@@ -159,7 +162,7 @@
 		
 		    li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
     		    display: inline-block;
-	    	    color: white;
+	    	    color: #333;
 		        text-align: center;
 		        padding: 14px 15px;
     		    text-decoration: none;
@@ -169,17 +172,26 @@
             a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
                 font-family: 'Material Icons';
                 display: inline-block;
-	    	    color: white;
+	    	    color: #333;
 	    	    font-size: 24px;    /*如标题栏内包含中文则需要将此项改为26px*/
 		        text-align: center;
 		        padding: 16px 15px;
     		    text-decoration: none;
                 border-radius: 50px
             }
+            
+            .material-icons {   /*Material Design图标支持（侧边栏）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    font-size: 21px;
+	    	    vertical-align: bottom;
+	    	    padding-bottom: -25px;
+		        text-align: center;
+            }
 
             a.top {
     		    display: inline-block;
-	    	    color: white;
+	    	    color: #333;
 	    	    font-size: 19px;
 		        text-align: center;
 		        padding: 16px 15px;
@@ -187,7 +199,7 @@
 	    	}
 		
     		li a:hover, .dropdown:hover, .dropbtn {
-	    	    background-color: #00ccaa;
+	    	    background-color: #fff;
 		    }
 
             a.material-iconstop:hover{
@@ -201,7 +213,8 @@
             }
 
             a.menu:hover{
-                background-color: #00aa88;
+                color: #333;
+                background-color: #eee;
             }
 		
     		.dropdown {
@@ -291,15 +304,19 @@
             }
 
             a.z{    /*按钮*/
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 15px;
+                padding-bottom: 15px;
                 color: #fff;
+                letter-spacing: 1px;
                 background-color: #00ccaa;
+                /*
                 box-shadow: 0px 3px  3px #00000066;
+                理由同ul处
+                */
                 border: 0 solid #00ccaa;
-                border-radius: 3px;
+                border-radius: 50px;
                 transition: all 0.3s linear;
             }
 
@@ -333,20 +350,22 @@
 
             .sidenav {  /*侧边栏*/
                 height: 100%;
-                width: 250px;
+                width: 240px;
                 position: fixed;
                 z-index: 114515;
                 top: 0;
                 left: -260px;
-                background-color: #fff;
+                background-color: #f7f8f3;
                 overflow-x: hidden;
                 transition: 0.5s;
                 padding-top: 60px;
+                padding-right: 5px;
+                padding-left: 5px;
                 box-shadow: 0px 10px  10px #00000066;
             }
 
             .sidenav a {
-                padding: 8px 8px 8px 55px;
+                padding: 8px 8px 8px 40px;
                 text-decoration: none;
                 font-size: 15px;
                 color: #555;
@@ -355,7 +374,7 @@
                 border-radius: 50px;
             }
             
-            a.sidenav1{
+            .sidenav a.sidenav1{
                 padding: 15px 8px 15px 30px;
                 text-decoration: none;
                 font-size: 15px;
@@ -363,9 +382,15 @@
                 display: block;
                 transition: 0.3s;
             }
+            
+            .sidenav a.sidenav1:hover{
+                color: #555;
+                background-color: #f7f8f3;
+            }
 
             .sidenav a:hover, .offcanvas a:focus{
-                color: #555;
+                color: #0ca;
+                background: #d5f6f1;
             }
 
             .sidenav .closebtn {
@@ -549,9 +574,9 @@
             <a class="sidenav1">Demo</a>
             <hr>
             <br>
-            <a>text</a>
-            <a>text</a>
-            <a>text</a>
+            <a id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
+            <a id="settings-side"><div class="material-icons">settings</div>&nbsp;&nbsp;Settings</a>
+            <a id="about-side"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
             <!--这里是侧边栏内容-->
         </div>
         <div id="gafalert">
@@ -560,6 +585,14 @@
             <br>
             <div class="alerta"><a onClick="alertClose()">关闭</a></div>
         </div>
+        <!--
+        <div id="gafalert1">
+            <div>关于</div>
+            <p>GS App Frame V2.23由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <br>
+            <div class="alerta"><a onClick="alertAboutClose()">关闭</a></div>
+        </div>
+        -->
         <br>
         <br>
         <br>
@@ -569,7 +602,7 @@
         <br>
         <p class="z">这里什么都没有哦</p>
         <br>
-        <p class="z"><a class="z" onClick="alertOpen()">点我什么都不会发生</a></p>
+        <p class="z"><a class="z" onClick="alertOpen()"><strong>点我什么都不会发生</strong></a></p>
         <!--正文结束-->
         <br>
         <br>
