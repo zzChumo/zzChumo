@@ -410,7 +410,7 @@
                 font-weight: normal;
             }     
             
-            #alertground{
+            #alertground{   /*遮罩层本尊*/
                 position: fixed;
                 height: 100%;
                 width: 100%;
@@ -418,19 +418,16 @@
                 top: 0;
                 background: #00000066;
                 display: none;
-                opacity: 0;
                 z-index: 114515;
             }
 
-            #gafalert{
+            .gafalert{  /*配色请搞得和谐点，不然死也别动这个配色*/
                 position: fixed;
                 border: 0 solid;
                 border-radius: 25px;
-                display: none;
                 margin: auto;
                 padding: 20px;
                 width: 60%;
-                height: 110px;
                 left: 0;
                 right: 0;
                 top: 0;
@@ -440,24 +437,24 @@
                 box-shadow: 0px 3px  3px #00000066;
             }
 
-            #gafalert div{
+            .gafalert div{
                 font-size: large;
             }
 
-            #gafalert p{
+            .gafalert p{
                 font-size: small;
                 color: #444;
                 letter-spacing: 1px;
             }
 
-            #gafalert div.alerta{
+            .gafalert div.alerta{
                 text-align: right;
                 font-size: small;
                 letter-spacing: 2px;
                 padding-right: 0px;
             }
 
-            #gafalert a{
+            .gafalert a{
                 color: #00ccaa;
                 font-size: small;
                 text-align: right;
@@ -466,13 +463,44 @@
                 border-radius: 5px;
             }
 
-            #gafalert a:hover{
+            .gafalert a:hover{
                 background-color: #b3d4d0;
                 color: #00bb99;
             }
+            
+            #alert1{    /*按此类推添加gafalert的id*/
+                display: none;
+                opacity: 0;
+                height: 110px;
+            }
+            
+            #alert2{
+                display: none;
+                height: 125px;
+                opacity: 0;
+            }
+
+            /*如果你手欠不小心多敲了点内容在gafalert里，就使用以下方案。每组方案的min-width差是610px，height差是15px。*/            
+            @media screen and (min-width:1293px) {
+                #alert2{
+                    height: 110px;
+                }
+            }
+
+            @media screen and (min-width:683px) and (max-width:1293px){
+                #alert2{
+                    height: 125px;
+                }
+            }
+
+            @media screen and (max-width:683px){
+                #alert2{
+                    height: 140px;
+                }
+            }
         </style>
         <script>
-            var gafVersion='GS App Frame by zzChumo,Version 3.01';
+            var gafVersion='GS App Frame by zzChumo,Version 3.02';
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -502,27 +530,28 @@
                 ifm.width=document.documentElement.clientWidth;
             }    //iframe自适应大小模块
 
-            function fadeIn(element,speed){
-                if(element.style.opacity !=1){
+            function fadeIn(element,speed){     //淡入
+                if(document.getElementById(element).style.opacity !=1){
                     var speed = speed || 30 ;
                     var num = 0;
                     var st = setInterval(function(){
                         num++;
-                        element.style.opacity = num / 10 ;
+                        document.getElementById(element).style.opacity = num / 10 ;
                         if(num>=10)  {
                         clearInterval(st);
+
                         }
                     },speed);
                 }
             }
 
-            function fadeOut(element){
-                if(element.style.opacity !=0){
+            function fadeOut(element){      //淡出
+                if(document.getElementById(element).style.opacity !=0){
                     var speed = speed || 30 ;
                     var num = 10;
                     var st = setInterval(function(){
                     num--;
-                    element.style.opacity = num / 10 ;
+                    document.getElementById(element).style.opacity = num / 10 ;
                     if(num<=0)  { 
                         clearInterval(st);
                     }
@@ -530,7 +559,7 @@
                 }
             }
             
-            function sleep(milliSeconds) {
+            function sleep(milliSeconds) {      //把py的sleep搬过来了，请叫我初墨侠
                 var startTime = new Date().getTime();
                 while (new Date().getTime() < startTime + milliSeconds) {
                     console.log(new Date().getTime());
@@ -539,33 +568,38 @@
             
             function openNav(){
                 document.getElementById('alertground').style.display='block';
-                fadeIn(alertground,20);
+                fadeIn('alertground',20);
                 document.getElementById('mySidenav').style.left='0';
             }
 
             function closeNav(){
                 document.getElementById('mySidenav').style.left='-260px';
-                fadeOut(alertground,10)
+                fadeOut('alertground',10)
                 document.getElementById('alertground').style.display='none';
             }    //侧边栏模块
             
-            function alertOpen(){
-                document.getElementById('gafalert').style.display='block';
+            function alertOpen(id){     //此处的id指gafalert的id，如上面CSS中的alert1，下同
+                document.getElementById(id).style.display='block';
                 document.getElementById('alertground').style.display='block';
-                fadeIn(gafalert,20);
-                fadeIn(alertground,20);
+                fadeIn(id,20);
+                fadeIn('alertground',20);
             }
             
-            function alertClose(){
-                fadeOut(gafalert,20);
-                fadeOut(alertground,20);
-                document.getElementById('gafalert').style.display='none';
+            function alertClose(id){
+                fadeOut(id,20);
+                fadeOut('alertground',20);
+                document.getElementById(id).style.display='none';
                 document.getElementById('alertground').style.display='none';
             }
+
+            function alertSideClose(id){
+                fadeOut(id,20);
+                document.getElementById(id).style.display='none';
+            }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
         </script>
     </head>
     <body>
-        <div id="alertground"></div>
+        <div id="alertground"></div><!--遮罩层-->
         <ul>
             <li><a class="menu" onClick="openNav()">&#9776;</a></li>
             <li><a class="top">Demo</a></li><!--标题-->
@@ -578,23 +612,23 @@
             <br>
             <a id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
             <a id="settings-side"><div class="material-icons">settings</div>&nbsp;&nbsp;Settings</a>
-            <a id="about-side"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
+            <a id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
             <!--这里是侧边栏内容-->
         </div>
-        <div id="gafalert">
+        <!--以下为弹窗1内容-->
+        <div id="alert1" class="gafalert">
             <div>提示</div>
             <p>但是事情还是发生了...</p>
             <br>
-            <div class="alerta"><a onClick="alertClose()">关闭</a></div>
+            <div class="alerta"><a onClick="alertClose('alert1')">关闭</a></div>
         </div>
-        <!--
-        <div id="gafalert1">
+        <!--以下为弹窗2内容-->
+        <div id="alert2" class="gafalert">
             <div>关于</div>
-            <p>GS App Frame V2.23由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <p>GS App Frame V3.02由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
             <br>
-            <div class="alerta"><a onClick="alertAboutClose()">关闭</a></div>
+            <div class="alerta"><a onClick="alertSideClose('alert2')">关闭</a></div>
         </div>
-        -->
         <br>
         <br>
         <br>
@@ -604,7 +638,7 @@
         <br>
         <p class="z">这里什么都没有哦</p>
         <br>
-        <p class="z"><a class="z" onClick="alertOpen()"><strong>点我什么都不会发生</strong></a></p>
+        <p class="z"><a class="z" onClick="alertOpen('alert1')"><strong>点我什么都不会发生</strong></a></p>
         <!--正文结束-->
         <br>
         <br>
