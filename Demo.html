@@ -411,7 +411,7 @@
             }     
             
             #alertground{
-                position: absolute;
+                position: fixed;
                 height: 100%;
                 width: 100%;
                 left: 0;
@@ -423,7 +423,7 @@
             }
 
             #gafalert{
-                position: absolute;
+                position: fixed;
                 border: 0 solid;
                 border-radius: 25px;
                 display: none;
@@ -472,6 +472,8 @@
             }
         </style>
         <script>
+            var gafVersion=console.log('GS App Frame by zzChumo,Version 3.01');
+        
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
                     normal_title=document.title;
