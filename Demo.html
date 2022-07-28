@@ -479,23 +479,61 @@
                 height: 125px;
                 opacity: 0;
             }
-
-            /*如果你手欠不小心多敲了点内容在gafalert里，就使用以下方案。每组方案的min-width差是610px，height差是15px。*/            
+        
+                
+            /*如果你手欠不小心多敲了点内容在gafalert里，就使用以下方案。每组方案的height差是15px。*/            
             @media screen and (min-width:1293px) {
                 #alert2{
                     height: 110px;
                 }
             }
 
-            @media screen and (min-width:683px) and (max-width:1293px){
+            @media screen and (min-width:685px) and (max-width:1293px){
                 #alert2{
                     height: 125px;
                 }
             }
 
-            @media screen and (max-width:683px){
+            @media screen and (min-width:513px) and (max-width:685px){
                 #alert2{
                     height: 140px;
+                }
+            }
+            
+            @media screen and (min-width:362px) and (max-width:513px){
+                #alert2{
+                    height: 155px;
+                    background: #000;
+                }
+            }
+            
+            @media screen and (min-width:299px) and (max-width:362px){
+                #alert2{
+                    height: 170px;
+                }
+            }
+            
+            @media screen and (min-width:256px) and (max-width:299px){
+                #alert2{
+                    height: 185px;
+                }
+            }
+            
+            @media screen and (min-width:213px) and (max-width:256px){
+                #alert2{
+                    height: 200px;
+                }
+            }
+            
+            @media screen and (min-width:172px) and (max-width:213px){
+                #alert2{
+                    height: 215px;
+                }
+            }
+            
+            @media screen and (max-width:172px){
+                #alert2{
+                    height: 230px;
                 }
             }
         </style>
