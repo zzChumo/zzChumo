@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="theme-color" content="#00ccaa"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<html>
+    <head>
+        <title>GS Design Demo</title>
+        <style>
+            body{
+                font-family: "Google Sans";
+                margin: 0;
+                letter-spacing: 2px;
+            }
+
+            a.z:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                bottom: 30px;
+                right: 30px;
+                position: fixed;
+                transition: all 0.3s linear;
+            }
+
+            @font-face {
+                font-family: Roboto;
+                src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
+            }
+
+            p.a{
+                font-size: large;
+            }
+
+            a:hover {
+                color: #fff;
+                background-color: #aaa;
+            }
+
+            p.b{
+                padding-left: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-right: 20px;
+                color: #333;
+            }
+
+            div.a{  /*警告框*/
+                text-align: center;
+                color: #ff3333;
+                background: #ffaaaa;
+                border: 2px solid #ff3333;
+                border-radius: 20px;
+                margin: 10px 20px;
+                padding: 15px 30px 30px;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            div.b{  /*提示框*/
+                text-align: center;
+                color: #3333ff;
+                background: #aaaaff;
+                border: 2px solid #3333ff;
+                border-radius: 20px;
+                margin: 10px 20px;
+                padding: 15px 30px 30px;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            div.d{
+                text-align: center;
+                font-size: small;
+                color: #333;
+            }
+
+            div.c{
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: large;
+            }
+
+            div.e{
+                color: #333333;
+            }
+
+            h1{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            a.a{
+                color: #ffffff;
+            }
+
+            a.c{
+                color: #555;
+                padding-left: 20px;
+                font-size: x-small;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            a.b{
+                color: #0090d8;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/materialicons/v127/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+            }
+
+            @font-face{
+                font-family: 'Google Sans';
+                src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
+            }
+
+            p{
+                padding-left: 20px;
+                padding-right: 20px;
+                color: #333;
+            }
+		
+		    ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请给此项加class。*/
+    		    list-style-type: none;
+	    	    margin: 0;
+		        padding: 0;
+                z-index: 114514;
+		        overflow: hidden;
+    		    background-color: #fff;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                /*
+                box-shadow: 0px 3px  3px #00000066;
+                为尽可能的贴合Material You设计标准，ul的box-shadow属性从GAF V3时开始废弃。
+                */
+                letter-spacing: 0px;
+                }
+		
+		    li {
+		        float: left;
+		    }
+		
+		    li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
+    		    display: inline-block;
+	    	    color: #333;
+		        text-align: center;
+		        padding: 14px 15px;
+    		    text-decoration: none;
+    		    font-size: 19px;
+	    	}
+
+            a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    color: #333;
+	    	    font-size: 24px;    /*如标题栏内包含中文则需要将此项改为26px*/
+		        text-align: center;
+		        padding: 16px 15px;
+    		    text-decoration: none;
+                border-radius: 50px
+            }
+            
+            .material-icons {   /*Material Design图标支持（侧边栏）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    font-size: 21px;
+	    	    vertical-align: bottom;
+	    	    padding-bottom: -25px;
+		        text-align: center;
+            }
+
+            a.top {
+    		    display: inline-block;
+	    	    color: #333;
+	    	    font-size: 19px;
+		        text-align: center;
+		        padding: 16px 15px;
+    		    text-decoration: none;
+	    	}
+		
+    		li a:hover, .dropdown:hover, .dropbtn {
+	    	    background-color: #fff;
+		    }
+
+            a.material-iconstop:hover{
+                background-color: #00aa88;
+            }
+
+            a.menu{
+                border-radius: 50px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            a.menu:hover{
+                color: #333;
+                background-color: #eee;
+            }
+		
+    		.dropdown {
+	    	    display: inline-block;
+		    }
+		
+		    .dropdown-content {
+    		    display: none;
+	    	    position: absolute;
+		        background-color: #f9f9f9;
+		        min-width: 160px;
+    		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    		    border-radius: 20px;
+	    	}
+		
+		    .dropdown-content a {
+		        color: #333;
+    		    padding: 12px 16px;
+	    	    text-decoration: none;
+		        display: block;
+                font-size: 15px;
+                border-radius: 20px;
+    		}
+		
+	    	.dropdown-content a:hover {background-color: #f1f1f1}
+		
+		    .dropdown:hover .dropdown-content {
+    		    display: block;
+	    	}
+
+            a{
+			    text-decoration: none;
+                transition: all 0.3s linear;
+                color: #6cf;
+		    }
+
+            footer{
+                background: #eeeeee;
+            }
+
+            img{
+                border: 0;
+                border-radius: 20px;
+            }
+
+            a.float:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float{    /*浮空按钮*/
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                bottom: 30px;
+                right: 30px;
+                position: fixed;
+                transition: all 0.3s linear;
+            }
+
+            a.zcantuse:hover {
+                color: #fff;
+                background-color: #aaa;
+            }
+
+            a.zcantuse{    /*不可用的按钮*/
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #aaa;
+                box-shadow: 0px 3px  3px #00000066;
+                border: 0 solid #aaa;
+                border-radius: 3px;
+                transition: all 0.3s linear;
+            }
+            
+            a.z:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.z{    /*按钮*/
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: #fff;
+                letter-spacing: 1px;
+                background-color: #00ccaa;
+                /*
+                box-shadow: 0px 3px  3px #00000066;
+                理由同ul处
+                */
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                transition: all 0.3s linear;
+            }
+
+            #panel{
+                padding: 20px;
+            }
+
+            div.e{
+                font-size: xx-large;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            div.f{
+                font-size: small;
+            }
+
+            #panel{
+                display: none;
+            }
+
+            div.h{
+                padding-left: 5px;
+            }
+        
+            p.z{
+                font-size: small;
+                color: #888;
+            }
+
+            .sidenav {  /*侧边栏*/
+                height: 100%;
+                width: 240px;
+                position: fixed;
+                z-index: 114515;
+                top: 0;
+                left: -260px;
+                background-color: #f7f8f3;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                padding-right: 5px;
+                padding-left: 5px;
+                box-shadow: 0px 10px  10px #00000066;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 40px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #555;
+                display: block;
+                transition: 0.3s;
+                border-radius: 50px;
+            }
+            
+            .sidenav a.sidenav1{
+                padding: 15px 8px 15px 30px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #555;
+                display: block;
+                transition: 0.3s;
+            }
+            
+            .sidenav a.sidenav1:hover{
+                color: #555;
+                background-color: #f7f8f3;
+            }
+
+            .sidenav a:hover, .offcanvas a:focus{
+                color: #0ca;
+                background: #d5f6f1;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 15px;
+                font-size: 20px;
+                margin-left: 50px;
+            }
+
+            div.sidenavimage{
+                padding-left: 5px;
+            }
+
+            .material-icons {
+                font-family: 'Material Icons';
+                font-weight: normal;
+            }     
+            
+            #alertground{   /*遮罩层本尊*/
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                background: #00000066;
+                display: none;
+                z-index: 114515;
+            }
+
+            .gafalert{  /*配色请搞得和谐点，不然死也别动这个配色*/
+                position: fixed;
+                margin: auto;
+                padding: 20px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: #fff;
+            }
+
+            .gafalert div.s{
+                font-size: large;
+            }
+
+            .gafalert p{
+                color: #333;
+                letter-spacing: 1px;
+            }
+            
+            #alert1,#alert2,#alert3,#alert4,#alert5,#alert6,#alert7,#alert8,#alert9,#alert10,#alert11,#alert12,#alert13,#alert14,#alert15,#alert16,#alert17,#alert18,#alert19,#alert20,#alert21,#alert22,#alert23,#alert24,#alert25,#alert26,#alert27,#alert28,#alert29,#alert30,#alert31,#alert32,#alert33,#alert34{    /*按此类推添加gafalert的id*/
+                display: none;
+            }
+            
+            #alert0{
+                display: block;
+            }
+        </style>
+        <script src="jquery.min.js"></script>
+        <script>
+            function start(element,text){
+                let str = text;
+                let str_ = '';
+                let i = 0;
+                let content = document.getElementById(element);
+                let timer = setInterval(()=>{
+                    if(str_.length<str.length){
+                        str_ += str[i++];
+                        content.innerHTML = '<p>'+str_+'_</p>';                        //打印时加光标
+                    }else{ 
+                        clearInterval(timer);
+                        content.innerHTML = '<p>'+str_+'</p>';
+                    }
+                },100);
+            }
+        
+            var gafVersion='GS App Frame for Games by zzChumo,Version 1.00-Dev';
+        
+            document.addEventListener('visibilitychange',function(){
+                if(document.visibilityState=='hidden'){
+                    normal_title=document.title;
+                    document.title='游戏摸鱼中...';
+                }
+                else document.title=normal_title;
+            });    //当用户焦点离开时显示的网页标题
+            
+            function aHref(s){
+                window.location.href=s;
+            }   //为了最佳的视觉体验，请使用onclick="aHref('https://example')"以代替href属性。
+
+            function refresh(){
+                window.location.reload();
+            }    //网页刷新模块
+
+            function adjustIframe(){
+                var ifm= document.getElementById("bi_iframe");
+                ifm.height=document.documentElement.clientHeight;
+                ifm.width=document.documentElement.clientWidth;
+            }    //iframe自适应大小模块
+
+            function fadeIn(element,speed){     //淡入
+                if(document.getElementById(element).style.opacity !=1){
+                    var speed = speed || 30 ;
+                    var num = 0;
+                    var st = setInterval(function(){
+                        num++;
+                        document.getElementById(element).style.opacity = num / 10 ;
+                        if(num>=10)  {
+                        clearInterval(st);
+
+                        }
+                    },speed);
+                }
+            }
+
+            function fadeOut(element){      //淡出
+                if(document.getElementById(element).style.opacity !=0){
+                    var speed = speed || 30 ;
+                    var num = 10;
+                    var st = setInterval(function(){
+                    num--;
+                    document.getElementById(element).style.opacity = num / 10 ;
+                    if(num<=0)  { 
+                        clearInterval(st);
+                    }
+                    },speed);
+                }
+            }
+            
+            function sleep(milliSeconds) {      //把py的sleep搬过来了，请叫我初墨侠
+                var startTime = new Date().getTime();
+                while (new Date().getTime() < startTime + milliSeconds) {
+                    console.log(new Date().getTime());
+                }    //1000(ms)=1s
+            }
+            
+                    // cord: 重开数初始值
+            var cord=0;
+
+            // 如果re存档中存在值就带入cord
+            if (localStorage.getItem("re")!=null) {
+                var cord=Number(localStorage.getItem("re"));
+            };
+            
+            // 进入页面自动读档
+            /*$(function(){
+                $("#re").html(cord);
+                if(localStorage.getItem("save")!=null) document.getElementById(localStorage.getItem("save")).style.display="block";
+                else document.getElementById("a1").style.display="block";
+            });*/
+
+            //场景切换
+            function b(id1,id2,targetElement,text){
+                document.getElementById(id1).style.display="none";
+                document.getElementById(id2).style.display="block";
+                localStorage.setItem("save",id2);
+                start(targetElement,text);
+            };
+            
+            function bWithoutPrint(id1,id2){
+                document.getElementById(id1).style.display="none";
+                document.getElementById(id2).style.display="block";
+                localStorage.setItem("save",id2);
+            };
+
+            // 重开后刷新页面重读档
+            /*function c(){
+                localStorage.setItem("re", Number(cord+1));
+                $("#re").html(localStorage.getItem("re"));
+                window.location.reload();
+            };*/
+        </script>
+    </head>
+    <body>
+        <div class="gafalert" id="alert0" onclick="b('alert0','alert1','alert1','这是一个游戏用精简版GAF框架<br><br>点击屏幕开始游戏')">点击屏幕开始游戏</div>
+        <div class="gafalert" id="alert1" onclick="b('alert1','alert2','alert2','<h3><strong>[GAF for Games]</strong></h3><br>Version: 1.00<br>Author: zzChumo<br>Thanks: PaperEE')"></div>
+        <div class="gafalert" id="alert2" onclick="b('alert2','alert3','alert3','这个游戏不会自动存档。<br>如果有需要，代码在原文件里，自己改')"></div>
+        <div class="gafalert" id="alert3" onclick="b('alert3','alert4','alert4','如果不会改的话，那就...')"></div>
+        <div class="gafalert" id="alert4" onclick="b('alert4','alert5','alert5','<h1><strong>请君自便了</strong></h1>')"></div>
+        <div class="gafalert" id="alert5" onclick="b('alert5','alert6','alert6','<h3><strong>[ee的奇幻冒险]</strong></h3><br>Version: 1.00-Pack_1<br>Author: zzChumo<br><br>This game is made with <strong>GS App Frame for Games</strong>.<br><br>©Copyright 2017-2022 GS Team')"></div>
+        <div class="gafalert" id="alert6" onclick="b('alert6','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <div class="gafalert" id="alert7" onclick="b('alert7','alert8','alert8','这时，你发现你在家里养的鱼跳出了鱼缸，你打算伸手把它捡回鱼缸里。')"></div>
+        <div class="gafalert" id="alert8" onclick="b('alert8','alert9','alert9','鱼突然使出了很大的力气...')"></div>
+        <div class="gafalert" id="alert9" onclick="b('alert9','alert10','alert10','...')"></div>
+        <div class="gafalert" id="alert10" onclick="b('alert10','alert11','alert11','打算把你拖进...')"></div>
+        <div class="gafalert" id="alert11" onclick="b('alert11','alert12','alert12','<strong>下水道</strong>。')"></div>
+        <div class="gafalert" id="alert12" onclick="bWithoutPrint('alert12','alert13')"></div>
+        <div class="gafalert" id="alert13">现在，你打算..？<br><br><a onclick="b('alert13','alert14','alert14','你用刘华强的西瓜刀杀死了这条鱼，发现这条鱼居然是熟的！')">杀死这条鱼</a><br><a onclick="b('alert13','alert16','alert16','你被这条鱼拖进了下水道里。')">进入下水道</a><br><a onclick="b('alert13','alert29','alert29','你可是跟马保国老同志学过浑元太极拳的！你用浑元太极拳把鱼打回了鱼缸里，像什么事也没发生般的站在原地。')">使劲站在原地</a></div>
+        <!--结局这瓜保熟开始-->
+        <div class="gafalert" id="alert14" onclick="b('alert14','alert15','alert15','<h3><strong>[Good End 1]</strong></h3>这瓜保熟<br><br>点击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert15" onclick="b('alert15','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <!--结局这瓜保熟结束-->
+        <!--下水道分支开始-->
+        <div class="gafalert" id="alert16" onclick="b('alert16','alert17','alert17','下水道里有很多的垃圾和雪（意味深）。<br><br>一人一鱼就这样在下水道里游着。')"></div>
+        <div class="gafalert" id="alert17" onclick="b('alert17','alert18','alert18','突然，鱼从你头顶的排水口跳了出去，你也跟着鱼爬上了地面。')"></div>
+        <div class="gafalert" id="alert18" onclick="b('alert18','alert19','alert19','下水管道的外面是一片农场，成群的牛马在草场上走着。<br><br>你眼前一亮，因为你看到你的面前有一群麻鸡在觅食。')"></div>
+        <div class="gafalert" id="alert19" onclick="b('alert19','alert20','alert20','你曾经听人说过：麻鸡的汁水饱满、肉质紧密，煎、煮、烤、炸均可将它们的美味最大化，是这个世界上不可多得的美食。')"></div>
+        <div class="gafalert" id="alert20" onclick="bWithoutPrint('alert20','alert21')"></div>
+        <div class="gafalert" id="alert21">你想要...？<br><br><a onclick="b('alert21','alert24','alert24','你抓住了一只麻鸡。<br><br>你本来是打算把麻鸡带着当宠物的。但是因为麻鸡一直在骂你麻痹，所以你当场就把这只麻鸡做掉了。')">带走一只麻鸡</a><br><a onclick="b('alert21','alert22','alert22','因为你太想吃麻鸡了，所以还没走两步路你就被馋死了（物理）')">装作没看见</a></div>
+        <!--结局饿了就该吃开始-->
+        <div class="gafalert" id="alert22" onclick="b('alert22','alert23','alert23','<h3><strong>[Bad End 1]</strong></h3>饿了就该吃<br><br>点击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert23" onclick="b('alert23','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <!--结局饿了就该吃结束-->
+        <div class="gafalert" id="alert24" onclick="b('alert24','alert25','alert25','你拦住了一只抱着葱的miku，用100日元买下了她手中的葱，打算拿去煲麻鸡汤。<br><br>miku含泪血赚10日元。')"></div>
+        <div class="gafalert" id="alert25" onclick="b('alert25','alert26','alert26','你喝掉了麻鸡汤，感叹着麻鸡的美味。路过的穿山甲也这么觉得。')"></div>
+        <div class="gafalert" id="alert26" onclick="b('alert26','alert27','alert27','这时，你突然有了灵感。你又抱了一只麻鸡，以最快的速度爪巴了回去，把你刚才的所见所闻加以魔改制成了一代名作——<br><br><h3><strong>《Grrd》</strong></h3>')"></div>
+        <div class="gafalert" id="alert27" onclick="b('alert27','alert28','alert28','<h3><strong>[Ture End]</strong></h3>屑作出世<br><br>点击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert28" onclick="b('alert28','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <!--下水道分支结束-->
+        <!--魔鬼结局开始-->
+        <div class="gafalert" id="alert29" onclick="b('alert29','alert30','alert30','这时，Deco从你家门口路过，看到了这一切。')"></div>
+        <div class="gafalert" id="alert30" onclick="b('alert30','alert31','alert31','Deco拉来了Rockwell，对你问：“乙鱼解刨？”<br><br>“乙鱼解剖？内蔵ありますか？”老匹也不知道从哪钻了出来。')"></div>
+        <div class="gafalert" id="alert31" onclick="b('alert31','alert32','alert32','Deco和老匹端起枪开始对狙，40㍍P前来劝架，亿不小心误伤了路过的sasakure，A-39抱着fufu在旁边吃瓜。')"></div>
+        <div class="gafalert" id="alert32" onclick="b('alert32','alert33','alert33','你看到了这般的地狱绘图以后开始忍不住像野兽先辈一样呐。')"></div>
+        <div class="gafalert" id="alert33" onclick="b('alert33','alert34','alert34','<h3><strong>[Bad End 2]</strong></h3>Vocaloid职人没一个好惹的<br><br>点击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert34" onclick="b('alert34','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <!--魔鬼结局结束-->
+    </body>
+</html>
