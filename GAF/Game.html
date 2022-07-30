@@ -467,7 +467,7 @@
                 },100);
             }
         
-            var gafVersion='GS App Frame for Games by zzChumo,Version 1.00-Dev';
+            var gafVersion='GS App Frame for Games by zzChumo,Version 1.00-Pre_Beta';
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -527,7 +527,7 @@
                 }    //1000(ms)=1s
             }
             
-                    // cord: 重开数初始值
+            // cord: 重开数初始值
             var cord=0;
 
             // 如果re存档中存在值就带入cord
@@ -536,11 +536,11 @@
             };
             
             // 进入页面自动读档
-            /*$(function(){
+            $(function(){
                 $("#re").html(cord);
                 if(localStorage.getItem("save")!=null) document.getElementById(localStorage.getItem("save")).style.display="block";
                 else document.getElementById("a1").style.display="block";
-            });*/
+            });
 
             //场景切换
             function b(id1,id2,targetElement,text){
@@ -557,19 +557,19 @@
             };
 
             // 重开后刷新页面重读档
-            /*function c(){
+            function c(){
                 localStorage.setItem("re", Number(cord+1));
                 $("#re").html(localStorage.getItem("re"));
                 window.location.reload();
-            };*/
+            };
         </script>
     </head>
     <body>
         <div class="gafalert" id="alert0" onclick="b('alert0','alert1','alert1','这是一个游戏用精简版GAF框架<br><br>点击屏幕开始游戏')">点击屏幕开始游戏</div>
-        <div class="gafalert" id="alert1" onclick="b('alert1','alert2','alert2','<h3><strong>[GAF for Games]</strong></h3><br>Version: 1.00<br>Author: zzChumo<br>Thanks: PaperEE')"></div>
-        <div class="gafalert" id="alert2" onclick="b('alert2','alert3','alert3','这个游戏不会自动存档。<br>如果有需要，代码在原文件里，自己改')"></div>
-        <div class="gafalert" id="alert3" onclick="b('alert3','alert4','alert4','如果不会改的话，那就...')"></div>
-        <div class="gafalert" id="alert4" onclick="b('alert4','alert5','alert5','<h1><strong>请君自便了</strong></h1>')"></div>
+        <div class="gafalert" id="alert1" onclick="b('alert1','alert2','alert2','<h3><strong>[GAF for Games]</strong></h3><br>Version: 1.00-Pre_Beta<br>Author: zzChumo<br>Thanks: PaperEE')"></div>
+        <div class="gafalert" id="alert2" onclick="b('alert2','alert3','alert3','我们已经为你配置好了自动存档模块，您的每一个选择都会被浏览器记录。')"></div>
+        <div class="gafalert" id="alert3" onclick="b('alert3','alert4','alert4','接下来会播放一个示例游戏。')"></div>
+        <div class="gafalert" id="alert4" onclick="b('alert4','alert5','alert5','祝游戏愉快。')"></div>
         <div class="gafalert" id="alert5" onclick="b('alert5','alert6','alert6','<h3><strong>[ee的奇幻冒险]</strong></h3><br>Version: 1.00-Pack_1<br>Author: zzChumo<br><br>This game is made with <strong>GS App Frame for Games</strong>.<br><br>©Copyright 2017-2022 GS Team')"></div>
         <div class="gafalert" id="alert6" onclick="b('alert6','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
         <div class="gafalert" id="alert7" onclick="b('alert7','alert8','alert8','这时，你发现你在家里养的鱼跳出了鱼缸，你打算伸手把它捡回鱼缸里。')"></div>
@@ -580,8 +580,8 @@
         <div class="gafalert" id="alert12" onclick="bWithoutPrint('alert12','alert13')"></div>
         <div class="gafalert" id="alert13">现在，你打算..？<br><br><a onclick="b('alert13','alert14','alert14','你用刘华强的西瓜刀杀死了这条鱼，发现这条鱼居然是熟的！')">杀死这条鱼</a><br><a onclick="b('alert13','alert16','alert16','你被这条鱼拖进了下水道里。')">进入下水道</a><br><a onclick="b('alert13','alert29','alert29','你可是跟马保国老同志学过浑元太极拳的！你用浑元太极拳把鱼打回了鱼缸里，像什么事也没发生般的站在原地。')">使劲站在原地</a></div>
         <!--结局这瓜保熟开始-->
-        <div class="gafalert" id="alert14" onclick="b('alert14','alert15','alert15','<h3><strong>[Good End 1]</strong></h3>这瓜保熟<br><br>点击屏幕重新开始')"></div>
-        <div class="gafalert" id="alert15" onclick="b('alert15','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <div class="gafalert" id="alert14" onclick="b('alert14','alert15','alert15','<h3><strong>[Good End 1]</strong></h3>这瓜保熟<br><br>双击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert15" onclick="b('alert15','alert6','alert6',''),c()"></div>
         <!--结局这瓜保熟结束-->
         <!--下水道分支开始-->
         <div class="gafalert" id="alert16" onclick="b('alert16','alert17','alert17','下水道里有很多的垃圾和雪（意味深）。<br><br>一人一鱼就这样在下水道里游着。')"></div>
@@ -591,22 +591,22 @@
         <div class="gafalert" id="alert20" onclick="bWithoutPrint('alert20','alert21')"></div>
         <div class="gafalert" id="alert21">你想要...？<br><br><a onclick="b('alert21','alert24','alert24','你抓住了一只麻鸡。<br><br>你本来是打算把麻鸡带着当宠物的。但是因为麻鸡一直在骂你麻痹，所以你当场就把这只麻鸡做掉了。')">带走一只麻鸡</a><br><a onclick="b('alert21','alert22','alert22','因为你太想吃麻鸡了，所以还没走两步路你就被馋死了（物理）')">装作没看见</a></div>
         <!--结局饿了就该吃开始-->
-        <div class="gafalert" id="alert22" onclick="b('alert22','alert23','alert23','<h3><strong>[Bad End 1]</strong></h3>饿了就该吃<br><br>点击屏幕重新开始')"></div>
-        <div class="gafalert" id="alert23" onclick="b('alert23','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <div class="gafalert" id="alert22" onclick="b('alert22','alert23','alert23','<h3><strong>[Bad End 1]</strong></h3>饿了就该吃<br><br>双击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert23" onclick="b('alert23','alert6','alert6',''),c()"></div>
         <!--结局饿了就该吃结束-->
         <div class="gafalert" id="alert24" onclick="b('alert24','alert25','alert25','你拦住了一只抱着葱的miku，用100日元买下了她手中的葱，打算拿去煲麻鸡汤。<br><br>miku含泪血赚10日元。')"></div>
         <div class="gafalert" id="alert25" onclick="b('alert25','alert26','alert26','你喝掉了麻鸡汤，感叹着麻鸡的美味。路过的穿山甲也这么觉得。')"></div>
         <div class="gafalert" id="alert26" onclick="b('alert26','alert27','alert27','这时，你突然有了灵感。你又抱了一只麻鸡，以最快的速度爪巴了回去，把你刚才的所见所闻加以魔改制成了一代名作——<br><br><h3><strong>《Grrd》</strong></h3>')"></div>
-        <div class="gafalert" id="alert27" onclick="b('alert27','alert28','alert28','<h3><strong>[Ture End]</strong></h3>屑作出世<br><br>点击屏幕重新开始')"></div>
-        <div class="gafalert" id="alert28" onclick="b('alert28','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <div class="gafalert" id="alert27" onclick="b('alert27','alert28','alert28','<h3><strong>[Ture End]</strong></h3>屑作出世<br><br>双击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert28" onclick="b('alert28','alert6','alert6',''),c()"></div>
         <!--下水道分支结束-->
         <!--魔鬼结局开始-->
         <div class="gafalert" id="alert29" onclick="b('alert29','alert30','alert30','这时，Deco从你家门口路过，看到了这一切。')"></div>
         <div class="gafalert" id="alert30" onclick="b('alert30','alert31','alert31','Deco拉来了Rockwell，对你问：“乙鱼解刨？”<br><br>“乙鱼解剖？内蔵ありますか？”老匹也不知道从哪钻了出来。')"></div>
         <div class="gafalert" id="alert31" onclick="b('alert31','alert32','alert32','Deco和老匹端起枪开始对狙，40㍍P前来劝架，亿不小心误伤了路过的sasakure，A-39抱着fufu在旁边吃瓜。')"></div>
         <div class="gafalert" id="alert32" onclick="b('alert32','alert33','alert33','你看到了这般的地狱绘图以后开始忍不住像野兽先辈一样呐。')"></div>
-        <div class="gafalert" id="alert33" onclick="b('alert33','alert34','alert34','<h3><strong>[Bad End 2]</strong></h3>Vocaloid职人没一个好惹的<br><br>点击屏幕重新开始')"></div>
-        <div class="gafalert" id="alert34" onclick="b('alert34','alert7','alert7','你的名字叫做ee。<br>你正在制作一款名叫《Grrd》的3A大作（大嘘')"></div>
+        <div class="gafalert" id="alert33" onclick="b('alert33','alert34','alert34','<h3><strong>[Bad End 2]</strong></h3>Vocaloid职人没一个好惹的<br><br>双击屏幕重新开始')"></div>
+        <div class="gafalert" id="alert34" onclick="b('alert34','alert6','alert6',''),c()"></div>
         <!--魔鬼结局结束-->
     </body>
 </html>
