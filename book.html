@@ -12,6 +12,10 @@
                 letter-spacing: 2px;
             }
 
+            .bg{
+                background: #fff;
+            }
+
             a.z:hover {
                 color: #f1f1f1;
                 background-color: #00aa88;
@@ -134,9 +138,12 @@
             }
 
             p{
-                padding-left: 20px;
-                padding-right: 20px;
-                color: #333;
+                padding-left: 30px;
+                padding-right: 30px;
+                color: #444;
+                line-height: 2;
+                font-size: 15px;
+                letter-spacing: 1px;
             }
 		
 		    ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请给此项加class。*/
@@ -446,6 +453,7 @@
             .gafalert p{
                 font-size: small;
                 color: #444;
+                line-height: 1.3;
                 letter-spacing: 1px;
             }
 
@@ -552,6 +560,10 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
+            
+            .side-title div{
+                letter-spacing: 1px;
+            }
 
             .side-title{
                 border-left: 5px solid #00ccaa;
@@ -605,6 +617,101 @@
             div.chatinfo .text{
                 color: #a6a28c;
             }
+
+            @media (prefers-color-scheme: dark){
+                .bg{
+                    background: #333;
+                }
+                
+                a{
+                    color: #44aadd;
+                }
+                
+                a.secret{
+                    background: #ccc;
+                    color: #ccc;
+                }
+                
+                a.secret:hover{
+                    background: #ccc;
+                    color: #333;
+                }
+                
+                a.secret s{
+                    color: #ccc;
+                }
+
+                a.secret:hover s{
+                    color: #333;
+                }
+                
+                li a{
+                    color: #eee;
+                }
+                
+                a.top{
+                    color: #eee;
+                }
+                
+                li a:hover{
+                    color: #eee;
+                    background: #333;
+                }
+                
+                a.top:hover{
+                    color: #eee;
+                    background: #333;
+                }
+                
+                h1,h2,h3,h4,h5,h6{
+                    color: #eee;
+                }
+
+                ul{
+                    background: #333;
+                }
+                
+                p{
+                    color: #ccc;
+                }
+                
+                p.z{
+                    color: #aaa;
+                }
+                
+                .side-title div{
+                    color: #ccc;
+                    letter-spacing: 1px;
+                }
+                
+                .sidenav{
+                    background: #333;
+                }
+                
+                .sidenav a:hover{
+                    background: #d5f6f155;
+                    color: #11ffdd;
+                }
+                
+                .sidenav a{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1:hover{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                footer{
+                    background: #222;
+                }
+            }
         </style>
         <script>
             var gafVersion='GS App Frame by zzChumo,Version 3.02';
@@ -612,7 +719,7 @@
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
                     normal_title=document.title;
-                    document.title='应用摸鱼中...';
+                    document.title='资料摸鱼中...';
                 }
                 else document.title=normal_title;
             });    //当用户焦点离开时显示的网页标题
@@ -705,7 +812,7 @@
             }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
         </script>
     </head>
-    <body>
+    <body class="bg">
         <div id="alertground"></div><!--遮罩层-->
         <ul>
             <li><a class="menu" onClick="openNav()">&#9776;</a></li>
@@ -748,8 +855,8 @@
             <a href="#boom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 人数巅峰</a>
             <a href="#reebot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- reebot事件</a>
             <a href="#book"><div class="material-icons">attach_file</div>&nbsp;&nbsp;附录</a>
-            <a href="#quote"><div class="material-icons">format_quote</div>&nbsp;&nbsp;部分引用</a>
-            <a href="#common-terms"><div class="material-icons">book</div>&nbsp;&nbsp;常用语</a>
+            <a href="#quote">&nbsp;&nbsp;<div class="material-icons">format_quote</div>&nbsp;&nbsp;部分引用</a>
+            <a href="#common-terms">&nbsp;&nbsp;<div class="material-icons">book</div>&nbsp;&nbsp;常用语</a>
             <br>
             <hr>
             <br>
@@ -786,7 +893,7 @@
         <br>
         <div class="side-title">
             <h1>聊天室历史书</h1>
-            <div>版本8.1_zzChumo_Fork_Release，于2022/8/8更新</div>
+            <div>版本8.2_zcm_release，于2022/8/9更新</div>
         </div>
         <br>
         <br>
@@ -810,9 +917,9 @@
             <h2>更新内容</h2>
         </div>
         <p>
-            Fork了<a onclick="aHref('http://45.151.135.102:3000/chatroom-history-book/#/')">原文</a>。<br>
-            润色了文章。<br>
-            更改了detele事件的错误。<br>
+            整合了<a onclick="aHref('http://45.151.135.102:3000/chatroom-history-book/#/')">原文</a>添加的新内容。<br>
+            添加了黑暗模式（需系统和浏览器支持）。<br>
+            优化了观感。<br>
             添加了细节。
         </p>
         <br>
@@ -853,7 +960,7 @@
         <div class="side-title">
             <h4>HC聊天室</h4>
         </div>
-        <p>史前时代开始于HC的建立。据emankciN、Bird等老用户的说明，HC由Andrew Belt成立于2015年，也有传闻是HC的管理员R建造的网站。</p>
+        <p>史前时代开始于HC的建立。据emankciN、Bird等老用户的说明，HC由Andrew Belt成立于2015年，也有传闻是HC现任站长R建造的网站。</p>
         <p>在史前时代，很多中国用户来到了HC，使得yc中充满了中国用户。许多这一阶段的用户如今已经较少在聊天室中上线。在2021前的用户。大部分是看warma（B站UP主）的视频了解到HC。据说当时的用户相处十分融洽，然而相传在未知时间也有过冲突的发生。</p>
         <p>目前已知的、从史前早期到现在依然活跃于HC的用户有zzChumo、ji11、CaO、emankciN、Bird和666。然而，史前时期时间跨度长，其中曾经存在过的用户太多难以尽列。即使是在智械时期，也有很多不那么有名的用户，使得列出用户是一件很难的事。</p>
         <p>hackchat吧是一个关于HC的百度贴吧，当年主要活跃于hackchat吧的HC常驻用户是Lithium和666，主要更新HC支持的LaTeX和Markdown。目前其中的帖子多为史前晚期前发布的，可以一窥史前时期的风采，对于当时的用户也有所记录。值得一提的是，HC的贴吧不仅涉及HC，还活跃着不少现阶段十字街聊天室的用户，由此可见CC的建立在这一时期。</p>
@@ -925,14 +1032,14 @@
         <div class="side-title">
             <h3>二 / 智械时代</h3>
         </div>
-        <p>智械时代的标志之一为鸟币的出现，此外eebot功能的逐渐完善，也标志着智械时代的来临。</p>
+        <p>智械时代的标志之一为鸟币的出现，此外eebot功能的逐渐完善，也标志着智械时代的来临。智械时代作为史前与三国的过渡时期，因此与这两个时代均有重合点，并不影响历史的严谨性，反而更详细反映了从史前到三国的转折。</p>
         <br>
         <a name="bot-war"></a>
         <div class="side-title">
             <h4>智械横行</h4>
         </div>
         <p>这一时期，用户制作机器人的热情<s>受到了升维打击</s>高涨。Foolishbird推出了早期的鸟币功能，可以用鸟币抽奖、<a class="secret">赌博</a>、交易；ee制作的eebot功能逐渐完善，可以在聊天室里玩飞花令、真心话等游戏；Sprinkle的SprinkleBot、4n0n4me的dotbot、DarkT的notbot、Mr_Zhang的Zhang系列Bot等等不一而同，功能也呈现多元化、自定义程度加深。</p>
-        <p>智械时代的一个特殊的现象是，在没人的时候，机器人也会有小概率互相互动。如某机器人报时之后，触发了另一机器人随机夸人可爱的功能，然后又触发了另一机器人的聊天API，于是完成了一轮机器人互夸。偶尔，同时在线的机器人会达到5、6个，这些机器人一起打招呼，<a class="secret">新用户都被吓跑几个。在线人数和机器人数量持平（甚至更少）的情况时有发生</a>。</p>
+        <p>智械时代的一个特殊的现象是，在没人的时候，机器人也会有小概率互相互动。如某机器人报时之后，触发了另一机器人随机夸人可爱的功能，然后又触发了另一机器人的聊天API，于是完成了一轮机器人互夸。偶尔，同时在线的机器人会达到5、6个，这些机器人同时打招呼，<a class="secret">特别是在有用户因网络或其他问题进进出出时，经常造成被动刷屏大惨案，新用户都被吓跑几个。机器人作者们也时常因谁的机器人保留打招呼功能、谁的机器人撤除而争执。在线人数和机器人数量持平（甚至更少）的情况也时有发生</a>。</p>
         <p>在智械时代早期，由于部分机器人的不完善，几个机器人间循环刷屏的情况时有发生，典型例子是eebot和zzChumo（机器人）的“尴尬”循环。某位<s>比较欠揍的</s>用户说：“太尴尬了”，eebot接：“别怕，只要你不尴尬，尴尬的就是别人”，zzChumo接：“尴尬过头”。由于两个机器人都以“尴尬”作为关键词，并且没有屏蔽对方，导致了一连串“量子纠缠”，造成小规模刷屏事件。</p>
         <br>
         <a name="detele"></a>
@@ -1019,6 +1126,12 @@
         <p>awa，读作阿瓦。在awa表情盛行早期，DPG和DarkT创作了关于awa的同人作品<a class="secret">（万物皆可同人）</a>，即阿瓦国（Awaland）和阿瓦语。</p>
         <p>西阿亚及低瓦斯联合国（West Aya and Low Waas United Nation），简称阿瓦国（Awaland），部分用户称为阿瓦兰（Awaland的音译）。成立于2022年4月22日，在HC的lo和XC等地广为人知。阿瓦语（Awaish）是阿瓦国的语言文字，具体表现为以“a”和“w”两个字母的不同组合来表示简单的意思。除概念外，阿瓦语语言体系创作由4n0n4me执笔。</p>
         <br>
+        <div class="side"><p class="z">我写的版本并非只有两个字母，而且就写了一点点词汇，后来还忘光了。<br>——4n0n4me</p></div>
+        <br>
+        <p>传说，阿瓦兰有6个神明，至高、秩序、破坏、自然 纯洁、禁忌、本初（初神）、人类神（亚神）。</p>
+        <br>
+        <div class="side"><p class="z">人类神（亚神）宇宙诞生之初，本初神出现了。本初神将自己的力量分离出五份，创造了其余五神。自然神的实验创造出结晶，结晶通过演化，出现了智慧神（演化神）和人类。智慧神出现前，除神外的所有生物都没有理智，这段时期称之为“无智时期”。智慧神出现后为真智时期，这是万物皆有理智。众神不想将知识传授给其他生物，但是智慧神却传给了人类，所以智慧神被众神囚禁了，这之后只有人类发展出了文明，这段时期为“只智时期”。<br>——TUSK</p></div>
+        <br>
         <a name="dark-tea"></a>
         <div class="side-title">
             <h4>黑茶刷屏事件</h4>
@@ -1099,11 +1212,10 @@
         <div class="side-title">
             <h2>附录</h2>
         </div>
-        <p>待补充</p>
         <br>
         <a name="quote"></a>
         <div class="side-title">
-            <h2>部分引用</h2>
+            <h3>部分引用</h3>
         </div>
         <p>
             <strong>detele事件</strong><br>
@@ -1117,7 +1229,7 @@
         <br>
         <a name="common-terms"></a>
         <div class="side-title">
-            <h2>常用语</h2>
+            <h3>常用语</h3>
         </div>
         <p>
             <strong>聊天室相关</strong><br>
@@ -1159,8 +1271,10 @@
         <br>
         <br>
         <!--正文结束-->
-        <br>
-        <br>
-        <br>
     </body>
+    <footer>
+        <br>
+        <p class="z">本文档使用<a onclick="aHref('https://zzchat.cf/GAF')">GAF</a>作为模板。</p>
+        <br>
+    </footer>
 </html>
