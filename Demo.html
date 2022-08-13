@@ -6,7 +6,7 @@
     <head>
         <title>GS Design Demo</title>
         <style>
-            body{
+            body.bg{
                 font-family: "Google Sans";
                 margin: 0;
                 letter-spacing: 2px;
@@ -248,6 +248,7 @@
             a{
 			    text-decoration: none;
                 transition: all 0.3s linear;
+                color: #6cf;
 		    }
 
             footer{
@@ -311,10 +312,7 @@
                 color: #fff;
                 letter-spacing: 1px;
                 background-color: #00ccaa;
-                /*
-                box-shadow: 0px 3px  3px #00000066;
-                理由同ul处
-                */
+                box-shadow: -0.23px 2px  2px #00000066;
                 border: 0 solid #00ccaa;
                 border-radius: 50px;
                 transition: all 0.3s linear;
@@ -356,7 +354,7 @@
                 top: 0;
                 left: -260px;
                 background-color: #f7f8f3;
-                overflow-x: hidden;
+                overflow: auto;
                 transition: 0.5s;
                 padding-top: 60px;
                 padding-right: 5px;
@@ -409,7 +407,7 @@
                 font-family: 'Material Icons';
                 font-weight: normal;
             }     
-            
+
             #alertground{   /*遮罩层本尊*/
                 position: fixed;
                 height: 100%;
@@ -420,7 +418,7 @@
                 display: none;
                 z-index: 114515;
             }
-
+            
             .gafalert{  /*配色请搞得和谐点，不然死也别动这个配色*/
                 position: fixed;
                 border: 0 solid;
@@ -428,10 +426,9 @@
                 margin: auto;
                 padding: 20px;
                 width: 60%;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
+                left: 50%;
+                top: 43%;
+                transform: translate(-50%,-50%);
                 z-index: 114515;
                 background: #d5f6f1;
                 box-shadow: 0px 3px  3px #00000066;
@@ -444,7 +441,10 @@
             .gafalert p{
                 font-size: small;
                 color: #444;
+                line-height: 1.3;
                 letter-spacing: 1px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             .gafalert div.alerta{
@@ -471,74 +471,200 @@
             #alert1{    /*按此类推添加gafalert的id*/
                 display: none;
                 opacity: 0;
-                height: 110px;
             }
             
             #alert2{
                 display: none;
-                height: 125px;
                 opacity: 0;
             }
+
+            @media screen and (max-width:800px){
+                .gafalert{
+                    width: 80%;
+                }
+            }
+
+            @media screen and (min-width:800px){
+                p{
+                    padding-left: 100px;
+                    padding-right: 100px;
+                }
+
+                .side-title{
+                    margin-bottom: 35px;
+                }
+            }
+            
+            /*类似于百度百家号的标题*/
+            .side{
+                border-left: 5px solid #00ccaa;
+                text-indent: 20px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            
+            .side-title div{
+                letter-spacing: 1px;
+            }
+
+            .side-title{
+                border-left: 5px solid #00ccaa;
+                text-indent: 20px;
+            }
+
+            .side-title h1,h2,h3,h4,h5{
+                padding-left: 0px;
+            }
+
+            /*萌娘百科的黑幕*/
+            a.secret{
+                background-color: #333333;
+                color: #333333;
+            }
+
+            a.secret:hover{
+                background-color: #333333;
+                color: #ffffff;
+            }
+
+            a.secret s{
+                color: #333;
+            }
+
+            a.secret:hover s{
+                color: #ffffff;
+            }
+
+            /*模仿Hack.Chat聊天室*/
+            div.chatinfo{
+                border: #555 solid 2px;
+                border-radius: 15px;
+                background: #222;
+                margin-left: 50px;
+                margin-right: 50px;
+                padding: 20px 20px;
+                font-size: small;
+                font-family: "Roboto";
+                letter-spacing: 0;
+            }
+
+            div.chatinfo .trip{
+                color: #6e6b5e;
+                display: inline-block;
+            }
+
+            div.chatinfo .nickname{
+                color: #6684e1;
+                display: inline-block;
+            }
+
+            div.chatinfo .text{
+                color: #a6a28c;
+            }
         
+            /*黑暗模式配色*/
+            @media (prefers-color-scheme: dark){
+                .bg{
+                    background: #333;
+                }
                 
-            /*如果你手欠不小心多敲了点内容在gafalert里，就使用以下方案。每组方案的height差是15px。*/            
-            @media screen and (min-width:1293px) {
-                #alert2{
-                    height: 110px;
+                a{
+                    color: #44aadd;
                 }
-            }
+                
+                a.secret{
+                    background: #ccc;
+                    color: #ccc;
+                }
+                
+                a.secret:hover{
+                    background: #ccc;
+                    color: #333;
+                }
+                
+                a.secret s{
+                    color: #ccc;
+                }
 
-            @media screen and (min-width:685px) and (max-width:1293px){
-                #alert2{
-                    height: 125px;
+                a.secret:hover s{
+                    color: #333;
                 }
-            }
+                
+                li a{
+                    color: #eee;
+                }
+                
+                a.top{
+                    color: #eee;
+                }
+                
+                li a:hover{
+                    color: #eee;
+                    background: #333;
+                }
 
-            @media screen and (min-width:513px) and (max-width:685px){
-                #alert2{
-                    height: 140px;
+                a.menu:hover{
+                    color: #ddd;
+                    background: #555;
                 }
-            }
-            
-            @media screen and (min-width:362px) and (max-width:513px){
-                #alert2{
-                    height: 155px;
-                    background: #000;
+                
+                a.top:hover{
+                    color: #eee;
+                    background: #333;
                 }
-            }
-            
-            @media screen and (min-width:299px) and (max-width:362px){
-                #alert2{
-                    height: 170px;
+                
+                h1,h2,h3,h4,h5,h6{
+                    color: #eee;
                 }
-            }
-            
-            @media screen and (min-width:256px) and (max-width:299px){
-                #alert2{
-                    height: 185px;
+
+                ul{
+                    background: #333;
                 }
-            }
-            
-            @media screen and (min-width:213px) and (max-width:256px){
-                #alert2{
-                    height: 200px;
+                
+                p{
+                    color: #ccc;
                 }
-            }
-            
-            @media screen and (min-width:172px) and (max-width:213px){
-                #alert2{
-                    height: 215px;
+                
+                p.z{
+                    color: #aaa;
                 }
-            }
-            
-            @media screen and (max-width:172px){
-                #alert2{
-                    height: 230px;
+                
+                .side-title div{
+                    color: #ccc;
+                    letter-spacing: 1px;
+                }
+                
+                .sidenav{
+                    background: #333;
+                }
+                
+                .sidenav a:hover{
+                    background: #d5f6f155;
+                    color: #11ffdd;
+                }
+                
+                .sidenav a{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1:hover{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1{
+                    background: #333;
+                    color: #eee;
+                }
+                
+                footer{
+                    background: #222;
                 }
             }
         </style>
         <script>
-            var gafVersion='GS App Frame by zzChumo,Version 3.02';
+            var gafVersion='GS App Frame by zzChumo,Version 3.03';
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -636,7 +762,7 @@
             }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
         </script>
     </head>
-    <body>
+    <body class="bg">
         <div id="alertground"></div><!--遮罩层-->
         <ul>
             <li><a class="menu" onClick="openNav()">&#9776;</a></li>
