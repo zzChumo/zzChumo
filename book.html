@@ -320,10 +320,7 @@
                 color: #fff;
                 letter-spacing: 1px;
                 background-color: #00ccaa;
-                /*
-                box-shadow: 0px 3px  3px #00000066;
-                理由同ul处
-                */
+                box-shadow: -0.23px 2px  2px #00000066;
                 border: 0 solid #00ccaa;
                 border-radius: 50px;
                 transition: all 0.3s linear;
@@ -437,10 +434,9 @@
                 margin: auto;
                 padding: 20px;
                 width: 60%;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
+                left: 50%;
+                top: 43%;
+                transform: translate(-50%,-50%);
                 z-index: 114515;
                 background: #d5f6f1;
                 box-shadow: 0px 3px  3px #00000066;
@@ -455,6 +451,8 @@
                 color: #444;
                 line-height: 1.3;
                 letter-spacing: 1px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             .gafalert div.alerta{
@@ -481,84 +479,70 @@
             #alert1{    /*按此类推添加gafalert的id*/
                 display: none;
                 opacity: 0;
-                height: 110px;
             }
             
             #alert2{
                 display: none;
-                height: 125px;
                 opacity: 0;
             }
-        
-                
-            /*如果你手欠不小心多敲了点内容在gafalert里，就使用以下方案。每组方案的height差是15px。*/            
-            @media screen and (min-width:1293px) {
-                #alert2{
-                    height: 110px;
+            
+            @media screen and (max-width:800px){
+                .gafalert{
+                    width: 80%;
+                }
+
+                div.chatinfo{
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                .side{
+                    margin-left: 30px;
+                    margin-right: 30px;
                 }
             }
 
-            @media screen and (min-width:685px) and (max-width:1293px){
-                #alert2{
-                    height: 125px;
-                }
-            }
-
-            @media screen and (min-width:513px) and (max-width:685px){
-                #alert2{
-                    height: 140px;
-                }
-            }
-            
-            @media screen and (min-width:362px) and (max-width:513px){
-                #alert2{
-                    height: 155px;
-                    background: #000;
-                }
-            }
-            
-            @media screen and (min-width:299px) and (max-width:362px){
-                #alert2{
-                    height: 170px;
-                }
-            }
-            
-            @media screen and (min-width:256px) and (max-width:299px){
-                #alert2{
-                    height: 185px;
-                }
-            }
-            
-            @media screen and (min-width:213px) and (max-width:256px){
-                #alert2{
-                    height: 200px;
-                }
-            }
-            
-            @media screen and (min-width:172px) and (max-width:213px){
-                #alert2{
-                    height: 215px;
-                }
-            }
-            
-            @media screen and (max-width:172px){
-                #alert2{
-                    height: 230px;
-                }
-            }
-
-            @media screen and (min-width:800px) {
+            @media screen and (min-width:800px){
                 p{
-                    padding-left: 50px;
-                    padding-right: 50px;
+                    padding-left: 100px;
+                    padding-right: 100px;
+                }
+
+                .side-title{
+                    margin-bottom: 35px;
+                }
+
+                div.chatinfo{
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
+
+                .sidenav{
+                    left: 0;
+                    box-shadow: 0px 0px  0px #00000066;
+                }
+                
+                .sidenav .closebtn{
+                    display: none;
+                }
+
+                a.menu{
+                    display: none;
+                }
+
+                .bg{
+                    margin-left: 250px;
+                }
+
+                .side{
+                    margin-left: 100px;
+                    margin-right: 100px;
                 }
             }
             
             .side{
                 border-left: 5px solid #00ccaa;
                 text-indent: 20px;
-                margin-left: 50px;
-                margin-right: 50px;
             }
             
             .side-title div{
@@ -596,8 +580,6 @@
                 border: #555 solid 2px;
                 border-radius: 15px;
                 background: #222;
-                margin-left: 50px;
-                margin-right: 50px;
                 padding: 20px 20px;
                 font-size: small;
                 font-family: "Roboto";
@@ -711,10 +693,36 @@
                 footer{
                     background: #222;
                 }
+
+                .sidenav::-webkit-scrollbar-track{
+                    background-color: #333;
+                }
+
+                .sidenav::-webkit-scrollbar{
+                    width: 3px;
+                }
+
+                .sidenav::-webkit-scrollbar-thumb{
+                    background-color: #aaa;
+                    border-radius: 50px;
+                }
+            }
+
+            .sidenav::-webkit-scrollbar-track{
+                background-color: #f7f8f3;
+            }
+
+            .sidenav::-webkit-scrollbar{
+                width: 3px;
+            }
+
+            .sidenav::-webkit-scrollbar-thumb{
+                background-color: #00000033;
+                border-radius: 50px;
             }
         </style>
         <script>
-            var gafVersion='GS App Frame by zzChumo,Version 3.02';
+            var gafVersion='GS App Frame by zzChumo,Version 3.11';
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -807,12 +815,112 @@
             }
 
             function alertSideClose(id){
-                fadeOut(id,20);
-                document.getElementById(id).style.display='none';
+                if(document.documentElement.clientWidth>800){
+                    fadeOut(id,20);
+                    fadeOut('alertground',20);
+                    document.getElementById(id).style.display='none';
+                    document.getElementById('alertground').style.display='none';
+                }else{
+                    fadeOut(id,20);
+                    document.getElementById(id).style.display='none';
+                }
             }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
         </script>
     </head>
     <body class="bg">
+        <script>
+            //以下内容来自Ripplet.JS
+            !function(e,t){
+                "object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).ripplet=t()
+            }
+
+            (this,function(){
+                "use strict";
+                var m,h={
+                    className:"",
+                    color:"currentcolor",
+                    opacity:.1,
+                    spreadingDuration:".4s",
+                    spreadingDelay:"0s",
+                    spreadingTimingFunction:"linear",
+                    clearing:!0,
+                    clearingDuration:"1s",
+                    clearingDelay:"0s",
+                    clearingTimingFunction:"ease-in-out",
+                    centered:!1,
+                    appendTo:"auto"
+                },
+    
+                y=new Map;
+                function t(e,n){
+                    var t=e.currentTarget,i=e.clientX,r=e.clientY;
+                    if(t instanceof Element){
+                        var o=n?Object.keys(h).reduce(function(e,t){
+                            return e[t]=(n.hasOwnProperty(t)?n:h)[t],e
+                        },{}):h;
+
+                        m||((g=document.createElement("div")).innerHTML='<div style="float:left;position:relative;isolation:isolate;pointer-events:none"><div style="position:absolute;overflow:hidden;transform-origin:0 0"><div style="border-radius:50%;transform:scale(0)"></div></div></div>',m=g.firstChild);
+                        var a=t.getBoundingClientRect();
+                        if(o.centered&&"false"!==o.centered){
+                            i=a.left+.5*a.width,r=a.top+.5*a.height
+                        }else{
+                            if("number"!=typeof i||"number"!=typeof r)return;
+                            var l=1/(+getComputedStyle(document.body).zoom||1);i*=l,r*=l
+                        }
+                
+                        var c=getComputedStyle(t),d=function(e){
+                            var t=e&&/^var\((--.+)\)$/.exec(e);
+                            return t?c.getPropertyValue(t[1]):e
+                        },
+
+                        s=function(e,t){
+                            if(t&&"auto"!==t){
+                                return"target"===t?e:"parent"===t?e.parentElement:document.querySelector(t)
+                            }
+                        for(;
+                            e&&(e instanceof SVGElement||e instanceof HTMLInputElement||e instanceof HTMLSelectElement||e instanceof HTMLTextAreaElement||e instanceof HTMLImageElement||e instanceof HTMLHRElement);
+                        )e=e.parentElement;
+            
+                        return e
+                    }
+            
+                    (t,o.appendTo),p=s.appendChild(m.cloneNode(!0));
+                    p.style.zIndex=(+c.zIndex||0)+1;
+                    var f=p.firstChild,u=f.getBoundingClientRect(),e=f.style;
+                    e.top=a.top-u.top+"px",e.left=a.left-u.left+"px",e.width=a.width+"px",e.height=a.height+"px",e.opacity=d(o.opacity),e.borderTopLeftRadius=c.borderTopLeftRadius,e.borderTopRightRadius=c.borderTopRightRadius,e.borderBottomLeftRadius=c.borderBottomLeftRadius,e.borderBottomRightRadius=c.borderBottomRightRadius,e.clipPath=c.clipPath;
+                    var u=f.getBoundingClientRect(),g=a.width/u.width,l=a.height/u.height;
+                    e.transform="scale("+g+","+l+") translate("+(a.left-u.left)+"px,"+(a.top-u.top)+"px)";
+                    g=Math.max(i-a.left,a.right-i),l=Math.max(r-a.top,a.bottom-r),u=Math.sqrt(g*g+l*l),g=f.firstChild,l=g.style,f=d(o.color);
+                    return l.backgroundColor=/^currentcolor$/i.test(f)?c.color:f,g.className=o.className,l.width=l.height=u+u+"px","rtl"===getComputedStyle(s).direction?l.marginRight=a.right-i-u+"px":l.marginLeft=i-a.left-u+"px",l.marginTop=r-a.top-u+"px",l.transition="transform "+d(o.spreadingDuration)+" "+d(o.spreadingTimingFunction)+" "+d(o.spreadingDelay)+",opacity "+d(o.clearingDuration)+" "+d(o.clearingTimingFunction)+" "+d(o.clearingDelay),g.addEventListener("transitionend",function(e){
+                        "opacity"===e.propertyName&&p.parentElement&&p.parentElement.removeChild(p)}),o.clearing&&"false"!==o.clearing?l.opacity="0":((o=y.get(t))||y.set(t,o=new Map),o.set(p,g)),g.offsetWidth,l.transform="",p
+                    }
+                }
+        
+                t.clear=function(e,t){
+                    var n,i;
+                    e?(n=y.get(e))&&(t?((i=n.get(t))&&(i.style.opacity="0"),n.delete(t),0===n.size&&y.delete(e)):(n.forEach(function(e){
+                        return e.style.opacity="0"
+                    }),
+            
+                    y.delete(e))):(y.forEach(function(e){
+                        return e.forEach(function(e){
+                            return e.style.opacity="0"
+                        })
+                    }),
+            
+                    y.clear())
+                },
+        
+                t.defaultOptions=h,t._ripplets=y;
+                var n=Object.freeze({
+                    __proto__:null,defaultOptions:h,default:t
+                });
+        
+                return Object.keys(n).forEach(function(e){
+                    t[e]=n[e]
+                }),t
+            });
+        </script>
         <div id="alertground"></div><!--遮罩层-->
         <ul>
             <li><a class="menu" onClick="openNav()">&#9776;</a></li>
@@ -823,44 +931,47 @@
             <a class="sidenav1">历史书</a>
             <hr>
             <br>
-            <a href="#team"><div class="material-icons">group</div>&nbsp;&nbsp;编辑团队</a>
-            <a href="#update"><div class="material-icons">info</div>&nbsp;&nbsp;更新内容</a>
-            <a href="#for-you"><div class="material-icons">message</div>&nbsp;&nbsp;致编写者与读者</a>
-            <a href="#article"><div class="material-icons">watch_later</div>&nbsp;&nbsp;正文 / 编年史</a>
-            <a href="#one">&nbsp;&nbsp;<div class="material-icons">history</div>&nbsp;&nbsp;一 / 史前时代</a>
-            <a href="#origin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hack.Chat</a>
-            <a href="#queen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Queen事件</a>
-            <a href="#doob">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- do_ob事件</a>
-            <a href="#note-ms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 2021年国庆</a>
-            <a href="#yc-kingdom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- YC帝国</a>
-            <a href="#pages">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 个人主页的兴起</a>
-            <a href="#bots">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 机器人学</a>
-            <a href="#art">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 文艺创作</a>
-            <a href="#war">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 十字街与星聊</a>
-            <a href="#two">&nbsp;&nbsp;<div class="material-icons">web</div>&nbsp;&nbsp;二 / 智械时代</a>
-            <a href="#bot-war">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 智械横行</a>
-            <a href="#detele">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- detele事件</a>
-            <a href="#girl-and-her-boyfriends">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 49事件</a>
-            <a href="#zhang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Mr_Zhang事件</a>
-            <a href="#modbot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ModBot与权限</a>
-            <a href="#three">&nbsp;&nbsp;<div class="material-icons">public</div>&nbsp;&nbsp;三 / 三国鼎立</a>
-            <a href="#xchat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- XChat</a>
-            <a href="#rooms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 建室风潮</a>
-            <a href="#cool-faces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 聊天室标志</a>
-            <a href="#awa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- awa？AwA！</a>
-            <a href="#dark-tea">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 黑茶刷屏事件</a>
-            <a href="#minecraft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- XC与麦块</a>
-            <a href="#lbwnb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 卢本伟事件</a>
-            <a href="#hacker">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 黑客</a>
-            <a href="#boom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 人数巅峰</a>
-            <a href="#reebot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- reebot事件</a>
-            <a href="#book"><div class="material-icons">attach_file</div>&nbsp;&nbsp;附录</a>
-            <a href="#quote">&nbsp;&nbsp;<div class="material-icons">format_quote</div>&nbsp;&nbsp;部分引用</a>
-            <a href="#common-terms">&nbsp;&nbsp;<div class="material-icons">book</div>&nbsp;&nbsp;常用语</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#team"><div class="material-icons">group</div>&nbsp;&nbsp;编辑团队</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#update"><div class="material-icons">info</div>&nbsp;&nbsp;更新内容</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#for-you"><div class="material-icons">message</div>&nbsp;&nbsp;致编写者与读者</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#article"><div class="material-icons">watch_later</div>&nbsp;&nbsp;正文 / 编年史</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#one">&nbsp;&nbsp;<div class="material-icons">history</div>&nbsp;&nbsp;一 / 史前时代</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#origin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hack.Chat</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#queen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Queen事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#doob">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- do_ob事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#two">&nbsp;&nbsp;<div class="material-icons">fort</div>&nbsp;&nbsp;二 / 帝国时代</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#note-ms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- cn频道</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#yc-kingdom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- YC帝国</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#war">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 引流战争</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#pages">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 个人主页的兴起</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#bots">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 机器人学</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#art">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 文艺创作</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#three">&nbsp;&nbsp;<div class="material-icons">web</div>&nbsp;&nbsp;三 / 智械时代</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#bot-war">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 智械横行</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#detele">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- detele事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#girl-and-her-boyfriends">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 49事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#zhang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Mr_Zhang事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#modbot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ModBot与权限</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#four">&nbsp;&nbsp;<div class="material-icons">public</div>&nbsp;&nbsp;四 / 三室时代</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#lounge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- lounge频道</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#xchat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- XChat</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#rooms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 建室风潮</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#cool-faces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 聊天室标志</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#awa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- awa？AwA！</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#dark-tea">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 黑茶刷屏事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#minecraft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- XC与麦块</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#lbwnb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 卢本伟事件</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#hacker">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 黑客</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#boom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 人数巅峰</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#reebot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 游戏狂潮</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#five">&nbsp;&nbsp;<div class="material-icons">warning</div>&nbsp;&nbsp;五 / 大动乱时代</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#book"><div class="material-icons">attach_file</div>&nbsp;&nbsp;附录</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#quote">&nbsp;&nbsp;<div class="material-icons">format_quote</div>&nbsp;&nbsp;部分引用</a>
+            <a onpointerdown="ripplet(arguments[0])" href="#common-terms">&nbsp;&nbsp;<div class="material-icons">book</div>&nbsp;&nbsp;常用语</a>
             <br>
             <hr>
             <br>
-            <a id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;关于</a>
+            <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;关于</a>
             <br>
             <br>
             <br>
@@ -875,14 +986,14 @@
             <div>提示</div>
             <p>但是事情还是发生了...</p>
             <br>
-            <div class="alerta"><a onClick="alertClose('alert1')">关闭</a></div>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertClose('alert1')">关闭</a></div>
         </div>
         <!--以下为弹窗2内容-->
         <div id="alert2" class="gafalert">
             <div>关于</div>
-            <p>GS App Frame V3.02由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <p>GS App Frame V3.02由<a onpointerdown="ripplet(arguments[0])" href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
             <br>
-            <div class="alerta"><a onClick="alertSideClose('alert2')">关闭</a></div>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertSideClose('alert2')">关闭</a></div>
         </div>
         <br>
         <br>
@@ -893,7 +1004,7 @@
         <br>
         <div class="side-title">
             <h1>聊天室历史书</h1>
-            <div>版本8.2_zcm_release，于2022/8/9更新</div>
+            <div>版本9.0_zcm_release，于2022/8/14更新</div>
         </div>
         <br>
         <br>
@@ -903,13 +1014,13 @@
             <h2>编辑团队</h2>
         </div>
         <p>
-            <a onclick="aHref('https://www.pillows.net.eu.org/')">4n0n4me</a>（主编）<br>
-            <a onclick="aHref('https://thz.cool/')">Maggie</a>（项目提出者，修改格式，整理目录）<br>
-            <a onclick="aHref('https://mrzhang365.github.io/')">Mr_Zhang</a>（编辑部分内容）<br>
-            <a onclick="aHref('https://qiu-lingyan.github.io/1/')">QiuLingYan</a>（编写部分内容）<br>
-            <a onclick="aHref('https://gitee.com/BirdingLight/')">Light</a>（编写部分内容）<br>
-            <a onclick="aHref('https://www.zzchat.cf/')">zzChumo</a>（润色，内容补充，UI界面）<br>
-            <a onclick="aHref('https://paperee.tk/')">ee</a>（副主编，修改格式，整理目录）
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.pillows.net.eu.org/')">4n0n4me</a>（主编）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://thz.cool/')">Maggie</a>（项目提出者，修改格式，整理目录）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://mrzhang365.github.io/')">Mr_Zhang</a>（编辑部分内容）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://qiu-lingyan.github.io/1/')">QiuLingYan</a>（编写部分内容）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://gitee.com/BirdingLight/')">Light</a>（编写部分内容）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/')">zzChumo</a>（润色，内容补充，UI界面）<br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://paperee.tk/')">ee</a>（副主编，修改格式，整理目录）
         </p>
         <br>
         <a name="update"></a>
@@ -917,10 +1028,10 @@
             <h2>更新内容</h2>
         </div>
         <p>
-            整合了<a onclick="aHref('http://45.151.135.102:3000/chatroom-history-book/#/')">原文</a>添加的新内容。<br>
-            添加了黑暗模式（需系统和浏览器支持）。<br>
-            优化了观感。<br>
-            添加了细节。
+            整合了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('http://45.151.135.102:3000/chatroom-history-book/#/')">原文</a>添加的新内容。<br>
+            添加Ripplet.JS支持。<br>
+            将<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/Game.html')">GAF</a>版本更新至了3.11。<br>
+            添加了“游戏狂潮”项。
         </p>
         <br>
         <a name="for-you"></a>
@@ -931,7 +1042,7 @@
             除QiuLingYan及其在不同时期的昵称外（不同昵称的变更反映了其改正的过程），用户昵称均使用英文名或拼音。<br>
             除星聊（星奕微聊）外，聊天室名均使用大写字母缩写。<br>
             除?bot、?test、?chinese、?china、YC帝国外，频道名均使用小写字母缩写。<br>
-            文字出现的所有缩写详见附录<a href="#common-terms">常用语</a>。
+            文字出现的所有缩写详见附录<a onpointerdown="ripplet(arguments[0])" href="#common-terms">常用语</a>。
         </p>
         <br>
         <a name="article"></a>
@@ -939,15 +1050,21 @@
             <h2>编年史</h2>
         </div>
         <p>
-            <a href="#one"><strong>史前时代</strong></a><br>
+            <a onpointerdown="ripplet(arguments[0])" href="#one"><strong>史前时代</strong></a><br>
             早期 2015~2021/8<br>
-            晚期 2021/8~2022/1<br>
+            晚期 2021/8~2021/10<br>
             <br>
-            <a href="#two"><strong>智械时代</strong></a><br>
+            <a onpointerdown="ripplet(arguments[0])" href="#two"><strong>帝国时代</strong></a><br>
+            2021/10~2022/1<br>
+            <br>
+            <a onpointerdown="ripplet(arguments[0])" href="#three"><strong>智械时代</strong></a><br>
             2022/1~2022/5<br>
             <br>
-            <a href="#three"><strong>三国鼎立时代</strong></a><br>
-            2022/3~至今
+            <a onpointerdown="ripplet(arguments[0])" href="#four"><strong>三室时代</strong></a><br>
+            2022/5~2022/7<br>
+            <br>
+            <a onpointerdown="ripplet(arguments[0])" href="#five"><strong>大动乱时代</strong></a><br>
+            2022/7~至今
         </p>
         <br>
         <a name="one"></a>
@@ -963,46 +1080,65 @@
         <p>史前时代开始于HC的建立。据emankciN、Bird等老用户的说明，HC由Andrew Belt成立于2015年，也有传闻是HC现任站长R建造的网站。</p>
         <p>在史前时代，很多中国用户来到了HC，使得yc中充满了中国用户。许多这一阶段的用户如今已经较少在聊天室中上线。在2021前的用户。大部分是看warma（B站UP主）的视频了解到HC。据说当时的用户相处十分融洽，然而相传在未知时间也有过冲突的发生。</p>
         <p>目前已知的、从史前早期到现在依然活跃于HC的用户有zzChumo、ji11、CaO、emankciN、Bird和666。然而，史前时期时间跨度长，其中曾经存在过的用户太多难以尽列。即使是在智械时期，也有很多不那么有名的用户，使得列出用户是一件很难的事。</p>
-        <p>hackchat吧是一个关于HC的百度贴吧，当年主要活跃于hackchat吧的HC常驻用户是Lithium和666，主要更新HC支持的LaTeX和Markdown。目前其中的帖子多为史前晚期前发布的，可以一窥史前时期的风采，对于当时的用户也有所记录。值得一提的是，HC的贴吧不仅涉及HC，还活跃着不少现阶段十字街聊天室的用户，由此可见CC的建立在这一时期。</p>
+        <p><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://tieba.baidu.com/f?kw=hackchat&ie=utf-8')">hackchat吧</a>是一个关于HC的百度贴吧，当年主要活跃于hackchat吧的HC常驻用户是Lithium和666，主要更新<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://tieba.baidu.com/p/6833224084')">HC支持的LaTeX和Markdown</a>。目前其中的帖子多为史前晚期前发布的，可以一窥史前时期的风采，对于当时的用户也有所记录。值得一提的是，HC的贴吧不仅涉及HC，还活跃着不少现阶段十字街聊天室的用户，由此可见CC的建立在这一时期。</p>
         <br>
         <a name="queen"></a>
         <div class="side-title">
             <h4>Queen事件</h4>
         </div>
         <p>2021年8月末，一名叫Queen（King）的用户长期在yc自言自语、刷屏、装B（表现为炫耀有一个黑客师傅，但证据很无厘头等），遭到tctd、Midix、hahaha等用户的声讨。此事件标志着史前晚期的开始。9月份开学后，Queen消失了一段时间。</p>
-        <p>2021国庆期间，note.ms这个作为剪贴板使用的工具被发掘，不少用户因为它方便读写，而将note.ms作为留言板使用。此时Queen重新复出，手段更加恶劣，从清空用户THEWESTSHELL（西贝壳）的留言板开始，不分先后清空了活跃用户ee、154、666、alex、zzChumo、ww等人的留言板，导致众怒。此过程持续了半个多月，Queen每天都会光临以上用户的留言板并清空，但Queen一直装无辜。直到11月，由于ee和zzChumo矛盾的发生，Queen才承认这几个月来的罪行。</p>
+        <p>2021国庆期间，<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://note.ms/')">note.ms</a>这个作为剪贴板使用的工具被发掘，不少用户因为它方便读写，而将note.ms作为留言板使用。此时，Queen重新复出，手段更加恶劣。从清空用户THEWESTSHELL（西贝壳）的留言板开始，不分先后清空了活跃用户ee、154、666、alex、zzChumo、ww等人的留言板，导致众怒。此过程持续了半个多月，Queen每天都会光临以上用户的留言板并清空，但Queen一直装作无辜。直到11月，由于ee和zzChumo矛盾的发生，Queen才承认这几个月来的罪行。</p>
         <p>值得一提的是，自XC聊天室建立后，Queen的行为大有进步，受到XC站长鱼的肯定。但老用户tctd依然表示不会原谅Queen。原先那些被清空过留言板的用户也很少上线了。</p>
         <br>
         <a name="doob"></a>
         <div class="side-title">
-            <h4>do_ob引流事件</h4>
+            <h4>do_ob事件</h4>
         </div>
         <p>2021年9月份，来自十字街站长Henrize的机器人do_ob在HC多个频道引流，给CC带来了大量用户，但也使yc陷入寒冷中。do_ob的引流遭HC管理不满。后来，两个聊天室达成协议，Henrize撤掉了引流机器人。此事件后，原本活跃于HC的yc频道的机器人fuck（与fucco同作者的机器人，afk功能的先祖）神秘失踪。据老用户ji11说与此机器人引流事件有关，但因事发深夜，目击者甚少，至今已无法考察。</p>
         <br>
+        <a name="two"></a>
+        <div class="side-title">
+            <h3>二 / 帝国时代</h3>
+        </div>
+        <p>此处的帝国并不是指帝国主义，而是对于YC帝国的简称。此时期的历史依旧以HC为主。</p>
+        <br>
         <a name="note-ms"></a>
         <div class="side-title">
-            <h4>2021国庆期间</h4>
+            <h4>cn频道</h4>
         </div>
-        <p>不同于其他时期，这期间的yc非常寒冷，取而代之的是?chinese频道及?china频道的盛行。zzChumo、THEWESTSHELL、154、ww、ee、hh、alex、666、jill、tctd、hahaha等人活跃于此。造成比较大影响的是hh的拍照事件，起因是hh怀疑在HC活跃的用户都是伪装成普通人的“国宝（网警）”，因此发送偷拍链接在?chinese频道。zzChumo、ee、alex等人的头部照片惨遭泄露。</p>
-        <p>自此，该hh使用的偷拍神器，被部分HC老用户用来<s>坑蒙拐骗</s>试探东南亚外国人，最惨的一次，是一位声称自己毕业于华南师范大学的马来小哥<s>的智商</s>遭到怀疑，连续泄露5张头部照片。</p>
+        <p>cn频道，泛指?chinese频道及?china频道，即两个HC频道。</p>
+        <p>不同于其他时期，2021国庆期间的yc非常寒冷，取而代之的是cn频道的盛行。zzChumo、THEWESTSHELL、154、ww、ee、hh、alex、666、jill、tctd、hahaha、chendks等人活跃于此。起初，?chinese频道是为了躲避yc刷屏者的避难所。而后THEWESTSHELL的到来，使?chinese屏幕上充满了大量红绿相间的LaTeX文本（TWS炸弹的前身），<a class="secret">被称为“红配绿，赛狗屁”</a>。</p>
+        <p>国庆中期，ee、666、154、alex等人为躲避TWS的攻击，开辟了另一个名为“china”的频道，但并未说明是私人频道。后来，此频道被154暴露给TWS等人，所幸他们对此频道不感兴趣，?china并未收到污染。</p>
+        <p>此间造成比较大影响的是hh的拍照事件，起因是hh怀疑在HC活跃的用户都是伪装成普通人的“国宝（网警）”，因此发送偷拍链接在?chinese频道。zzChumo最先中招<a class="secret">浏览器都提醒了还被拍了的初墨是屑</a>，然后对ee说这是个美颜相机，ee中招后，又告诉alex这是美颜相机。此三人的头部照片惨遭泄露。</p>
+        <p>自此，该hh使用的偷拍神器，被部分HC老用户用来<s>坑蒙拐骗</s>试探东南亚外国人。最惨的一次，是一位声称自己毕业于华南师范大学的马来小哥<s>的智商</s>遭到怀疑，连续泄露5张头部照片。</p>
         <p><a class="secret">当这位马来小哥知道自己被偷拍以后，他甚至还摆了个pose继续拍。</a></p>
         <br>
         <a name="yc-kingdom"></a>
         <div class="side-title">
-            <h4>YC帝国的兴衰</h4>
+            <h4>YC帝国</h4>
         </div>
         <p>YC帝国是曾经存在的HC暴力机构，用发送LaTeX特效文字对抗破坏者，且有效治理过HC的风气。记录下的弹药之一是红绿相间的背景和文字，通常文字为“傻逼”（被部分用户戏称为<a class="secret">傻逼对联</a>）或绿红相间的方块，发明者是THEWESTSHELL，被MuRongPIG作为轰炸姬（虚拟人物，通过使用多个Socks代理突破频率限制进入聊天室进行刷屏的机器人）刷屏的炸药。</p>
         <p>zzChumo曾带领THEWESTSHELL、MuRongPIG、ee、alex等人在yc与多位刷屏者进行抗争，后来轰炸姬因把HC搞崩而被管理员喝令禁止，MuRongPIG也因此改进了轰炸强度（例如使用私聊轰炸、使用进进出出刷屏）。</p>
         <p>此间出现了yc大型爆照事件，以zzChumo开头，先后是ee、MuRongPIG、Terry、tctd等人发了照片，因此诞生了协议SCP-YC-CO001（在YC范围内，除初墨外所有研究员的图像均不应该被暴露。如有暴露，应立即对相关人员进行B级记忆消除，严重时可进行处决）及SCP-YC-CO002（任何人不得把炸药包送给任何不被站点主管zzChumo，MuRongPIG博士和THEWESTSHELL博士认可的人手中。如有违反者，将会对所有相关人员使用致死模因进行抹杀）。</p>
-        <p>YC帝国成立初期，用户zzChumo曾提议书写YC帝国历史书，可由于学业原因成了当年一个大遗憾。直到2022暑假初期，XC用户Maggie和4n0n4me提议写一个聊天室历史书，才使这段充满遗憾的历史重现展现在众人面前。2022年暑假中期，用户DPG加以改进，诞生了根据进出原理刷识别码的机器人，加上有用户建议用识别码交换东西（典型为用识别码交换识别码，或者用钱购买识别码），正式掀起了识别码收集（交易）热潮。</p>
+        <p>YC帝国成立初期，用户zzChumo曾提议书写YC帝国历史书，可由于学业原因成了当年一个大遗憾。直到2022暑假初期，XC用户Maggie和4n0n4me提议写一个聊天室历史书，才使这段充满遗憾的历史重现展现在众人面前。</p>
+        <p>2022年暑假中期，用户DPG加以改进，诞生了根据进出原理刷识别码的机器人，加上有用户建议用识别码交换东西（典型为用识别码交换识别码，或者用钱购买识别码），正式掀起了识别码收集（交易）热潮。</p>
         <br>
-        <div class="side"><p class="z">关于识别码交易热潮的说明写于2022年7月末，而真正的识别码交易爆发于8月初。<br>——ee</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">关于识别码交易热潮的说明写于2022年7月末，而真正的识别码交易爆发于8月初。<br>——ee</p></div>
+        <br>
+        <a name="war"></a>
+        <div class="side-title">
+            <h4>引流战争</h4>
+        </div>
+        <p>引流战争是曾经十字街与星聊发生的一起较大摩擦。由于涉及网络攻击，事态严重，将其载入本史。</p>
+        <p>十字街是已知最早的HC衍生网站。十字街的用户和早期HC用户可能高度重合，且很多目前还活跃的早期HC用户都是十字街的管理员或成员。据说在史前晚期一段时间十字街用户很少，十分冷清，被称作“十字街寒冬”。</p>
+        <p>星奕微聊，简称星聊，成立于2021年底，截止至今经历过2次<s>差点跑路</s>被墙<a class="secret">（虽然最新的域名还是被江苏反电诈拦截了）</a>、3次更换域名。最终在星奕团队的努力下得以存活。</p>
+        <p>2021寒假期间，因星聊站长在CC推广其他聊天室（星聊）链接而导致CC管理不满。经双方多次谈判无果，最终掀起两个聊天室间的战争。CC管理员MuRongPIG通过DDoS攻击星聊服务器，导致聊天室及站群中大部分网站崩溃。<a class="secret">但是经过实践，发现根本就不需要DDoS,直接多线程下载就能gank掉星聊的<s>土豆</s>服务器</a>星奕方攻击十字街前端，但因CC前后端分离而打击无效。此间处于中立地带的HC正是热闹期间，HC成员纷纷发表不同看法。</p>
         <br>
         <a name="pages"></a>
         <div class="side-title">
             <h4>个人主页的兴起</h4>
         </div>
-        <p>2022年寒假初，由MuRongPIG发到yc的freenom网址成了这起事件的星星之火。大量原本没有个人主页的用户纷纷在freenom注册了自己的免费域名，通过免费静态网页托管站（GitHub、Vercel）或服务器建立了属于自己的个人主页。zzChumo、Light等用户还注册了“.sbsbs.sb”的二级域名，独特且有趣。值得一提的是，Light在个人主页上放置的机器人Foolishbird的源码，成为了智械时代的起源。</p>
+        <p>2022年寒假初，由MuRongPIG发到yc的freenom网址成了这起事件的星星之火。大量原本没有个人主页的用户纷纷在<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.freenom.com')">freenom</a>注册了自己的免费域名，通过免费静态网页托管站（<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://pages.github.com')">GitHub</a>、<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://vercel.com')">Vercel</a>）或服务器建立了属于自己的个人主页。zzChumo、Light等用户还注册了“.sbsbs.sb”的二级域名，独特且有趣。值得一提的是，Light在个人主页上放置的机器人Foolishbird的源码，成为了智械时代的起源。</p>
         <p>截止至今，早起拥有个人主页的用户的网站大部分已失效（Light的主页）、或早已更换了网址（zzChumo的主页）。“.sbsbs.sb”二级域名提供商因DDoS攻击停止了对该域名的提供，但于今年3月份重新开始服务。</p>
         <br>
         <a name="bots"></a>
@@ -1017,22 +1153,14 @@
             <h4>文艺创作</h4>
         </div>
         <p>当时的用户曾经以HC的环境或用户为题材创作出许多作品，如绘画、小说等。这进一步体现了当时氛围的宁静。</p>
-        <p>如史前晚期ee制作eebot时，tctd就曾经创作过关于赋予eebot身体和灵魂的漫画。时间上相近的漫画作品还有以emankciN为主角的《美金与别墅》、以Light为主角的《CYBERLOVE2022》，tctd与ee也创作了不少以HC成员为人设的插画作品，放置于“HCworks”的留言板。<a class="secret">此留言板在Queen时期被清空过两次，至今不再更新。</a>&nbsp;&nbsp;<a onclick="aHref('https://note.ms/HCworks111')">HCworks111备份</a></p>
+        <p>如史前晚期ee制作eebot时，tctd就曾经创作过关于赋予eebot身体和灵魂的漫画。时间上相近的漫画作品还有以emankciN为主角的《美金与别墅》、以Light为主角的《CYBERLOVE2022》，tctd与ee也创作了不少以HC成员为人设的插画作品，放置于“HCworks”的留言板。<a class="secret">此留言板在Queen时期被清空过两次，至今不再更新。</a>&nbsp;&nbsp;<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://note.ms/HCworks111')">HCworks111备份</a></p>
         <p>此间文学类创作也相当活跃，HC用户习惯于多人合作创作而不是单人。这时期公开的有cakechan、ee、Yiqin、alex合作的《安息诗》、memset0转载的《江城子·考试定律》、2022寒假早期本来想拍成<s>主角是zzChumo</s>的<a class="secret">3P大作战</a>小电影的由Light、ee、hhww主笔的《小电影》。</p>
         <br>
-        <a name="war"></a>
+        <a name="three"></a>
         <div class="side-title">
-            <h4>十字街与星聊</h4>
+            <h3>三 / 智械时代</h3>
         </div>
-        <p>十字街是已知最早的HC衍生网站。十字街的用户和早期HC用户可能高度重合，且很多目前还活跃的早期HC用户都是十字街的管理员或成员。据说在史前晚期一段时间十字街用户很少，十分冷清，被称作“十字街寒冬”。</p>
-        <p>星奕微聊，简称星聊，成立于2021年底，截止至今经历过2次<s>差点跑路</s>被墙<a class="secret">（虽然最新的域名还是被江苏反电诈拦截了）</a>、3次更换域名。最终在星奕团队的努力下得以存活。</p>
-        <p>2021寒假期间，因星聊站长在CC推广其他聊天室（星聊）链接而导致CC管理不满。经双方多次谈判无果，最终掀起两个聊天室间的战争。CC管理员MuRongPIG通过DDoS攻击星聊服务器，导致聊天室及站群中大部分网站崩溃。<a class="secret">但是经过实践，发现根本就不需要DDoS,直接多线程下载就能gank掉星聊的<s>土豆</s>服务器</a>星奕方攻击十字街前端，但因CC前后端分离而打击无效。此间处于中立地带的HC正是热闹期间，HC成员纷纷发表不同看法。</p>
-        <br>
-        <a name="two"></a>
-        <div class="side-title">
-            <h3>二 / 智械时代</h3>
-        </div>
-        <p>智械时代的标志之一为鸟币的出现，此外eebot功能的逐渐完善，也标志着智械时代的来临。智械时代作为史前与三国的过渡时期，因此与这两个时代均有重合点，并不影响历史的严谨性，反而更详细反映了从史前到三国的转折。</p>
+        <p>智械时代的标志之一为鸟币的出现，此外eebot功能的逐渐完善，也标志着智械时代的来临。智械时代作为帝国与三室的过渡时期，与这两个时代均有重合点，并不影响历史的严谨性，反而更详细反映了从史前到三国的转折。</p>
         <br>
         <a name="bot-war"></a>
         <div class="side-title">
@@ -1046,9 +1174,9 @@
         <div class="side-title">
             <h4>detele事件</h4>
         </div>
-        <p>detele事件发生在2022年3月下旬，这是HC历史上一件较早的有<a onclick="aHref('https://www.zzchat.cf/wiki/notice.html')">完善记录</a>（由初墨和13在初墨的hc wiki记载）的事件，疑似用户detele的人多次大量刷屏辱骂ee、13等用户，同时事件所涉及的问题也比较重大。</p>
+        <p>detele事件发生在2022年3月下旬，这是HC历史上一件较早的有<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/wiki/notice.html')">完善记录</a>（由初墨和13在初墨的hc wiki记载）的事件，疑似用户detele的人多次大量刷屏辱骂ee、13等用户，同时事件所涉及的问题也比较重大。</p>
         <p>在事件前，detele与Light、ee在ycl（HC的your-channell频道，仅有Light、ee、detele、memset0知道的Foolishbird及eebot测试频道，exe/MRGAO曾因打错yc频道名误入）相处不错，当时Light对外宣传自己是女生，detele也多次表明想追到Light。<a class="secret">渣男实锤</a></p>
-        <p>身为YC帝国领导人之一的zzChumo带头不遵守YC帝国协议SCP-YC-CO001，三次擅自曝光ee照片是导火线，详见<a href="#yc-kingdom">YC帝国时期</a>。第一次，zzChumo将无打码将照片发给了用户THEWESTSHELL；第二次将脸涂黑发给了wcy等人，wcy自认为ee的照片可以随意传播，便将其发给了detele；第三次出现在detele事件时，zzChumo因为精神崩溃<s>人话就是脑子有问题</s>在yc公屏上大量刷ee的照片。</p>
+        <p>身为YC帝国领导人之一的zzChumo带头不遵守YC帝国协议SCP-YC-CO001，三次擅自曝光ee照片是导火线，详见<a onpointerdown="ripplet(arguments[0])" href="#yc-kingdom">YC帝国时期</a>。第一次，zzChumo将无打码将照片发给了用户THEWESTSHELL；第二次将脸涂黑发给了wcy等人，wcy自认为ee的照片可以随意传播，便将其发给了detele；第三次出现在detele事件时，zzChumo因为精神崩溃<s>人话就是脑子有问题</s>在yc公屏上大量刷ee的照片。</p>
         <p>照片事件使detele了解到ee的性别，并不停提出要加ee微信，并在加好友不久后不停在微信上给ee打电话骚扰ee。ee多次提醒后忍无可忍删除detele好友，detele事件正式爆发。</p>
         <p>因为所谓的“爱情”，detele长期在yc上刷屏、恳求ee加回好友无果，便开始刷“ee你妈咪死了”等侮辱话语，并被ee曝光，得到13、zzChumo、Lithium、kiddo等人的帮助，在HC7人微信群、十字街官方Q群等地掀起了长达两周的大型声讨detele活动。</p>
         <p>detele在HC辱骂无果后，选择发骚扰邮件威胁ee、13等人，诸如“我妈在xx市检察机关工作，你们的话已经被我妈知道了”、“我是detele的爸爸，我已经向法院起诉了你们”<a class="secret">有个在检察院工作的老婆就是好</a>此类，由于证据太过xxs，detele被无情嘲笑。<a class="secret">我妈是李刚</a><a class="secret">尤其是zzChumo，在七月份才发现有这封邮件，而且p事没有</a>其中，13和Lithium在HC上回击detele，zzChumo对detele进行<a class="secret">16线程24小时不间断</a>短信轰炸，kiddo带领CC群成员讨论和批判，影响力前所未有的扩大。值得一提的是，此次事件使作为HC老成员的Lithium两年来终于在HC上活跃。</p>
@@ -1057,6 +1185,7 @@
         <p><a class="secret">若干天以后，detele改名Wine_Corpse，且不再提起此次事件。detele事件迎来了真正的结局。</a><a class="secret">(希望是真正的结局吧</a></p>
         <p>需要额外指出的是，detele即为秋凌烟（QiuLingYan）和Wine_Corpse（<a class="secret">现49男朋友</a>），然而其两次改名，反映了其改过自新的愿望，基本上可以认为detele事件也未重演。</p>
         <p>目前QiuLingYan作为HiyoTeam三名领导人之一（另两位是4n0n4me及ee）。ee并没有准确表达目前对QiuLingYan的态度，但从XC管理员选拔上不支持QiuLingYan成为XC管理员，可以看出ee仅在团队事务上支持QiuLingYan。</p>
+        <p>（8月14日补：QiuLingYan，即detele，<a class="secret">在大动乱时期被XC方以一个Mod的代价收买，并直接导致了HiyoTeam的解散。可以认为detele事件发生了重演</a>。）</p>
         <br>
         <a name="girl-and-her-boyfriends"></a>
         <div class="side-title">
@@ -1067,7 +1196,7 @@
         <p>过程用一句话概况就是：49与三位男生（27、jeck、WineCorpse）间的“爱恨纠缠”。此间49没有表达明确的态度，即便早与WineCorpse确认关系，还依然轮流和27、WineCorpse使用同一个识别码。<a class="secret">渣女，气抖冷</a></p>
         <p>2022寒假结束后，49、27、jeck等人消失，剩下的绝大部分用户都去了XC。2022暑假开始，49有几次在lo出现，但更改了昵称。2022年8月3日下午，QiuLingYan在抱怨49已经半年没联系他了，并表明想与49分手的想法。</p>
         <br>
-        <div class="side"><p class="z">其实我觉得49有点渣，jeck天天都与49见面先不说，27真的输麻了，QiuLingYan看似是最后的赢家，但他在这场战斗中什么都没得到，甚至我觉得49完全没把他当男朋友。<br>——ee</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">其实我觉得49有点渣，jeck天天都与49见面先不说，27真的输麻了，QiuLingYan看似是最后的赢家，但他在这场战斗中什么都没得到，甚至我觉得49完全没把他当男朋友。<br>——ee</p></div>
         <br>
         <p>当时有一些关于49等用户的传闻，被4n0n4me传播给Light后，Light创作了相关字符画，导致被人反对。最终，聊天室中开始刷屏。Light充分运用机器人技术，使用Foolishbird机器人在27等用户说话时自动回复。Mr_Zhang制作了ZhangProtector与ZhangKiller等机器人，专门用于进行回击。<a class="secret">这几个机器人使得聊天室内一度充满占了巨大的屏幕空间的LaTeX消息。</a>最终在Sprinkle等人的调节下，Light与Mr_Zhang和解，两人各自撤掉自己的刷屏机器人。</p>
         <br>
@@ -1086,14 +1215,21 @@
         <p>ModBot能够被命令触发的权限功能较为有限，且只能在固定的频道运行，因此授权者（一般称为协管）无法拥有与管理员相同的特权。然而，这结束了中国人没有权限的时代，并且经过机器人的赋能，这种权限一定程度上也足以防御卢本伟等臭名昭著的破坏者的破坏行为。</p>
         <p>ModBot部署前期，yc协管泛滥，形成了前所未有的混乱局面。由于4n0n4me在有破坏现象时自认为有必要给其认识的一些用户权限的行为被eman等用户反对，一场关选举于该如何授予与分配权限的争论展开了。部分用户认为投票或至少由一部分固定的信任的用户进行商讨是必要的，甚至提出“用机器人统计用户发言数量，超过XXX条的授予选举权”这种方案。但也有部分用户认为这两种方案太过麻烦、有论资排辈的嫌疑。</p>
         <p>这场争论持续了<a class="secret">两天</a>，最终在众人的努力下，完成了一次较为简单的投票选举，选出CaO（史前早期就活跃的一位用户）与4n0n4me两位协管。此后4n0n4me使用<a class="secret">问卷星</a><a class="secret">（选协管送大礼包了属于是）</a>进行了第二次投票选举，选出了四位协管：ee、Mr_Zhang、MuRongPIG、DPG。</p>
+        <p>在大动乱时期，4n0n4me进行了第三次协管选举。获选协管名单待补。</p>
         <p>后来管理员在lo也部署了ModBot。lo的协管授权较为自由，一般授权给信任的用户。原本协管识别码的列表可以通过~kick命令重启ModBot来查看，但自从lo有了ModBot之后，ModBot不再能被协管重启，因此协管列表难以尽列。</p>
         <p>时至今日，lo常驻成员基本都是协管。<a class="secret">同时yc也差不多，原因是DPG以“协管的协管”为理由，大量添加能通过有协管权限的AfK_Bot的协管的协管，yc的协管人数也陷入迷惑。</a>但因此功能至今使用者较少且在卢本伟事件中发挥重大作用，而被暂定因为没有危害。</p>
         <br>
-        <a name="three"></a>
+        <a name="four"></a>
         <div class="side-title">
-            <h3>三 / 三国鼎立时代</h3>
+            <h3>四 / 三室时代</h3>
         </div>
-        <p>三国，指HC、CC、XC三个人数最多且性质差不多的聊天室。这三个聊天室（包括用户）间既有合作又相互竞争。</p>
+        <p>三室，指HC、CC、XC三个人数最多且性质差不多的聊天室。这三个聊天室（包括用户）间既有合作又相互竞争。</p>
+        <br>
+        <a name="lounge"></a>
+        <div class="side-title">
+            <h4>lounge频道</h4>
+        </div>
+        <p>HC的?lounge频道，一般被认为兴起时间与XC接近。早期的lo频道与XC无异，只有零零星星几个用户，较早活跃在此频道的有黑茶和Sakura。lo的人员与同HC的yc频道互不相通，后随各机器人的频道互通功能及lo人员的增多，lo人数一度超过yc，并先后建立了Skype群和微信群。时至今日，lo老成员一般活跃在lo微信群而不是聊天室，类似于CC聊天室活跃人员与官方QQ群活跃人员的区别，再次反映了建群对聊天室人数减少的弊端。更多有关lo频道的历史详见由前HiyoTeam编写的<a onpointerdown="ripplet(arguments[0])" onclick="aHref('http://book.osww.cn/lounge/')">?lounge往事</a>。</p>
         <br>
         <a name="xchat"></a>
         <div class="side-title">
@@ -1101,14 +1237,14 @@
         </div>
         <p>2022年3月，liguiyu（李桂宇，由zzChumo的<a class="secret">平行世界镜像初墨娘</a>称作李桂鱼，后被大规模接受，同时也自称为MelonFish）建立了第二个HC衍生网站。最初的名字为黑聊，功能与HC无异。然而当大部分用户来到该网站时，名字已经改为XChat（多简称为XC）。</p>
         <p>一开始，黑聊的用户极少。但由于ee、DarkT等用户长期在XC挂机，为站长MelonFish提供了精神支持，使得MelonFish坚持维护。<a class="secret">在大部分功能完善后的4月10日左右，MelonFish出动机器人XBot，在HC对加入的用户发送XC链接进行引流，史称XBot大引流，</a>在这之后XC用户多了起来<s>（被动）</s>。此时XC已经发展出许多有特色的功能，如头像、afk功能等。直至今日，XC的命令是所有HC系列聊天室中最多的，可玩性也是最高的。</p>
-        <p>XC的首部同人作品，是XC用户MRGAO、4n0n4me邀请<s>谷歌翻译娘和AI续写娘</s>写的《李桂鱼传史》和《李桂鱼修仙记》。小说曾在刚上架时放置在XC主页上，<a class="secret">后来因为很毁形象而被撤掉了。</a>目前仍有<a onclick="aHref('https://home.osww.cn/%E3%80%8A%E6%9D%8E%E6%A1%82%E9%B1%BC%E4%BF%AE%E4%BB%99%E8%AE%B0%E3%80%8B.zip')">《李桂鱼修仙记》的备份</a>。</p>
+        <p>XC的首部同人作品，是XC用户MRGAO、4n0n4me邀请<s>谷歌翻译娘和AI续写娘</s>写的《李桂鱼传史》和《李桂鱼修仙记》。小说曾在刚上架时放置在XC主页上，<a class="secret">后来因为很毁形象而被撤掉了。</a>目前仍有<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://home.osww.cn/%E3%80%8A%E6%9D%8E%E6%A1%82%E9%B1%BC%E4%BF%AE%E4%BB%99%E8%AE%B0%E3%80%8B.zip')">《李桂鱼修仙记》的备份</a>。</p>
         <br>
         <a name="rooms"></a>
         <div class="side-title">
             <h4>建室风潮</h4>
         </div>
         <p>在XC聊天室成立不久后，Maggie建立了TanChat，Sprinkle建立了冬日小屋，zzChumo（初墨）建立了zzChat，并且分别开发了有特色的功能<a class="secret">（冬日小屋除外）</a>，尤其是zzChat的客户端十分新颖，在前端方面良苦用心<s>（虽然Beta版的前端有一堆BUG）</s>。然而，这三个聊天室缺乏用户来源，用户相对较少。即使部分聊天室效仿XC用机器人引流，也几乎没能成功引来用户，<a class="secret">甚至还遭到了积极的抵制。</a></p>
-        <p>MuRongPIG和Mr_Zhang等人也有自己的HC聊天室，但因没有公网IP或仅作为测试原因没有大规模公开。<a class="secret">论普及IPv6的重要性</a></p>
+        <p>MuRongPIG和Mr_Zhang等人及前HiyoTeam也有自己的HC聊天室，但因没有公网IP或仅作为测试原因没有大规模公开。<a class="secret">论普及IPv6的重要性</a></p>
         <p>在HC被XBot引流时，HC用户还未获得权限或刚刚获得权限，抵制的行动较少；然而其它聊天室引流时，HC中对权限的运用已经较为完善，如有人写出有定时锁房功能的机器人，以应对Sprinkle每半小时加入聊天室引流的dx_xb。</p>
         <br>
         <a name="cool-faces"></a>
@@ -1126,15 +1262,15 @@
         <p>awa，读作阿瓦。在awa表情盛行早期，DPG和DarkT创作了关于awa的同人作品<a class="secret">（万物皆可同人）</a>，即阿瓦国（Awaland）和阿瓦语。</p>
         <p>西阿亚及低瓦斯联合国（West Aya and Low Waas United Nation），简称阿瓦国（Awaland），部分用户称为阿瓦兰（Awaland的音译）。成立于2022年4月22日，在HC的lo和XC等地广为人知。阿瓦语（Awaish）是阿瓦国的语言文字，具体表现为以“a”和“w”两个字母的不同组合来表示简单的意思。除概念外，阿瓦语语言体系创作由4n0n4me执笔。</p>
         <br>
-        <div class="side"><p class="z">我写的版本并非只有两个字母，而且就写了一点点词汇，后来还忘光了。<br>——4n0n4me</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">我写的版本并非只有两个字母，而且就写了一点点词汇，<s>后来还忘光了。</s><br>——4n0n4me</p></div>
         <br>
         <p>传说，阿瓦兰有6个神明，至高、秩序、破坏、自然 纯洁、禁忌、本初（初神）、人类神（亚神）。</p>
         <br>
-        <div class="side"><p class="z">人类神（亚神）宇宙诞生之初，本初神出现了。本初神将自己的力量分离出五份，创造了其余五神。自然神的实验创造出结晶，结晶通过演化，出现了智慧神（演化神）和人类。智慧神出现前，除神外的所有生物都没有理智，这段时期称之为“无智时期”。智慧神出现后为真智时期，这是万物皆有理智。众神不想将知识传授给其他生物，但是智慧神却传给了人类，所以智慧神被众神囚禁了，这之后只有人类发展出了文明，这段时期为“只智时期”。<br>——TUSK</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">人类神（亚神）宇宙诞生之初，本初神出现了。本初神将自己的力量分离出五份，创造了其余五神。自然神的实验创造出结晶，结晶通过演化，出现了智慧神（演化神）和人类。智慧神出现前，除神外的所有生物都没有理智，这段时期称之为“无智时期”。智慧神出现后为真智时期，这是万物皆有理智。众神不想将知识传授给其他生物，但是智慧神却传给了人类，所以智慧神被众神囚禁了，这之后只有人类发展出了文明，这段时期为“只智时期”。<br>——TUSK</p></div>
         <br>
         <a name="dark-tea"></a>
         <div class="side-title">
-            <h4>黑茶刷屏事件</h4>
+            <h4>黑茶事件</h4>
         </div>
         <p>DarkT（黑茶）是XC的早期管理之一，也是第二个来到XC的用户。那时大引流已经完成，但有一段时间XC用户仍然不是很活跃。黑茶认为人少，就带领部分用户肆意刷屏、<a class="secret">花式刷屏</a>。</p>
         <p>后来，XC管理员Untitled（无题）反对过黑茶的刷屏，但当时并未取得成果，<a class="secret">毕竟管理没法自相残鲨。</a>在这之后，XC出现过崩溃现象，但并未得到重视。</p>
@@ -1151,11 +1287,11 @@
         <p>最初，MelonFish、ee、4n0n4me等玩家住在4n0n4me发现的雪屋里<a class="secret">米♂️奇♂️妙♂️妙♂️屋</a>，雪屋所在的地方后来被称为“雪镇”。</p>
         <p>后来，ee建造了一座十分美丽的小屋。然而DPG用冰铺在小屋的屋顶上方，破坏了小屋的美观程度。当4n0n4me等用户清理了冰后，很快又发生了一次意外：Light表演落地水时不小心将岩浆从DPG建造的高空冰道倒下，岩浆破坏速度快，Light补救不及，烧毁了小屋。此后，小屋没有被成功重建过，成为了服务器里的一个遗憾。ee表示非常难过。</p>
         <br>
-        <div class="side"><p class="z">是我，DPG带我去高台玩，我想表演落地水，但是我的桶里是岩浆，我就把岩浆倒了，装了水。结果我摔死了，从出生点跑回来的时候，岩浆已经接近烧到dpg的房子了。<br>——Light</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">是我，DPG带我去高台玩，我想表演落地水，但是我的桶里是岩浆，我就把岩浆倒了，装了水。结果我摔死了，从出生点跑回来的时候，岩浆已经接近烧到dpg的房子了。<br>——Light</p></div>
         <br>
         <p>由于出生地位于雪原，不利于某些方面的发展，玩家们开拓了其它区域。回档前，4n0n4me就经常住在东南方向的称为“比邻”的金合欢树林区域、MRGAO曾经住在他发现的村庄“高村”。玩家们建造了各种设施，如ee建造了eebot像素画和出生点小木屋、DPG建造了高空中的冰平台、Light建造了一个空中的PVP场地和从雪镇区域通向PVP场地的长长的高空路径、4n0n4me建造了几段下界铁道交通与一座钓鱼机、DPG建造了刷铁轨机、MRGAO建造了提供药水的好果汁店、zzChumo建造了智障村及雪镇与智障村（zzChumo建立的聚居地）之间的界墙。</p>
         <br>
-        <div class="side"><p class="z">DPG帮我做了天空PVP的观众台，很好看。<br>——Light</p></div>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">DPG帮我做了天空PVP的观众台，很好看。<br>——Light</p></div>
         <br>
         <p>DPG取得OP权限后制作了一些极端的装备，如高级荆棘附魔的屏障方块，曾经使Light、zzChumo等玩家损失成套的顶级装备。玩家们做好屠龙准备后，就前往末地要塞屠龙。当时末影之眼不够，但是因为那是略显难得的许多玩家同时在线的情况，所以人们用OP权限获取了足够的末影之眼，然后成功屠龙。MRGAO收藏了龙蛋，摆在好果汁店里。</p>
         <p>有一次，服务器遭到未知玩家破坏，在农田箱子下方埋藏了TNT，还留下了辱骂性的话语。服务器遭到严重破坏，回档。</p>
@@ -1170,7 +1306,7 @@
         <p>故事发生在2022年5月初，一名叫做卢本伟的用户出现在了十字街聊天室，PDD（此处与下文不是指的“拼多多”与游戏主播）也同时加入<a class="secret">（CPDD,指操PDD）</a>。事实证明，“卢本伟”和“PDD”都是我们所说的卢本伟所扮演的角色。他们坚称自己是游戏主播卢本伟、游戏主播PDD，在管理员指出他们的IP地址相同后，还宣称卢本伟和PDD用的是同一个网络。当天，卢本伟还冒充了“老八”等网红人物<a class="secret">传下去，这b说我们敢拉它就敢吃</a>。此后，卢本伟不断以各种假身份进入十字街等聊天室进行破坏，行为包括冒充他人、辱骂、刷屏等。</p>
         <p>以下贴上一段用户4n0n4me记录的证据：</p>
         <br>
-        <div class="chatinfo">
+        <div onpointerdown="ripplet(arguments[0])" class="chatinfo">
             <div class="trip">dJ77TT</div>&nbsp;&nbsp;<div class="nickname">Ahxello</div><br>
             <div class="text">卢本伟，GEM邓紫棋，8848，斯大林，Dick，PDD知道吗?</div><br>
             <div class="trip">GEDhlf</div>&nbsp;&nbsp;<div class="nickname">zzChumo</div><br>
@@ -1182,13 +1318,13 @@
         <p>此名为Ahxello（即卢本伟）的用户曾假装普通用户，向ee提供一个带“ee”的识别码。2022年7月某日晚上，卢本伟使用此识别码冒充ee，在yc用ee的昵称向Mr_Zhang告白。所幸ee从未使用过此识别码，作为“ee”的卢本伟被所有用户一致认为是冒充。在此提醒大家，请不要长期使用陌生人提供的识别码，最好用自己的。<a class="secret">坚决打击识别码贩子</a></p>
         <p>5月下旬与6月，卢本伟由于上学原因的出现较少。然而7月上旬，卢本伟重新出现。</p>
         <p>为了对抗卢本伟等用户，XC的站长MelonFish先后开发了基于Cookie的kill封禁、根据IP地址地区封禁、浏览器指纹封禁等功能以识别用户身份。在运用各种方法封禁卢本伟后，卢本伟很少来到XC了<a class="secret">其实是因为每次都被当猴耍而怕了</a>。在卢本伟时代，zzChumo等用户曾经使用机器人，CC攻击等方式轰炸XC，多次使XC崩溃。</p>
-        <p>2022年7月16日，卢本伟继续在十字街频繁进进出出，用名称进行辱骂，同时使用Mr_Zhang的真实姓名进行造谣、诋毁Mr_Zhang和ee、jill等用户及XC和CC站长，其内容不堪入目。<a onclick="aHref('https://file.node2.thz.cool/fileshare/.upload/4c784be700cfe43.log')">日志</a>为证，性质恶劣，在此感谢Mr_Zhang的眼线<s>（Mr_Zhang自己）</s>记录了这些日志。</p>
-        <p>当晚，XC站长MelonFish和xc用户Mr_Zhang、ee、4n0n4me、dx_xb（DPG）在HC的yc对卢本伟进行反击，具体表现为当卢本伟进入聊天室时使用ModBot进行kick，kick时每句话后面都带有骂人的话，例如~kick 卢本伟 你妈死了，以及私聊卢本伟进行精神打压等。此次事件在第二天0:00由卢本伟的惨败收场，被MelonFish和ee称作“最快乐的夜晚”。附反击<a onclick="aHref('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cb051ef9-0256-42af-80d2-f2dc9e295a34/2f8f3653-db43-4736-8962-aee33d6289c2.txt')">高能部分</a>和<a onclick="aHref('https://paperee.tk/2022.07.16_your-channel.txt')">反击全过程</a>。</p>
+        <p>2022年7月16日，卢本伟继续在十字街频繁进进出出，用名称进行辱骂，同时使用Mr_Zhang的真实姓名进行造谣、诋毁Mr_Zhang和ee、jill等用户及XC和CC站长，其内容不堪入目。<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://file.node2.thz.cool/fileshare/.upload/4c784be700cfe43.log')">日志</a>为证，性质恶劣，在此感谢Mr_Zhang的眼线<s>（Mr_Zhang自己）</s>记录了这些日志。</p>
+        <p>当晚，XC站长MelonFish和xc用户Mr_Zhang、ee、4n0n4me、dx_xb（DPG）在HC的yc对卢本伟进行反击，具体表现为当卢本伟进入聊天室时使用ModBot进行kick，kick时每句话后面都带有骂人的话，例如~kick 卢本伟 你妈死了，以及私聊卢本伟进行精神打压等。此次事件在第二天0:00由卢本伟的惨败收场，被MelonFish和ee称作“最快乐的夜晚”。附反击<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cb051ef9-0256-42af-80d2-f2dc9e295a34/2f8f3653-db43-4736-8962-aee33d6289c2.txt')">高能部分</a>和<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://paperee.tk/2022.07.16_your-channel.txt')">反击全过程</a>。</p>
         <p>后来卢本伟依旧在个聊天室间捣乱，并继续被XC用户当猴耍，屡次惨败。</p>
         <br>
         <a name="hacker"></a>
         <div class="side-title">
-            <h4>XC与黑客攻击</h4>
+            <h4>黑客攻击</h4>
         </div>
         <p>2022年7月17日下午，XC聊天室遭到不明黑客攻击，Light称攻击XC的用户出现在HC，昵称为DU。鉴于此用户从未出现在聊天室中，推测为某人的马甲。</p>
         <p>黑客攻击前期，XC站长MelonFish在本聊天室招有黑客经验的用户进行反击，且答应做出贡献的用户会获得XC正式管理权限。用户Dawnboy在HC、CC、星聊、小蝌蚪互动聊天室、李鱼聊天室等地推广此次事件，并得到热烈反响，吸引了个别聊天室有经验的用户来到XC。剩下的有黑客技术的用户积极反击。</p>
@@ -1203,10 +1339,23 @@
         <br>
         <a name="reebot"></a>
         <div class="side-title">
-            <h4>reebot事件</h4>
+            <h4>游戏狂潮</h4>
         </div>
-        <p>2022年8月3日上午，xuan2wei1在HC上线reebot（名叫蓉儿的eebot）。reebot的功能中有一个能通过使用“O-代码”运行Python3代码的功能。Light作为Python大佬，在HC滥用在线运行代码功能，往reebot源文件中写入大量awa字符导致函数调用混乱，reebot源文件被严重毁坏。在此之前，Light早已做了不少滥用eebot功能的行为，且屡次警告无效。</p>
-        <p>自此事件后，XC成员就“在线运行代码功能该不该留”、“是否应该屏蔽更多运行关键词”等值得深思的问题做出了讨论。</p>
+        <p>早在智械时期，ee为在升高中前纪念女儿机器人eebot及在HC的小伙伴，投入制作《44FF00》游戏。可游戏制作中途却因<a onpointerdown="ripplet(arguments[0])" href="#detele">detele事件</a>的爆发而中断。<a class="secret">其中，原本出现的角色也因矛盾被从原剧本中删除。</a>由于ee受到的打击非常大，本游戏暂停制作。</p>
+        <p>2021年暑假期间，由于<a class="secret">“吃掉坏初墨”名言</a>的发表，ee使用开源项目模板创作了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/eat-chumo')">《吃掉坏初墨》</a>新概念音游。此后，ee又通过<s>换皮</s>，诞生了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/eat-chumochan')">《吃掉初墨酱》</a>、<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/eat-fish')">《吃掉瓜鱼》</a>等一系列“吃掉”游戏。此后，本类型游戏成了用户PK底力的不二之选。</p>
+        <p>2022/7/22日，受到Qwer用Python未完成的小游戏《鱼的报复计划》的启发，ee使用RPGMarkerVX制作了与之同名的小游戏，并在其基础上移植并完善了剧情，此处为<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://home.osww.cn/?p=96')">发布地址</a>。同是游戏制作人的Bird，使用RPGMarkerMZ二次移植了本游戏，还在全结局收集后加上了<s>鸡你太美</s>彩蛋<a class="secret">小黑子露出鸡脚了吧（</a>。此<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/maggie')">网页版</a>被放置于星弈三号服务器上，更加方便了非Windows平台的用户游玩。星聊常驻用户李鱼，使用结绳移植了Bird移植ee移植Qwer的游戏。可惜的是，安卓版只有两个结局。<a class="secret">您完全不会往包里塞WebView的是吧</a></p>
+        <p>鱼的报复计划后，Maggie提出使用Python制作《XC模拟器》游戏，并将代码分享到了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://vscode.dev')">Microsoft Visual Studio Code</a>。XC成员对剧情进行讨论和修改，并由4n0n4me移植成<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/xc/')">网页版</a>。令人遗憾的是，游戏至今没有后续。也许后来，随着XC用户的离开……XC模拟器，再无完结之日。如同它所模拟的聊天室一样。</p>
+        <br>
+        <div onpointerdown="ripplet(arguments[0])" class="side"><p class="z">XC模拟器？广告模拟器！<br>——4n0n4me</p></div>
+        <br>
+        <p>根据麻鸡（<s>Maggie</s>）和傻鸟（<s>Foolishbird Project</s>）的梗，首款聊天室角色恐怖游戏——Bird的<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/maggie/')">《麻鸡的恐怖冒险》</a>诞生了。只不过，该游戏依旧只有开头，距离完结遥遥无期。同时，ee投入了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://game.osww.cn/grrd/')">《麻鸡的拯救计划》</a>的制作，在脱离RPGMarker的网页文字游戏方面迈出了一大步。</p>
+        <p>后来，zzChumo制作了网页文字RPG游戏框架<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/')">GAF for Games</a>，并且作为游戏实例，制作了<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/Game.html')">《ee的奇妙冒险》</a>游戏，以纪念前作《麻鸡的拯救计划》。该框架被魔改并用于《麻鸡的拯救计划》后续的制作。</p>
+        <br>
+        <a name="five"></a>
+        <div class="side-title">
+            <h3>五 / 大动乱时代</h3>
+        </div>
+        <p>大动乱是指HC、CC（两个聊天室）与XC站长MelonFish、ZHC站长Mr_Zhang（两个聊天室站长）之间的对立。由于涉及范围较大，暂且将其归为一个时代。内容待补。</p>
         <br>
         <a name="book"></a>
         <div class="side-title">
@@ -1219,12 +1368,12 @@
         </div>
         <p>
             <strong>detele事件</strong><br>
-            <a onclick="aHref('https://www.zzchat.cf/wiki/notice.html')">HC百科 by.zzChumo&13</a><br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/wiki/notice.html')">HC百科 by.zzChumo&13</a><br>
             <br>
             <strong>卢本伟事件</strong><br>
-            <a onclick="aHref('https://file.node2.thz.cool/fileshare/.upload/4c784be700cfe43.log')">卢本伟罪行 by.Mr_Zhang</a><br>
-            <a onclick="aHref('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cb051ef9-0256-42af-80d2-f2dc9e295a34/2f8f3653-db43-4736-8962-aee33d6289c2.txt')">反击高能部分 by.MelonFish</a><br>
-            <a onclick="aHref('https://paperee.tk/2022.07.16_your-channel.txt')">反击全过程 by.ee</a>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://file.node2.thz.cool/fileshare/.upload/4c784be700cfe43.log')">卢本伟罪行 by.Mr_Zhang</a><br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cb051ef9-0256-42af-80d2-f2dc9e295a34/2f8f3653-db43-4736-8962-aee33d6289c2.txt')">反击高能部分 by.MelonFish</a><br>
+            <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://paperee.tk/2022.07.16_your-channel.txt')">反击全过程 by.ee</a>
         </p>
         <br>
         <a name="common-terms"></a>
@@ -1254,6 +1403,7 @@
             <strong>用户名</strong><br>
             bf：一个臭名远扬的用户。<br>
             lbw：<strong>l</strong>u <strong>b</strong>en <strong>w</strong>ei，卢本伟（这里不是指的游戏主播），一个无可救药的罪人。<br>
+            yxy：<strong>y</strong>u<strong>x</strong>iao<strong>y</strong>e，於小夜，一个<s>扬言100G炸Cloudflare的</s>道德败坏的小学生。<br>
             <br>
             <strong>翻译与缩写</strong><br>
             afk：<strong>A</strong>way <strong>f</strong>rom <strong>k</strong>eyboard，离开键盘，挂机。<br>
@@ -1274,7 +1424,10 @@
     </body>
     <footer>
         <br>
-        <p class="z">本文档使用<a onclick="aHref('https://zzchat.cf/GAF')">GAF</a>作为模板。</p>
+        <p class="z">
+            版权所有。2022 <a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://paperee.tk')">PaperEE</a>，保留一切权利。<br>
+            本文章使用<a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://creativecommons.org/licenses/by-nc/3.0/deed.zh')">CC BY-NC 3.0</a>作为共享协议。
+        </p>
         <br>
     </footer>
 </html>
