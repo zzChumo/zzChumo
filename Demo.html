@@ -134,9 +134,12 @@
             }
 
             p{
-                padding-left: 20px;
-                padding-right: 20px;
-                color: #333;
+                padding-left: 30px;
+                padding-right: 30px;
+                color: #444;
+                line-height: 2;
+                font-size: 15px;
+                letter-spacing: 1px;
             }
 		
 		    ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请给此项加class。*/
@@ -496,7 +499,17 @@
 
             @media screen and (max-width:800px){
                 .gafalert{
-                    width: 70%;
+                    width: 80%;
+                }
+
+                div.chatinfo{
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                .side{
+                    margin-left: 30px;
+                    margin-right: 30px;
                 }
             }
 
@@ -509,9 +522,35 @@
                 .side-title{
                     margin-bottom: 35px;
                 }
+
+                div.chatinfo{
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
+
+                .sidenav{
+                    left: 0;
+                    box-shadow: 0px 0px  0px #00000066;
+                }
+                
+                .sidenav .closebtn{
+                    display: none;
+                }
+
+                a.menu{
+                    display: none;
+                }
+
+                body.bg{
+                    margin-left: 250px;
+                }
+
+                .side{
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
             }
             
-            /*类似于百度百家号的标题*/
             .side{
                 border-left: 5px solid #00ccaa;
                 text-indent: 20px;
@@ -532,7 +571,6 @@
                 padding-left: 0px;
             }
 
-            /*萌娘百科的黑幕*/
             a.secret{
                 background-color: #333333;
                 color: #333333;
@@ -551,13 +589,10 @@
                 color: #ffffff;
             }
 
-            /*模仿Hack.Chat聊天室*/
             div.chatinfo{
                 border: #555 solid 2px;
                 border-radius: 15px;
                 background: #222;
-                margin-left: 50px;
-                margin-right: 50px;
                 padding: 20px 20px;
                 font-size: small;
                 font-family: "Roboto";
@@ -577,8 +612,7 @@
             div.chatinfo .text{
                 color: #a6a28c;
             }
-        
-            /*黑暗模式配色*/
+
             @media (prefers-color-scheme: dark){
                 .bg{
                     background: #333;
@@ -617,11 +651,6 @@
                 li a:hover{
                     color: #eee;
                     background: #333;
-                }
-
-                a.menu:hover{
-                    color: #ddd;
-                    background: #555;
                 }
                 
                 a.top:hover{
@@ -677,19 +706,36 @@
                 footer{
                     background: #222;
                 }
+
+                .sidenav::-webkit-scrollbar-track{
+                    background-color: #333;
+                }
+
+                .sidenav::-webkit-scrollbar{
+                    width: 3px;
+                }
+
+                .sidenav::-webkit-scrollbar-thumb{
+                    background-color: #aaa;
+                    border-radius: 50px;
+                }
             }
 
-            [data-ripplet] {
-                font-family: 'Google Sans';
-                background-color: white;
-                border: none;
-                outline: none;
-                vertical-align: top;
-                -webkit-tap-highlight-color: transparent;
+            .sidenav::-webkit-scrollbar-track{
+                background-color: #f7f8f3;
+            }
+
+            .sidenav::-webkit-scrollbar{
+                width: 3px;
+            }
+
+            .sidenav::-webkit-scrollbar-thumb{
+                background-color: #00000033;
+                border-radius: 50px;
             }
         </style>
         <script>
-            var gafVersion='GS App Frame by zzChumo,Version 3.10';
+            var gafVersion='GS App Frame by zzChumo,Version 3.11';
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -782,9 +828,20 @@
             }
 
             function alertSideClose(id){
-                fadeOut(id,20);
-                document.getElementById(id).style.display='none';
+                if(document.documentElement.clientWidth>800){
+                    fadeOut(id,20);
+                    fadeOut('alertground',20);
+                    document.getElementById(id).style.display='none';
+                    document.getElementById('alertground').style.display='none';
+                }else{
+                    fadeOut(id,20);
+                    document.getElementById(id).style.display='none';
+                }
             }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
+
+            if(document.documentElement.clientWidth>800){
+                document.getElementById('mySidenav').style.left='0';
+            }
         </script>
     </head>
     <body class="bg">
@@ -892,7 +949,7 @@
             <a class="sidenav1">Demo</a>
             <hr>
             <br>
-            <a onpointerdown="ripplet(arguments[0])" id="home-side" href="#"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
+            <a onpointerdown="ripplet(arguments[0])" id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
             <a onpointerdown="ripplet(arguments[0])" id="settings-side"><div class="material-icons">settings</div>&nbsp;&nbsp;Settings</a>
             <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
             <!--这里是侧边栏内容-->
