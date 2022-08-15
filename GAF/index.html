@@ -1,85 +1,171 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="theme-color" content="#55bbee"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
+<meta name="theme-color" content="#00ccaa"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-<html>
+<html lang="zh">
     <head>
-        <title>GS App Frame</title>
-        <link rel="stylesheet" href="CSS/GAF.css">
+        <title>GS App Frame-一款简洁的网页UI框架</title>
+        <link rel="stylesheet" href="https://zzcm.fun/gaf.min.css">
         <style>
-            div.header{
-                background: #66ccff;
-            }
-            
-            div.header h1{
-                color: #fff;
-            }
-            
-            div.header p{
-                color: #fff;
-            }
-            
-            p.bb{
-                text-align: center;
-                font-size: large;
-                color: #66ccff;
-            }
-            
-            p.bbb{
-                font-size: small;
+            #home-side{
+                color: #00ccaa;
+                background: #d5f6f1;
             }
 
-            p.bbbb{
-                text-align: center;
-                font-size: small;
-            }
-            
-            a{
-                color: #66ccff;
+            .headinfo{
+                background: #00ccaa;
             }
 
-            hr{
-                width: 85%;
-                color: #555;
+            .headinfo h1{
+                color: #fff;
+                margin-left: 10px;
+            }
+
+            .headinfo div{
+                color: #fff;
+                margin-left: 35px;
+            }
+
+            a.z{
+                margin: 5px;
+            }
+            
+            .chatinfo .text{
+                display: inline-block;
+            }
+
+            @media (prefers-color-scheme: dark){
+                #home-side{
+                    color: #1fd;
+                    background: #d5f6f155;
+                }
+
+                a.menu:hover{
+                    color: #eee;
+                    background: #555;
+                }
+
+                .headinfo{
+                    background: #0b9;
+                }
+
+                .headinfo h1{
+                    color: #eee;
+                }
+
+                .headinfo div{
+                    color: #eee;
+                }
             }
         </style>
-        <script src="https://www.zzchat.cf/GAF/GAF.js"></script>
         <script>
-            function aHref(s){
-                window.location.href=s;
+            window.onload=function(){
+                if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                    if(document.location.toString().split('#')[1]=='download'){
+                        document.getElementById('download-side').style.color='#11ffdd';
+                        document.getElementById('download-side').style.background='#d5f6f155';
+                        document.getElementById('home-side').style.color='#eee';
+                        document.getElementById('home-side').style.background='#333';
+                    }else if(document.location.toString().split('#')[1]='home'){
+                        document.getElementById('home-side').style.color='#1fd';
+                        document.getElementById('home-side').style.background='#d5f6f155';
+                        document.getElementById('download-side').style.color='#eee';
+                        document.getElementById('download-side').style.background='#333';
+                    }
+                }else{
+                    if(document.location.toString().split('#')[1]=='download'){
+                        document.getElementById('download-side').style.color='#00ccaa';
+                        document.getElementById('download-side').style.background='#d5f6f1';
+                        document.getElementById('home-side').style.color='#555';
+                        document.getElementById('home-side').style.background='#f7f8f3';
+                    }else if(document.location.toString().split('#')[1]='home'){
+                        document.getElementById('home-side').style.color='#00ccaa';
+                        document.getElementById('home-side').style.background='#d5f6f1';
+                        document.getElementById('download-side').style.color='#555';
+                        document.getElementById('download-side').style.background='#f7f8f3';
+                    }
+                }
             }
-            
-            function aboutThisPage(){
-                alert('该框架由智障初墨（bilibili@智障初墨）开发。\n\n该页面基于GS App Frame构建。\nhttps://www.zzchat.cf/GAF/')
+
+            function justHome(){
+                window.location.href='#home';
+                if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                    document.getElementById('home-side').style.color='#1fd';
+                    document.getElementById('home-side').style.background='#d5f6f155';
+                    document.getElementById('download-side').style.color='#eee';
+                    document.getElementById('download-side').style.background='#333';
+                }else{
+                    document.getElementById('home-side').style.color='#00ccaa';
+                    document.getElementById('home-side').style.background='#d5f6f1';
+                    document.getElementById('download-side').style.color='#555';
+                    document.getElementById('download-side').style.background='#f7f8f3';
+                }
+            }
+
+            function justDownload(){
+                window.location.href='#download';
+                if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                    document.getElementById('download-side').style.color='#1fd';
+                    document.getElementById('download-side').style.background='#d5f6f155';
+                    document.getElementById('home-side').style.color='#eee';
+                    document.getElementById('home-side').style.background='#333';
+                }else{
+                    document.getElementById('download-side').style.color='#00ccaa';
+                    document.getElementById('download-side').style.background='#d5f6f1';
+                    document.getElementById('home-side').style.color='#555';
+                    document.getElementById('home-side').style.background='#f7f8f3';
+                }
             }
         </script>
     </head>
-    <body>
+    <body class="bg">
+        <script src="https://zzcm.fun/gaf.min.js"></script>
+        <div id="alertground"></div><!--遮罩层-->
         <ul>
-            <li><a class="menu" onclick="openNav()">&#9776;</a></li>
+            <li><a onpointerdown="ripplet(arguments[0])" class="menu" onClick="openNav()">&#9776;</a></li>
             <li><a class="top">GS App Frame</a></li><!--标题-->
         </ul>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a onpointerdown="ripplet(arguments[0])" href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
             <div class="sidenavimage"><img src="Demo.png" alt="icon" width="40%"></div>
             <a class="sidenav1">GS App Frame</a>
             <hr>
             <br>
-            <a onclick="aHref('https://www.zzchat.cf/')">文档</a>
-            <a onclick="aHref('https://www.zzchat.cf')">关于开发者</a>
-            <a onclick="aboutThisPage()">关于该页面</a>
+            <a onpointerdown="ripplet(arguments[0])" onclick="justHome()" id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;首页</a>
+            <a onpointerdown="ripplet(arguments[0])" onclick="justDownload()" id="download-side"><div class="material-icons">download</div>&nbsp;&nbsp;下载</a>
+            <a onpointerdown="ripplet(arguments[0])" id="des-side"><div class="material-icons">description</div>&nbsp;&nbsp;文档</a>
+            <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">info</div>&nbsp;&nbsp;关于</a>
             <!--这里是侧边栏内容-->
         </div>
+        <!--以下为弹窗1内容-->
+        <div id="alert1" class="gafalert">
+            <div>提示</div>
+            <p>但是事情还是发生了...</p>
+            <br>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertClose('alert1')">关闭</a></div>
+        </div>
+        <!--以下为弹窗2内容-->
+        <div id="alert2" class="gafalert">
+            <div>关于</div>
+            <p>该页面基于GS App Frame V3.11编写。</p>
+            <p>GS App Frame V3.11由<a onpointerdown="ripplet(arguments[0])" href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <br>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertSideClose('alert2')">关闭</a></div>
+        </div>
+        <a name="home"></a>
         <br>
         <br>
         <!--下面为正文内容-->
-        <div class="header">
+        <div onpointerdown="ripplet(arguments[0])" class="headinfo">
+            <br>
             <br>
             <br>
             <br>
             <br>
             <h1>GS App Frame</h1>
-            <p class="b">一款适用于HTML初学者群体的类Material Design网页美化框架</p>
+            <div>一款简洁、轻小的网页UI框架</div>
+            <br>
+            <br>
             <br>
             <br>
             <br>
@@ -87,38 +173,60 @@
         </div>
         <br>
         <br>
-        <p class="bb">什么是GS App Frame？</p>
-        <p class="bbb">GS App Frame（GAF）是一款对HTML初学者比较友好的网页美化框架。它不如Google本家的Material Design Lite（MDL）和第三方的MDUI那样繁琐、复杂；但是相应的，它并不像MDL和MDUI那样强大。<br><br>该框架适用于个人博客/主页以及各种产品发布页。</p>
+        <div class="side-title">
+            <h2>什么是GS App Frame</h2>
+        </div>
+        <p>GS App Frame是一款轻量、简洁、易用的网页UI框架。对于常规的GAF,您可以将其用于产品页面、文档和个人网站中；对于GAF for Games，您可以将其用于制作文字RPG游戏。</p>
         <br>
-        <p class="z"><a class="z" onclick="aHref('https://www.zzchat.cf/GAF/Demo.html')">预览GAF V2</a></p>
+        <p class="z"><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/Demo.html')" class="z"><strong>预览GAF V2</strong></a><a onclick="aHref('https://www.zzchat.cf/Demo.html')" onpointerdown="ripplet(arguments[0])" class="z"><strong>预览GAF V3</strong></a></p>
         <br>
-        <p class="z"><a class="z" onclick="aHref('https://www.zzchat.cf/Demo.html')">预览GAF V3</a></p>
+        <p class="z"><a onclick="aHref('https://www.zzchat.cf/GAF/Game.html')" onpointerdown="ripplet(arguments[0])" class="z"><strong>预览GameUI</strong></a><a onclick="aHref('https://zzchumo.github.io/ChatApp-GUI')" onpointerdown="ripplet(arguments[0])" class="z"><strong>预览ChatUI</strong></a></p>
+        <a name="download"></a>
         <br>
+        <div class="side-title">
+            <h2>注意事项</h2>
+        </div>
+        <p>
+            - 您需要在页面上注明该框架的官网和作者（作为本家的GS Team除外）。<br>
+            <br>- 如果您需要更加完善的体验，我们建议您使用Bootstrap之类的老牌框架。<br>
+            <br>- 我们不建议您将该框架用于屏幕过小的设备。
+        </p>
         <br>
-        <p class="bb">注意事项</p>
-        <p class="bbb">- <strong>我们建议比较成熟的开发者使用其他的框架进行开发。</strong><br>- 虽然该框架适用于大多数设备，但是我们建议您将其用于手表以外的移动端设备。<br>- <strong>请在使用了该框架的界面中标注该框架的名称和官方网址</strong>（作为本家的GS Team除外）。</p>
+        <div class="side-title">
+            <h2>引用GAF</h2>
+        </div>
+        <p>我们提供了2种引用GS App Frame的方法。</p>
         <br>
+        <div class="side-title">
+            <h3>Cloudflare CDN</h3>
+        </div>
+        <p>插入以下代码到您工程的body部分：</p>
         <br>
-        <p class="bb">调用GAF</p>
-        <p class="bbbb">您目前只有一种方法调用GS App Frame。</p>
-        <p class="bbbb">注：GAF V2和V3属于平行关系，没有新旧之分。因此对GAF V2的技术支持仍在继续。</p>
-        <hr>
+        <div onpointerdown="ripplet(arguments[0])" class="chatinfo">
+            <div class="nickname">&lt;link rel="</div><div class="text">stylesheet</div><div class="nickname">" href="</div><div class="text">https://zzcm.fun/gaf.min.css</div><div class="nickname">"&gt;</div><br>
+            <div class="nickname">&lt;script src="</div><div class="text">https://zzcm.fun/gaf.min.js</div><div class="nickname">"&gt;</div>{
+        </div>
         <br>
-        <p class="z"><a class="z" onclick="aHref('https://www.zzchat.cf/GAF/GAF.zip')">下载GAF V2.25</a></p>
+        <div class="side-title">
+            <h3>下载</h3>
+        </div>
+        <p>您可以下载GS App Frame以离线调试。每个压缩包内都附带有一份Demo文件。</p>
         <br>
-        <p class="z"><a class="z" onclick="aHref('https://www.zzchat.cf/GAF/GAF-V3.zip')">下载GAF V3.03</a></p>
+        <p class="z"><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/GAF.zip')" class="z"><strong>下载GAF V2.30</strong></a></p>
         <br>
-        <p class="z"><a class="z" onclick="aHref('https://www.zzchat.cf/GAF/GAF-CUI.zip')">下载GAF-CUI V2.21-1.00_Beta</a></p>
+        <p class="z"><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/GAF-V3.zip')" class="z"><strong>下载GAF V3.11</strong></a></p>
+        <br>
+        <p class="z"><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/GAF-V3.zip')" class="z"><strong>下载GAF-Game V1.00-Pre_Beta</strong></a></p>
+        <br>
+        <p class="z"><a onpointerdown="ripplet(arguments[0])" onclick="aHref('https://www.zzchat.cf/GAF/GAF-V3.zip')" class="z"><strong>下载GAF-CUI V2.21-1.00_Beta</strong></a></p>
         <!--正文结束-->
-        <br>
-        <br>
         <br>
         <br>
         <br>
     </body>
     <footer>
         <br>
-        <div class="d">©Copyright 2017-2022 GS Team.</div>
+        <p class="z">©版权所有。2017-2022 GS Team，保留一切权利。</p>
         <br>
     </footer>
 </html>
