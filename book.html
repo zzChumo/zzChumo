@@ -195,6 +195,12 @@
 	    	    padding-bottom: -25px;
 		        text-align: center;
             }
+            
+            .material-iconstext {   /*Material Design图标支持（正文）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    vertical-align: bottom;
+            }
 
             a.top {
     		    display: inline-block;
@@ -546,6 +552,7 @@
             }
             
             .side-title div{
+                font-size: small;
                 letter-spacing: 1px;
             }
 
@@ -730,6 +737,14 @@
                 background-color: #00000033;
                 border-radius: 50px;
             }
+            
+            #busuanzi_container_site_pv{
+                display: inline-block;
+            }
+            
+            #busuanzi_value_site_pv{
+                display: inline-block;
+            }
         </style>
         <script>
             var gafVersion='GS App Frame by zzChumo,Version 3.11';
@@ -836,6 +851,8 @@
                 }
             }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
         </script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
     </head>
     <body class="bg">
         <script>
@@ -1025,7 +1042,9 @@
         <br>
         <div class="side-title">
             <h1>聊天室历史书</h1>
-            <div>版本9.1_zcm_release，于2022/8/16更新</div>
+            <div>版本9.2_zcm_release，于2022/8/17更新</div>
+            <br>
+            <div id="busuanzi_container_site_pv">阅读量<span id="busuanzi_value_site_pv"></span></div>
         </div>
         <br>
         <br>
