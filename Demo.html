@@ -8,6 +8,7 @@
         <style>
             body.bg{
                 font-family: "Google Sans";
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
                 margin: 0;
                 letter-spacing: 2px;
             }
@@ -148,19 +149,21 @@
 		        padding: 0;
                 z-index: 114514;
 		        overflow: hidden;
-    		    background-color: #fff;
                 position: fixed;
                 top: 0;
+                transition: 0.5s;
                 width: 100%;
-                /*
-                box-shadow: 0px 3px  3px #00000066;
-                为尽可能的贴合Material You设计标准，ul的box-shadow属性从GAF V3时开始废弃。
-                */
+                box-shadow: 0px 3px  3px #00000000;
                 letter-spacing: 0px;
-                }
+            }
+
+            #topul{
+                background-color: #fff;
+            }
 		
 		    li {
 		        float: left;
+                cursor: default;
 		    }
 		
 		    li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
@@ -170,6 +173,10 @@
 		        padding: 14px 15px;
     		    text-decoration: none;
     		    font-size: 19px;
+	    	}
+
+            .dropbtn {
+    		    display: inline-block;
 	    	}
 
             a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
@@ -205,6 +212,10 @@
 	    	    background-color: #fff;
 		    }
 
+            .dropdown:hover, .dropbtn {
+	    	    background-color: #fff;
+		    }
+
             a.material-iconstop:hover{
                 background-color: #00aa88;
             }
@@ -221,6 +232,7 @@
             }
 		
     		.dropdown {
+                position: relative;
 	    	    display: inline-block;
 		    }
 		
@@ -229,8 +241,10 @@
 	    	    position: absolute;
 		        background-color: #f9f9f9;
 		        min-width: 160px;
-    		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    		    box-shadow: 0px 3px  3px #00000066;
     		    border-radius: 20px;
+                z-index: 114514;
+                margin-top: 0px;
 	    	}
 		
 		    .dropdown-content a {
@@ -242,7 +256,9 @@
                 border-radius: 20px;
     		}
 		
-	    	.dropdown-content a:hover {background-color: #f1f1f1}
+	    	.dropdown-content a:hover {
+                background-color: #f1f1f1;
+            }
 		
 		    .dropdown:hover .dropdown-content {
     		    display: block;
@@ -253,7 +269,6 @@
                 transition: all 0.3s linear;
                 color: #6cf;
                 position: relative;
-                overflow: hidden;
 		    }
 
             footer{
@@ -286,22 +301,42 @@
                 transition: all 0.3s linear;
             }
 
+            a.floaticon{    /*Material Icons浮空按钮*/
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                font-size: 25px;
+                font-family: 'Material Icons';
+                z-index: 114513;
+                bottom: 85px;
+                right: 30px;
+                transition: all 0.3s linear;
+            }
+
             a.zcantuse:hover {
                 color: #fff;
                 background-color: #aaa;
             }
 
             a.zcantuse{    /*不可用的按钮*/
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 15px;
+                padding-bottom: 15px;
                 color: #fff;
+                letter-spacing: 1px;
                 background-color: #aaa;
-                box-shadow: 0px 3px  3px #00000066;
+                box-shadow: -0.23px 2px  2px #00000066;
                 border: 0 solid #aaa;
-                border-radius: 3px;
+                border-radius: 50px;
                 transition: all 0.3s linear;
+                cursor: not-allowed;
             }
             
             a.z:hover {
@@ -321,20 +356,8 @@
                 border: 0 solid #00ccaa;
                 border-radius: 50px;
                 transition: all 0.3s linear;
-            }
-
-            button.z{    /*按钮*/
-                padding-left: 30px;
-                padding-right: 30px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                color: #fff;
-                letter-spacing: 1px;
-                background-color: #00ccaa;
-                box-shadow: -0.23px 2px  2px #00000066;
-                border: 0 solid #00ccaa;
-                border-radius: 50px;
-                transition: all 0.3s linear;
+                position: static;
+                cursor: pointer;
             }
 
             #panel{
@@ -363,6 +386,7 @@
                 text-align: center;
                 font-size: small;
                 color: #888;
+                position: static;
             }
 
             .sidenav {  /*侧边栏*/
@@ -389,6 +413,7 @@
                 display: block;
                 transition: 0.3s;
                 border-radius: 50px;
+                cursor: pointer;
             }
             
             .sidenav a.sidenav1{
@@ -398,6 +423,7 @@
                 color: #555;
                 display: block;
                 transition: 0.3s;
+                cursor: default;
             }
             
             .sidenav a.sidenav1:hover{
@@ -444,7 +470,7 @@
                 border-radius: 25px;
                 margin: auto;
                 padding: 20px;
-                width: 60%;
+                width: 70%;
                 left: 50%;
                 top: 43%;
                 transform: translate(-50%,-50%);
@@ -480,6 +506,7 @@
                 padding: 5px 10px;
                 border: 0 solid;
                 border-radius: 5px;
+                cursor: pointer;
             }
 
             .gafalert a:hover{
@@ -499,7 +526,7 @@
 
             @media screen and (max-width:800px){
                 .gafalert{
-                    width: 80%;
+                    width: 70%;
                 }
 
                 div.chatinfo{
@@ -510,6 +537,18 @@
                 .side{
                     margin-left: 30px;
                     margin-right: 30px;
+                }
+
+                input.gaf{
+                    height: 45px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 70%;
+                }
+
+                div.gafinput{
+                    font-size: small;
+                    left: 20%;
                 }
             }
 
@@ -548,6 +587,53 @@
                 .side{
                     margin-left: 100px;
                     margin-right: 100px;
+                }
+
+                input.gaf{
+                    height: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 50%;
+                }
+
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 54%;
+                }
+            }
+
+            @media screen and (min-width:850px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 52%;
+                }
+            }
+
+            @media screen and (min-width:900px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 50%;
+                }
+            }
+
+            @media screen and (min-width:950px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 48%;
+                }
+            }
+
+            @media screen and (min-width:1000px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 46%;
+                }
+            }
+
+            @media screen and (min-width:1050px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 44%;
                 }
             }
             
@@ -613,6 +699,12 @@
                 color: #a6a28c;
             }
 
+            @media (prefers-color-scheme: light){
+                div.gafinput{
+                    background-color: #fff;
+                }
+            }
+
             @media (prefers-color-scheme: dark){
                 .bg{
                     background: #333;
@@ -662,7 +754,7 @@
                     color: #eee;
                 }
 
-                ul{
+                #topul{
                     background: #333;
                 }
                 
@@ -673,6 +765,11 @@
                 p.z{
                     color: #aaa;
                 }
+
+                a.menu:hover{
+                    background-color: #555;
+                    color: #eee;
+                }
                 
                 .side-title div{
                     color: #ccc;
@@ -680,7 +777,7 @@
                 }
                 
                 .sidenav{
-                    background: #333;
+                    background: #444949;
                 }
                 
                 .sidenav a:hover{
@@ -689,17 +786,17 @@
                 }
                 
                 .sidenav a{
-                    background: #333;
+                    background: #444949;
                     color: #eee;
                 }
                 
                 .sidenav a.sidenav1:hover{
-                    background: #333;
+                    background: #444949;
                     color: #eee;
                 }
                 
                 .sidenav a.sidenav1{
-                    background: #333;
+                    background: #444949;
                     color: #eee;
                 }
                 
@@ -719,6 +816,24 @@
                     background-color: #aaa;
                     border-radius: 50px;
                 }
+
+                input.gaf{
+                    border: 2px #00ccaa solid;
+                    border-radius: 50px;
+                    background: #00000000;
+                    color: #aaa;
+                    font-family: 'Google Sans';
+                }
+
+                div.gafinput{
+                    background: #333;
+                    position: absolute;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    color: #0ca;
+                    letter-spacing: 1px;
+                }
             }
 
             .sidenav::-webkit-scrollbar-track{
@@ -733,9 +848,72 @@
                 background-color: #00000033;
                 border-radius: 50px;
             }
+
+            input.gaf{
+                border: 2px #00ccaa solid;
+                border-radius: 50px;
+                background: #00000000;
+                font-family: 'Google Sans';
+                outline: none;
+            }
+
+            div.gafinput{
+                position: absolute;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                color: #0ca;
+                letter-spacing: 1px;
+            }
+
+            .gaf-drop{
+                position: static;
+            }
+
+            .gaf-drop-content{
+                display: none;
+                position: absolute;
+                min-width: 160px;
+                box-shadow: 0px 3px  3px #00000066;
+                z-index: 114514;
+                border: solid 0px #00000000;
+                border-radius: 15px;
+            }
+
+            .gaf-drop-content a{
+                padding: 10px 10px;
+                border: solid 0px #00000000;
+                border-radius: 15px;
+                display: block;
+            }
+
+            .gaf-drop:hover .gaf-drop-content{
+                display: block;
+            }
         </style>
         <script>
-            var gafVersion='GS App Frame by zzChumo,Version 3.11';
+            var gafVersion='GS App Frame by zzChumo,Version 3.12';
+
+            document.onscroll=function(){
+                var topul=document.getElementById('topul');
+                if(document.documentElement.scrollTop>45){
+                    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                        topul.style.background='#444949';
+                        topul.style.boxShadow='0px 3px  3px #00000066';
+                    }else{
+                        topul.style.background='#d5f6f1';
+                        topul.style.boxShadow='0px 3px  3px #00000066';
+                    }
+                }else{
+                    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                        topul.style.background='#333';
+                        topul.style.boxShadow='0px 3px  3px #00000000';
+                    }else{
+                        topul.style.background='#fff';
+                        topul.style.boxShadow='0px 3px  3px #00000000';
+                    }
+                }
+            }
         
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
@@ -939,7 +1117,7 @@
             });
         </script>
         <div id="alertground"></div><!--遮罩层-->
-        <ul>
+        <ul id="topul">
             <li><a onpointerdown="ripplet(arguments[0])" class="menu" onclick="openNav()">&#9776;</a></li>
             <li><a class="top">Demo</a></li><!--标题-->
         </ul>
@@ -980,9 +1158,53 @@
         <p class="z"><a class="z" onpointerdown="ripplet(arguments[0])" onClick="alertOpen('alert1')"><strong>点我什么都不会发生</strong></a></p>
         <br>
         <p class="z"><a class="z" onpointerdown="ripplet(arguments[0])"><strong>点我真的什么都不会发生</strong></a></p>
+        <br>
+        <p class="z"><a class="zcantuse"><strong>别想着点我 awa</strong></a></p>
+        <br>
+        <div class="gafinput">Textarea</div>
+        <p class="z"><input placeholder="Type something..." class="gaf"></p>
+        <br>
+        <p class="z">现在，向下滑动。</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p class="z">做的不错</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p class="z">もう１回、もう１回。</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <!--正文结束-->
         <br>
         <br>
         <br>
     </body>
+    <footer>
+        <br>
+        <p class="z">©版权所有。GS Team 2017-2022，保留一切权利。</p>
+        <br>
+    </footer>
 </html>
