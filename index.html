@@ -1,481 +1,1171 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="theme-color" content="#00ccaa">
+<meta name="theme-color" content="#00ccaa"><!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-<link rel="icon" href="index.png">
-<link rel="shortcut-icon" href="index.png">
 <html>
     <head>
-        <title>初墨的小窝</title>
+        <link rel="shortcut-icon" href="https://z3.ax1x.com/2021/11/21/IXGxZ4.png">
+        <link rel="icon" href="https://z3.ax1x.com/2021/11/21/IXGxZ4.png">
+        <title>个人主页 | zzChumo</title>
         <style>
-            body{
-    font-family: "Google Sans";
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-a.z:hover {
-    color: #f1f1f1;
-    background-color: #00aa88;
-}
-
-a.float:hover {
-    color: #f1f1f1;
-    background-color: #00aa88;
-}
-
-a.float{
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
-    background-color: #00ccaa;
-    border: 0 solid #00ccaa;
-    border-radius: 50px;
-    box-shadow: 0px 3px  3px #00000066;
-    bottom: 30px;
-    right: 30px;
-    position: fixed;
-    transition: all 0.3s linear;
-}
-
-@font-face {
-    font-family: Roboto;
-    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
-}
-
-p.a{
-    font-size: large;
-}
-
-a:hover {
-    color: #fff;
-    background-color: #aaa;
-}
-
-p.b{
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
-    color: #333;
-}
-
-div.a{  /*警告框*/
-    text-align: center;
-    color: #ff3333;
-    background: #ffaaaa;
-    border: 2px solid #ff3333;
-    border-radius: 20px;
-    margin: 10px 20px;
-    padding: 15px 30px 30px;
-    box-shadow: 0px 3px  3px #00000066;
-}
-
-div.b{  /*提示框*/
-    text-align: center;
-    color: #3333ff;
-    background: #aaaaff;
-    border: 2px solid #3333ff;
-    border-radius: 20px;
-    margin: 10px 20px;
-    padding: 15px 30px 30px;
-    box-shadow: 0px 3px  3px #00000066;
-}
-
-div.d{
-    text-align: center;
-    font-size: small;
-    color: #333;
-}
-
-div.c{
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: large;
-}
-
-div.e{
-    color: #333333;
-}
-
-h1{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-a.a{
-    color: #ffffff;
-}
-
-a.c{
-    color: #555;
-    padding-left: 20px;
-    font-size: x-small;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-a.b{
-    color: #0090d8;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialicons/v127/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-}
-
-@font-face{
-    font-family: 'Google Sans';
-    src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
-}
-
-p{
-    padding-left: 20px;
-    padding-right: 20px;
-    color: #333;
-}
-		
-ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请为此项另加class。*/
-    list-style-type: none;
-	margin: 0;
-    padding: 0;
-	overflow: hidden;
-    background-color: #00ccaa;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0px 3px  3px #00000066;
-    letter-spacing: 0px;
-}
-		
-li {
-	float: left;
-}
-		
-li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
-    display: inline-block;
-	color: white;
-	text-align: center;
-    padding: 14px 15px;
-    text-decoration: none;
-    font-size: 19px;
-}
-
-a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
-    font-family: 'Material Icons';
-    display: inline-block;
-	color: white;
-	font-size: 24px;    /*如标题栏内包含中文则需要将此项改为26px*/
-    text-align: center;
-	padding: 16px 15px;
-    text-decoration: none;
-    border-radius: 50px
-}
-
-a.top {
-    display: inline-block;
-	color: white;
-	font-size: 19px;
-	text-align: center;
-	padding: 16px 15px;
-    text-decoration: none;
-}
-		
-li a:hover, .dropdown:hover, .dropbtn {
-	background-color: #00ccaa;
-}
-
-a.material-iconstop:hover{
-    background-color: #00aa88;
-}
-
-a.menu{
-    border-radius: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-a.menu:hover{
-    background-color: #00aa88;
-}
-		
-.dropdown {
-    display: inline-block;
-}
-		
-.dropdown-content {
-    display: none;
-	position: absolute;
-    background-color: #f9f9f9;
-	min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 20px;
-}
-		
-.dropdown-content a {
-	color: #333;
-    padding: 12px 16px;
-	text-decoration: none;
-    display: block;
-    font-size: 15px;
-    border-radius: 20px;
-}
-		
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-		
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-a{
-	text-decoration: none;
-    transition: all 0.3s linear;
-}
-
-footer{
-    background: #eeeeee;
-}
-
-img{
-    border: 0;
-    border-radius: 20px;
-}
-
-a.float:hover {
-    color: #f1f1f1;
-    background-color: #00aa88;
-}
-
-a.float{    /*浮空按钮*/
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
-    background-color: #00ccaa;
-    border: 0 solid #00ccaa;
-    border-radius: 50px;
-    box-shadow: 0px 3px  3px #00000066;
-    bottom: 30px;
-    right: 30px;
-    position: fixed;
-    transition: all 0.3s linear;
-}
-
-a.zcantuse:hover {
-    color: #fff;
-    background-color: #aaa;
-}
-
-a.zcantuse{    /*不可用的按钮*/
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
-    background-color: #aaa;
-    box-shadow: 0px 3px  3px #00000066;
-    border: 0 solid #aaa;
-    border-radius: 3px;
-    transition: all 0.3s linear;
-}
-        
-a.z:hover {
-    color: #f1f1f1;
-    background-color: #00aa88;
-}
-
-a.z{    /*按钮*/
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
-    background-color: #00ccaa;
-    box-shadow: 0px 3px  3px #00000066;
-    border: 0 solid #00ccaa;
-    border-radius: 3px;
-    transition: all 0.3s linear;
-}
-
-#panel{
-    padding: 20px;
-}
-
-div.e{
-    font-size: xx-large;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-div.f{
-    font-size: small;
-}
-
-#panel{
-    display: none;
-}
-
-div.h{
-    padding-left: 5px;
-}
-        
-p.z{
-    text-align: center;
-    font-size: small;
-    color: #888;
-}
-
-.sidenav {  /*侧边栏*/
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    box-shadow: 0px 10px  10px #00000066;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 55px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #555;
-    display: block;
-    transition: 0.3s;
-    border-radius: 50px;
-}
-        
-a.sidenav1{
-    padding: 15px 8px 15px 30px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #555;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #555;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 15px;
-    font-size: 20px;
-    margin-left: 50px;
-}
-
-div.sidenavimage{
-    padding-left: 5px;
-}
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-}
-
-.webPageTop{
-    background: #00ccaa;
-}
-
-.webPageTop h1{
-    color: #fff;
-}
-
-.webPageTop p{
-    color: #fff;
-}
-        </style>
-        <link rel="stylesheet" href="player.css">
-        <script src="jquery.min.js"></script>
-        <script src="player.js"></script>
-        <script>
-            function f1(){
-                alert('警告：我们发现了一个漏洞，请尽快安装zzChat 2.12版本更新以恢复正常使用！')
+            body.bg{
+                font-family: "Google Sans";
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                margin: 0;
+                letter-spacing: 2px;
             }
 
+            a.z:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                bottom: 30px;
+                right: 30px;
+                position: fixed;
+                transition: all 0.3s linear;
+            }
+
+            @font-face {
+                font-family: Roboto;
+                src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
+            }
+
+            p.a{
+                font-size: large;
+            }
+
+            a:hover {
+                color: #fff;
+                background-color: #aaa;
+            }
+
+            p.b{
+                padding-left: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-right: 20px;
+                color: #333;
+            }
+
+            div.a{  /*警告框*/
+                text-align: center;
+                color: #ff3333;
+                background: #ffaaaa;
+                border: 2px solid #ff3333;
+                border-radius: 20px;
+                margin: 10px 20px;
+                padding: 15px 30px 30px;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            div.b{  /*提示框*/
+                text-align: center;
+                color: #3333ff;
+                background: #aaaaff;
+                border: 2px solid #3333ff;
+                border-radius: 20px;
+                margin: 10px 20px;
+                padding: 15px 30px 30px;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            div.d{
+                text-align: center;
+                font-size: small;
+                color: #333;
+            }
+
+            div.c{
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: large;
+            }
+
+            div.e{
+                color: #333333;
+            }
+
+            h1{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            a.a{
+                color: #ffffff;
+            }
+
+            a.c{
+                color: #555;
+                padding-left: 20px;
+                font-size: x-small;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            a.b{
+                color: #0090d8;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/materialicons/v127/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+            }
+
+            @font-face{
+                font-family: 'Google Sans';
+                src: url(https://fonts.gstatic.com/s/googlesans/v42/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
+            }
+
+            p{
+                padding-left: 30px;
+                padding-right: 30px;
+                color: #444;
+                line-height: 2;
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+		
+		    ul {    /*该文档将所有ul标签均作为标题栏处理。如有需要请给此项加class。*/
+    		    list-style-type: none;
+	    	    margin: 0;
+		        padding: 0;
+                z-index: 114514;
+		        overflow: hidden;
+                position: fixed;
+                top: 0;
+                transition: 0.5s;
+                width: 100%;
+                box-shadow: 0px 3px  3px #00000000;
+                letter-spacing: 0px;
+            }
+
+            #topul{
+                background-color: #d5f6f1;
+            }
+		
+		    li {
+		        float: left;
+                cursor: default;
+		    }
+		
+		    li a, .dropbtn {    /*注意：如果你使用中文标题，请将下文li标签中a标签中的class属性删除，使用英文标题请忽略此注释*/
+    		    display: inline-block;
+	    	    color: #333;
+		        text-align: center;
+		        padding: 14px 15px;
+    		    text-decoration: none;
+    		    font-size: 19px;
+	    	}
+
+            .dropbtn {
+    		    display: inline-block;
+	    	}
+
+            a.material-iconstop {   /*Material Design图标支持（仅标题栏）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    color: #333;
+	    	    font-size: 24px;    /*如标题栏内包含中文则需要将此项改为26px*/
+		        text-align: center;
+		        padding: 16px 15px;
+    		    text-decoration: none;
+                border-radius: 50px
+            }
+            
+            .material-icons {   /*Material Design图标支持（侧边栏）*/
+                font-family: 'Material Icons';
+                display: inline-block;
+	    	    font-size: 21px;
+	    	    vertical-align: bottom;
+	    	    padding-bottom: -25px;
+		        text-align: center;
+            }
+
+            a.top {
+    		    display: inline-block;
+	    	    color: #333;
+	    	    font-size: 19px;
+		        text-align: center;
+		        padding: 16px 15px;
+    		    text-decoration: none;
+	    	}
+
+            .dropdown:hover, .dropbtn {
+	    	    background-color: #fff;
+		    }
+
+            a.material-iconstop:hover{
+                background-color: #00aa88;
+            }
+
+            a.menu{
+                border-radius: 50px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+		
+    		.dropdown {
+                position: relative;
+	    	    display: inline-block;
+		    }
+		
+		    .dropdown-content {
+    		    display: none;
+	    	    position: absolute;
+		        background-color: #f9f9f9;
+		        min-width: 160px;
+    		    box-shadow: 0px 3px  3px #00000066;
+    		    border-radius: 20px;
+                z-index: 114514;
+                margin-top: 0px;
+	    	}
+		
+		    .dropdown-content a {
+		        color: #333;
+    		    padding: 12px 16px;
+	    	    text-decoration: none;
+		        display: block;
+                font-size: 15px;
+                border-radius: 20px;
+    		}
+		
+	    	.dropdown-content a:hover {
+                background-color: #f1f1f1;
+            }
+		
+		    .dropdown:hover .dropdown-content {
+    		    display: block;
+	    	}
+
+            a{
+			    text-decoration: none;
+                transition: all 0.3s linear;
+                color: #6cf;
+                position: relative;
+		    }
+
+            footer{
+                background: #eeeeee;
+            }
+
+            img{
+                border: 0;
+                border-radius: 20px;
+            }
+
+            a.float:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.float{    /*浮空按钮*/
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                bottom: 30px;
+                right: 30px;
+                position: fixed;
+                transition: all 0.3s linear;
+            }
+
+            a.floaticon{    /*Material Icons浮空按钮*/
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: #fff;
+                background-color: #00ccaa;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                box-shadow: 0px 3px  3px #00000066;
+                font-size: 25px;
+                font-family: 'Material Icons';
+                z-index: 114513;
+                bottom: 85px;
+                right: 30px;
+                transition: all 0.3s linear;
+            }
+
+            a.zcantuse:hover {
+                color: #fff;
+                background-color: #aaa;
+            }
+
+            a.zcantuse{    /*不可用的按钮*/
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: #fff;
+                letter-spacing: 1px;
+                background-color: #aaa;
+                box-shadow: -0.23px 2px  2px #00000066;
+                border: 0 solid #aaa;
+                border-radius: 50px;
+                transition: all 0.3s linear;
+                cursor: not-allowed;
+            }
+            
+            a.z:hover {
+                color: #f1f1f1;
+                background-color: #00aa88;
+            }
+
+            a.z{    /*按钮*/
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: #fff;
+                letter-spacing: 1px;
+                background-color: #00ccaa;
+                box-shadow: -0.23px 2px  2px #00000066;
+                border: 0 solid #00ccaa;
+                border-radius: 50px;
+                transition: all 0.3s linear;
+                position: static;
+                cursor: pointer;
+            }
+
+            #panel{
+                padding: 20px;
+            }
+
+            div.e{
+                font-size: xx-large;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            div.f{
+                font-size: small;
+            }
+
+            #panel{
+                display: none;
+            }
+
+            div.h{
+                padding-left: 5px;
+            }
+        
+            p.z{
+                text-align: center;
+                font-size: small;
+                color: #888;
+                position: static;
+            }
+
+            .sidenav {  /*侧边栏*/
+                height: 100%;
+                width: 240px;
+                position: fixed;
+                z-index: 114515;
+                top: 0;
+                left: -260px;
+                background-color: #f7f8f3;
+                overflow: auto;
+                transition: 0.5s;
+                padding-top: 60px;
+                padding-right: 5px;
+                padding-left: 5px;
+                box-shadow: 0px 10px  10px #00000066;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 40px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #555;
+                display: block;
+                transition: 0.3s;
+                border-radius: 50px;
+                cursor: pointer;
+            }
+            
+            .sidenav a.sidenav1{
+                padding: 15px 8px 15px 30px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #555;
+                display: block;
+                transition: 0.3s;
+                cursor: default;
+            }
+            
+            .sidenav a.sidenav1:hover{
+                color: #555;
+                background-color: #f7f8f3;
+            }
+
+            .sidenav a:hover, .offcanvas a:focus{
+                color: #0ca;
+                background: #d5f6f1;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 15px;
+                font-size: 20px;
+                margin-left: 50px;
+            }
+
+            div.sidenavimage{
+                padding-left: 5px;
+            }
+
+            .material-icons {
+                font-family: 'Material Icons';
+                font-weight: normal;
+            }     
+
+            #alertground{   /*遮罩层本尊*/
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                background: #00000066;
+                display: none;
+                z-index: 114515;
+            }
+            
+            .gafalert{  /*配色请搞得和谐点，不然死也别动这个配色*/
+                position: fixed;
+                border: 0 solid;
+                border-radius: 25px;
+                margin: auto;
+                padding: 20px;
+                width: 70%;
+                left: 50%;
+                top: 43%;
+                transform: translate(-50%,-50%);
+                z-index: 114515;
+                background: #d5f6f1;
+                box-shadow: 0px 3px  3px #00000066;
+            }
+
+            .gafalert div{
+                font-size: large;
+            }
+
+            .gafalert p{
+                font-size: small;
+                color: #444;
+                line-height: 1.3;
+                letter-spacing: 1px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .gafalert div.alerta{
+                text-align: right;
+                font-size: small;
+                letter-spacing: 2px;
+                padding-right: 0px;
+            }
+
+            .gafalert a{
+                color: #00ccaa;
+                font-size: small;
+                text-align: right;
+                padding: 5px 10px;
+                border: 0 solid;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .gafalert a:hover{
+                background-color: #b3d4d0;
+                color: #00bb99;
+            }
+            
+            #alert1{    /*按此类推添加gafalert的id*/
+                display: none;
+                opacity: 0;
+            }
+            
+            #alert2{
+                display: none;
+                opacity: 0;
+            }
+
+            @media screen and (max-width:800px){
+                .gafalert{
+                    width: 70%;
+                }
+
+                div.chatinfo{
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                .side{
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                input.gaf{
+                    height: 45px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 70%;
+                }
+
+                div.gafinput{
+                    font-size: small;
+                    left: 20%;
+                }
+            }
+
+            @media screen and (min-width:800px){
+                p{
+                    padding-left: 100px;
+                    padding-right: 100px;
+                }
+
+                #left{
+                    width: 50%;
+                    float: left;
+                    display: block;
+                }
+
+                #right{
+                    width: 50%;
+                    float: left;
+                    display: block;
+                }
+
+                .side-title{
+                    margin-bottom: 35px;
+                }
+
+                div.chatinfo{
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
+
+                .sidenav{
+                    left: 0;
+                    box-shadow: 0px 0px  0px #00000066;
+                }
+                
+                .sidenav .closebtn{
+                    display: none;
+                }
+
+                a.menu{
+                    display: none;
+                }
+
+                body.bg{
+                    margin-left: 250px;
+                }
+
+                .side{
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
+
+                input.gaf{
+                    height: 40px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 50%;
+                }
+
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 54%;
+                }
+            }
+
+            @media screen and (min-width:850px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 52%;
+                }
+            }
+
+            @media screen and (min-width:900px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 50%;
+                }
+            }
+
+            @media screen and (min-width:950px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 48%;
+                }
+            }
+
+            @media screen and (min-width:1000px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 46%;
+                }
+            }
+
+            @media screen and (min-width:1050px) {
+                div.gafinput{
+                    font-size: xx-small;
+                    left: 44%;
+                }
+            }
+            
+            .side{
+                border-left: 5px solid #00ccaa;
+                text-indent: 20px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            
+            .side-title div{
+                letter-spacing: 1px;
+            }
+
+            .side-title{
+                border-left: 5px solid #00ccaa;
+                text-indent: 20px;
+            }
+
+            .side-title h1,h2,h3,h4,h5{
+                padding-left: 0px;
+            }
+
+            a.secret{
+                background-color: #333333;
+                color: #333333;
+            }
+
+            a.secret:hover{
+                background-color: #333333;
+                color: #ffffff;
+            }
+
+            a.secret s{
+                color: #333;
+            }
+
+            a.secret:hover s{
+                color: #ffffff;
+            }
+
+            div.chatinfo{
+                border: #555 solid 2px;
+                border-radius: 15px;
+                background: #222;
+                padding: 20px 20px;
+                font-size: small;
+                font-family: "Roboto";
+                letter-spacing: 0;
+            }
+
+            div.chatinfo .trip{
+                color: #6e6b5e;
+                display: inline-block;
+            }
+
+            div.chatinfo .nickname{
+                color: #6684e1;
+                display: inline-block;
+            }
+
+            div.chatinfo .text{
+                color: #a6a28c;
+            }
+
+            @media (prefers-color-scheme: light){
+                div.gafinput{
+                    background-color: #fff;
+                }
+            }
+
+            @media (prefers-color-scheme: dark){
+                .bg{
+                    background: #333;
+                }
+                
+                a.c{
+                    color: #aaa;
+                }
+
+                div.c{
+                    color: #ccc;
+                }
+
+                a{
+                    color: #44aadd;
+                }
+                
+                a.secret{
+                    background: #ccc;
+                    color: #ccc;
+                }
+                
+                a.secret:hover{
+                    background: #ccc;
+                    color: #333;
+                }
+                
+                a.secret s{
+                    color: #ccc;
+                }
+
+                a.secret:hover s{
+                    color: #333;
+                }
+                
+                li a{
+                    color: #333;
+                }
+                
+                a.top{
+                    color: #333;
+                }
+                
+                h1,h2,h3,h4,h5,h6{
+                    color: #eee;
+                }
+
+                #topul{
+                    background: #d5f6f1;
+                }
+                
+                p{
+                    color: #ccc;
+                }
+                
+                p.z{
+                    color: #aaa;
+                }
+                
+                .side-title div{
+                    color: #ccc;
+                    letter-spacing: 1px;
+                }
+                
+                .sidenav{
+                    background: #444949;
+                }
+                
+                .sidenav a:hover{
+                    background: #d5f6f155;
+                    color: #11ffdd;
+                }
+                
+                .sidenav a{
+                    background: #444949;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1:hover{
+                    background: #444949;
+                    color: #eee;
+                }
+                
+                .sidenav a.sidenav1{
+                    background: #444949;
+                    color: #eee;
+                }
+                
+                footer{
+                    background: #222;
+                }
+
+                .sidenav::-webkit-scrollbar-track{
+                    background-color: #333;
+                }
+
+                .sidenav::-webkit-scrollbar{
+                    width: 3px;
+                }
+
+                .sidenav::-webkit-scrollbar-thumb{
+                    background-color: #aaa;
+                    border-radius: 50px;
+                }
+
+                input.gaf{
+                    border: 2px #00ccaa solid;
+                    border-radius: 50px;
+                    background: #00000000;
+                    color: #aaa;
+                    font-family: 'Google Sans';
+                }
+
+                div.gafinput{
+                    background: #333;
+                    position: absolute;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    color: #0ca;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .sidenav::-webkit-scrollbar-track{
+                background-color: #f7f8f3;
+            }
+
+            .sidenav::-webkit-scrollbar{
+                width: 3px;
+            }
+
+            .sidenav::-webkit-scrollbar-thumb{
+                background-color: #00000033;
+                border-radius: 50px;
+            }
+
+            input.gaf{
+                border: 2px #00ccaa solid;
+                border-radius: 50px;
+                background: #00000000;
+                font-family: 'Google Sans';
+                outline: none;
+            }
+
+            div.gafinput{
+                position: absolute;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                color: #0ca;
+                letter-spacing: 1px;
+            }
+
+            .gaf-drop{
+                position: static;
+            }
+
+            .gaf-drop-content{
+                display: none;
+                position: absolute;
+                min-width: 160px;
+                box-shadow: 0px 3px  3px #00000066;
+                z-index: 114514;
+                border: solid 0px #00000000;
+                border-radius: 15px;
+            }
+
+            .gaf-drop-content a{
+                padding: 10px 10px;
+                border: solid 0px #00000000;
+                border-radius: 15px;
+                display: block;
+            }
+
+            .gaf-drop:hover .gaf-drop-content{
+                display: block;
+            }
+        </style>
+        <script>
+            var gafVersion='GS App Frame by zzChumo,Version 3.12';
+
+            window.onload=function(){
+                var aage=document.getElementById('age');
+                var aaage=new Date().getFullYear()-2007;
+                aage.innerHTML=aaage+"岁的学生。目前已经被迫接受休学。";
+            }
+
+            document.onscroll=function(){
+                var topul=document.getElementById('topul');
+                var tit=document.getElementById('tit');
+                var menu=document.getElementById('menu');
+                if(document.documentElement.scrollTop>45){
+                    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                        topul.style.background='#444949';
+                        tit.style.color='#eee';
+                        menu.style.color='#eee';
+                        topul.style.boxShadow='0px 3px  3px #00000066';
+                    }else{
+                        topul.style.background='#d5f6f1';
+                        topul.style.boxShadow='0px 3px  3px #00000066';
+                    }
+                }else{
+                    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                        topul.style.background='#d5f6f1';
+                        tit.style.color='#333';
+                        menu.style.color='#333';
+                        topul.style.boxShadow='0px 3px  3px #00000000';
+                    }else{
+                        topul.style.background='#d5f6f1';
+                        topul.style.boxShadow='0px 3px  3px #00000000';
+                    }
+                }
+            }
+        
             document.addEventListener('visibilitychange',function(){
                 if(document.visibilityState=='hidden'){
                     normal_title=document.title;
-                    document.title='网站摸鱼中...';
+                    document.title='应用摸鱼中...';
                 }
                 else document.title=normal_title;
-            });
+            });    //当用户焦点离开时显示的网页标题
+            
+            function aHref(s){
+                window.location.href=s;
+            }   //为了最佳的视觉体验，请使用onclick="aHref('https://example')"以代替href属性。
 
             function refresh(){
                 window.location.reload();
-            }
+            }    //网页刷新模块
 
             $(document).ready(function(){
                 $("#flip").click(function(){
                     $("#panel").slideToggle("slow");
                 });
-            });
+            });    //jQuery滑动模块，使用前请先自行添加jQuery的script标签
 
             function adjustIframe(){
                 var ifm= document.getElementById("bi_iframe");
                 ifm.height=document.documentElement.clientHeight;
                 ifm.width=document.documentElement.clientWidth;
+            }    //iframe自适应大小模块
+
+            function fadeIn(element,speed){     //淡入
+                if(document.getElementById(element).style.opacity !=1){
+                    var speed = speed || 30 ;
+                    var num = 0;
+                    var st = setInterval(function(){
+                        num++;
+                        document.getElementById(element).style.opacity = num / 10 ;
+                        if(num>=10)  {
+                        clearInterval(st);
+
+                        }
+                    },speed);
+                }
+            }
+
+            function fadeOut(element){      //淡出
+                if(document.getElementById(element).style.opacity !=0){
+                    var speed = speed || 30 ;
+                    var num = 10;
+                    var st = setInterval(function(){
+                    num--;
+                    document.getElementById(element).style.opacity = num / 10 ;
+                    if(num<=0)  { 
+                        clearInterval(st);
+                    }
+                    },speed);
+                }
+            }
+            
+            function sleep(milliSeconds) {      //把py的sleep搬过来了，请叫我初墨侠
+                var startTime = new Date().getTime();
+                while (new Date().getTime() < startTime + milliSeconds) {
+                    console.log(new Date().getTime());
+                }    //1000(ms)=1s
+            }
+            
+            function openNav(){
+                document.getElementById('alertground').style.display='block';
+                fadeIn('alertground',20);
+                document.getElementById('mySidenav').style.left='0';
+            }
+
+            function closeNav(){
+                document.getElementById('mySidenav').style.left='-260px';
+                fadeOut('alertground',10)
+                document.getElementById('alertground').style.display='none';
+            }    //侧边栏模块
+            
+            function alertOpen(id){     //此处的id指gafalert的id，如上面CSS中的alert1，下同
+                document.getElementById(id).style.display='block';
+                document.getElementById('alertground').style.display='block';
+                fadeIn(id,20);
+                fadeIn('alertground',20);
+            }
+            
+            function alertClose(id){
+                fadeOut(id,20);
+                fadeOut('alertground',20);
+                document.getElementById(id).style.display='none';
+                document.getElementById('alertground').style.display='none';
+            }
+
+            function alertSideClose(id){
+                if(document.documentElement.clientWidth>800){
+                    fadeOut(id,20);
+                    fadeOut('alertground',20);
+                    document.getElementById(id).style.display='none';
+                    document.getElementById('alertground').style.display='none';
+                }else{
+                    fadeOut(id,20);
+                    document.getElementById(id).style.display='none';
+                }
+            }   //当gafalert位于侧边栏时请调用alertSideClose而非alertClose
+
+            if(document.documentElement.clientWidth>800){
+                document.getElementById('mySidenav').style.left='0';
             }
         </script>
     </head>
-    <body>
-        <ul>
-            <!--
-            <li><a id="flip">♪</a><div id="panel"><div id="player">
-                <div id="player-content1">
-                    <div class="music-name"></div>
-                    <div class="artist-name"></div>
-                    <div class="time">
-                        <div class="current-time"></div>
-                        <div class="total-time"></div>
-                    </div>
-                    <div id="s-area">
-                        <div id="ins-time"></div>
-                        <div id="s-hover"></div>
-                        <div id="seek-bar"></div>
-                    </div>
-                </div>
-                <div id="player-content2">
-                    <div class="music-imgs">
-                        <div class="img"></div>
-                        <div id="buffer-box">音乐摸鱼中...</div>
-                    </div>
-                    <div class="player-controls">
-                        <div class="btn prev iconfont"><</div>
-                        <div class="btm play-pause icon-jiediankaishi iconfont">●</div>
-                        <div class="btn next iconfont">></div>
-                    </div>
-                </div>
-            </div><br><br><br><br><br><br><br><br><br><br></div></li>
-            -->
-            <li><a>某个智障的个人主页</a></li>
+    <body class="bg">
+        <script>
+            //以下内容来自Ripplet.JS
+            !function(e,t){
+                "object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).ripplet=t()
+            }
+
+            (this,function(){
+                "use strict";
+                var m,h={
+                    className:"",
+                    color:"currentcolor",
+                    opacity:.1,
+                    spreadingDuration:".4s",
+                    spreadingDelay:"0s",
+                    spreadingTimingFunction:"linear",
+                    clearing:!0,
+                    clearingDuration:"1s",
+                    clearingDelay:"0s",
+                    clearingTimingFunction:"ease-in-out",
+                    centered:!1,
+                    appendTo:"auto"
+                },
+    
+                y=new Map;
+                function t(e,n){
+                    var t=e.currentTarget,i=e.clientX,r=e.clientY;
+                    if(t instanceof Element){
+                        var o=n?Object.keys(h).reduce(function(e,t){
+                            return e[t]=(n.hasOwnProperty(t)?n:h)[t],e
+                        },{}):h;
+
+                        m||((g=document.createElement("div")).innerHTML='<div style="float:left;position:relative;isolation:isolate;pointer-events:none"><div style="position:absolute;overflow:hidden;transform-origin:0 0"><div style="border-radius:50%;transform:scale(0)"></div></div></div>',m=g.firstChild);
+                        var a=t.getBoundingClientRect();
+                        if(o.centered&&"false"!==o.centered){
+                            i=a.left+.5*a.width,r=a.top+.5*a.height
+                        }else{
+                            if("number"!=typeof i||"number"!=typeof r)return;
+                            var l=1/(+getComputedStyle(document.body).zoom||1);i*=l,r*=l
+                        }
+                
+                        var c=getComputedStyle(t),d=function(e){
+                            var t=e&&/^var\((--.+)\)$/.exec(e);
+                            return t?c.getPropertyValue(t[1]):e
+                        },
+
+                        s=function(e,t){
+                            if(t&&"auto"!==t){
+                                return"target"===t?e:"parent"===t?e.parentElement:document.querySelector(t)
+                            }
+                        for(;
+                            e&&(e instanceof SVGElement||e instanceof HTMLInputElement||e instanceof HTMLSelectElement||e instanceof HTMLTextAreaElement||e instanceof HTMLImageElement||e instanceof HTMLHRElement);
+                        )e=e.parentElement;
+            
+                        return e
+                    }
+            
+                    (t,o.appendTo),p=s.appendChild(m.cloneNode(!0));
+                    p.style.zIndex=(+c.zIndex||0)+1;
+                    var f=p.firstChild,u=f.getBoundingClientRect(),e=f.style;
+                    e.top=a.top-u.top+"px",e.left=a.left-u.left+"px",e.width=a.width+"px",e.height=a.height+"px",e.opacity=d(o.opacity),e.borderTopLeftRadius=c.borderTopLeftRadius,e.borderTopRightRadius=c.borderTopRightRadius,e.borderBottomLeftRadius=c.borderBottomLeftRadius,e.borderBottomRightRadius=c.borderBottomRightRadius,e.clipPath=c.clipPath;
+                    var u=f.getBoundingClientRect(),g=a.width/u.width,l=a.height/u.height;
+                    e.transform="scale("+g+","+l+") translate("+(a.left-u.left)+"px,"+(a.top-u.top)+"px)";
+                    g=Math.max(i-a.left,a.right-i),l=Math.max(r-a.top,a.bottom-r),u=Math.sqrt(g*g+l*l),g=f.firstChild,l=g.style,f=d(o.color);
+                    return l.backgroundColor=/^currentcolor$/i.test(f)?c.color:f,g.className=o.className,l.width=l.height=u+u+"px","rtl"===getComputedStyle(s).direction?l.marginRight=a.right-i-u+"px":l.marginLeft=i-a.left-u+"px",l.marginTop=r-a.top-u+"px",l.transition="transform "+d(o.spreadingDuration)+" "+d(o.spreadingTimingFunction)+" "+d(o.spreadingDelay)+",opacity "+d(o.clearingDuration)+" "+d(o.clearingTimingFunction)+" "+d(o.clearingDelay),g.addEventListener("transitionend",function(e){
+                        "opacity"===e.propertyName&&p.parentElement&&p.parentElement.removeChild(p)}),o.clearing&&"false"!==o.clearing?l.opacity="0":((o=y.get(t))||y.set(t,o=new Map),o.set(p,g)),g.offsetWidth,l.transform="",p
+                    }
+                }
+        
+                t.clear=function(e,t){
+                    var n,i;
+                    e?(n=y.get(e))&&(t?((i=n.get(t))&&(i.style.opacity="0"),n.delete(t),0===n.size&&y.delete(e)):(n.forEach(function(e){
+                        return e.style.opacity="0"
+                    }),
+            
+                    y.delete(e))):(y.forEach(function(e){
+                        return e.forEach(function(e){
+                            return e.style.opacity="0"
+                        })
+                    }),
+            
+                    y.clear())
+                },
+        
+                t.defaultOptions=h,t._ripplets=y;
+                var n=Object.freeze({
+                    __proto__:null,defaultOptions:h,default:t
+                });
+        
+                return Object.keys(n).forEach(function(e){
+                    t[e]=n[e]
+                }),t
+            });
+        </script>
+        <div id="alertground"></div><!--遮罩层-->
+        <ul id="topul">
+            <li><a id="menu" onpointerdown="ripplet(arguments[0])" class="menu" onclick="openNav()">&#9776;</a></li>
+            <li><a id="tit">某个智障的个人主页</a></li><!--标题-->
         </ul>
+        <div id="mySidenav" class="sidenav">
+            <a onpointerdown="ripplet(arguments[0])" href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+            <div style="margin-left: 20px;" class="sidenavimage"><img style="border-radius: 500px;" src="https://z3.ax1x.com/2021/11/21/IXGxZ4.png" alt="icon" width="40%"></div>
+            <a class="sidenav1">zzChumo</a>
+            <hr>
+            <br>
+            <a onpointerdown="ripplet(arguments[0])" id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
+            <a onpointerdown="ripplet(arguments[0])" id="settings-side"><div class="material-icons">settings</div>&nbsp;&nbsp;Settings</a>
+            <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
+            <!--这里是侧边栏内容-->
+        </div>
+        <!--以下为弹窗1内容-->
+        <div id="alert1" class="gafalert">
+            <div>提示</div>
+            <p>但是事情还是发生了...</p>
+            <br>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertClose('alert1')">关闭</a></div>
+        </div>
+        <!--以下为弹窗2内容-->
+        <div id="alert2" class="gafalert">
+            <div>关于</div>
+            <p>GS App Frame V3.02由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <br>
+            <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertSideClose('alert2')">关闭</a></div>
+        </div>
+        <div style="background-color: #d5f6f1;">
             <br>
             <br>
-        <div class="webPageTop">
+            <br>
+            <!--下面为正文内容-->
             <br>
             <br>
+            <p style="color: #333;text-align: center;font-size: 45px;margin-bottom: -3px;"><strong>智障初墨的个人主页</strong></p>
+            <p style="color: #333;text-align: center;">被迫喜提休学大礼包 教育局你妈死了</p>
             <br>
-            <br>
-            <br>
-            <br>
-            <h1>智障初墨的个人主页</h1>
-            <p class="b">关爱智障儿童 人人有责</p>
             <br>
             <br>
             <br>
@@ -485,68 +1175,98 @@ div.sidenavimage{
         </div>
         <br>
         <br>
-        <br>
-        <h1>公告</h1><a name="1"></a>
-        <br>
-        <div class="a">
-            <div class="c"><strong>警告</strong></div>
-            <br>
-            <div class="d"><s>再说一遍，爷姓智障名初墨，不是姓初名墨！！！</s><br>已经处决Dr.Chumo。——O5-█</div>
+        <div class="side-title">
+            <h2>关于我</h2>
         </div>
-        <div class="b">
-            <div class="c"><strong>注意</strong></div>
-            <br>
-            <div class="d">tips：时针滴答滴答在走，这首歌你φ了吗？</div>
+        <p id="age"></p>
+        <p>最喜欢的游戏是Phigros、原神和Minecraft，但平时偶尔也会玩Arcaea、Dynamix和Malody。</p>
+        <p>熟练掌握HTML和CSS，JavaScript仍在继续深入。非常擅长制作小型静态屎山。</p>
+        <p>没有目标，但是有已经被碾碎的梦想。</p>
+        <p>最喜欢的流派是日本流行和摇滚，最喜欢的歌是じん的《ロスタイムメモリー》。</p>
+        <br>
+        <div class="side-title">
+            <h3>关于科技</h3>
         </div>
+        <p>非常喜欢刷机和系统安装。曾经为一部红米2刷入过Android 10。</p>
+        <p>电脑的主力系统是Manjaro Linux。拥有一个方便、快捷、低占用的系统是高效开发的重要前提。</p>
         <br>
+        <div class="side-title">
+            <h3>关于音乐</h3>
+        </div>
+        <p>妥妥的术厨。曾为了音乐学过罗马音。</p>
+        <p>话说华语除了中V和周杰伦以外真的还有能打的吗（笑）</p>
         <br>
-        <h1>关于初墨</h1>
-        <br>
-        <div class="c"><strong>个人信息</strong></div>
-        <p class="b">一个15岁的初二狗<br>苦逼华为音游人，砖业静态网站制作者<br>会亿点HTML和CSS，目前正在深♂入研究JavaScript<br>没有目标，爱好是躺平<br>喜欢日本流行和日本摇滚<s>（华流动不动就失恋谁tm听啊</s></p>
-        <br>
-        <br>
-        <div class="c"><strong>擅长的东西</strong></div>
-        <p class="b">写网页，装系统，刷机，<s>写bug和ghs</s></p>
-        <br>
-        <br>
-        <div class="c"><strong>社交平台</strong></div>
-        <p class="b">bilibili：@智障初墨<br>Xbox Live：GSGuo#3611<br>
-        <br>Discord：zzChumo#7738
+        <div class="side-title">
+            <h2>联系我</h2>
+        </div>
+        <p>
+            Bilibili：@智障初墨<br>
+            Weibo：@智障初墨智障<br>
+            Twitter：@zzChumoQAQ<br>
+            Discord：zzChumo#7738<br>
+            Telegram：@zzChumo<br>
+            Xbox Live：GSGuo#3611<br>
+            QQ：232968742<br>
+            邮箱：gstchumo@gmail.com
         </p>
+        <p><s>有术群请务必拉我。</s></p>
         <br>
         <br>
         <br>
     </body>
     <footer>
         <br>
-        <div class="c"><strong>友情链接</strong></div>
         <br>
-        <a class="c" href="https://paperee.guru/">PAPEREE</a><br>
-        <a class="c" href="https://luogu.com.cn/blog/zbt123456/">菌菌子的blog</a><br>
-        <a class="c" href="https://pan.mrpig.eu.org">慕容的储物箱</a><br>
-        <a class="c" href="https://lit-bird.github.io/">Bird's Page</a><br>
-        <a class="c" href="https://crosst.chat/">十字街聊天室</a><br>
-        <a class="c" href="https://thz.cool">Maggie的奇怪玩意儿</a><br>
-        <a class="c" href="https://hack.chat">Hack.Chat</a><br>
-        <a class="c" href="fatal.html">???</a>
+        <div id="left">
+            <div class="c" style="margin-bottom: -10px;"><strong>友情链接</strong></div>
+            <br>
+            <a class="c" href="https://paperee.guru">PAPEREE</a>
+            <br>
+            <a class="c" href="https://luogu.com.cn/blog/zbt123456/">菌菌子的blog</a>
+            <br>
+            <a class="c" href="https://pan.mrpig.eu.org">慕容的储物箱</a>
+            <br>
+            <a class="c" href="https://crosst.chat/">十字街聊天室</a>
+            <br>
+            <a class="c" href="https://hack.chat">Hack.Chat</a>
+            <br>
+            <a class="c" href="https://lit-bird.github.io/">Bird's Page</a>
+            <br>
+            <a class="c" href="https://thz.cool">Maggie的奇怪玩意儿</a>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div id="right">
+            <div class="c" style="margin-bottom: -10px;"><strong>产品</strong></div>
+            <br>
+            <a class="c" href="wiki/index.html">HC百科</a>
+            <br>
+            <a class="c" href="https://app.zzchat.cf/">zzChat App</a>
+            <br>
+            <a class="c" href="https://zzchat.eu.org">zzChat V3</a>
+            <br>
+            <a class="c" href="https://cloud.zzcm.fun">GS Cloud</a>
+            <br>
+            <a class="c" href="https://drive.zzcm.fun">GS Cloud Drive</a>
+            <br>
+            <a class="c" href="https://music.zzcm.fun">GS Cloud Music</a>
+            <br>
+            <a class="c" href="https://www.zzchat.cf/GAF/">GS App Frame</a>
+            <br>
+            <a class="c" href="rs.html">RandomSister</a>
+            <br>
+            <br>
+            <br>
+        </div>
         <br>
         <br>
-        <br>
-        <div class="c"><strong>产品</strong></div>
-        <br>
-        <a class="c" href="wiki/index.html">HC百科</a><br>
-        <a class="c" href="https://app.zzchat.cf/">zzChat App</a><br>
-        <a class="c" href="https://zzchat.eu.org">zzChat V3</a><br>
-        <a class="c" href="https://cloud.zzcm.fun">GS Cloud</a><br>
-        <a class="c" href="https://music.zzcm.fun">GS Cloud Music</a><br>
-        <a class="c" href="https://drive.zzcm.fun">GS Cloud Drive</a><br>
-        <a class="c" href="https://www.zzchat.cf/GAF/">GS App Frame</a><br>
-        <a class="c" href="rs.html">RandomSister</a>
-        <br>
-        <br><hr>
-        <br>
-        <div class="d">©Copyright 2017-2022 GS Team</div>
-        <br>
+        <div>
+            <br>
+            <br>
+            <br>
+            <p class="z">©版权所有。GS Team 2017-2022，保留一切权利。</p>
+            <br>
+        </div>
     </footer>
 </html>
