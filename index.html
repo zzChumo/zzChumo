@@ -525,7 +525,7 @@
                 #btit{
                     color: #333;
                     text-align: center;
-                    font-size: 35px;
+                    font-size: 30px;
                     margin-bottom: -3px;
                 }
 
@@ -909,7 +909,10 @@
             window.onload=function(){
                 var aage=document.getElementById('age');
                 var aaage=new Date().getFullYear()-2007;
+                var copyr=document.getElementById('copyr');
+                var yearr=new Date().getFullYear();
                 aage.innerHTML=aaage+"岁的学生。目前已经被迫接受休学。";
+                copyr.innerHTML="©版权所有。GS Team 2017-"+yearr+"，保留一切权利。";
             }
 
             document.onscroll=function(){
@@ -1274,7 +1277,7 @@
         </div>
         <div>
             <br>
-            <p class="z">©版权所有。GS Team 2017-2022，保留一切权利。</p>
+            <p id="copyr" class="z"></p>
             <br>
         </div>
     </footer>
