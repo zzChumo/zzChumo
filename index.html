@@ -522,6 +522,13 @@
                     width: 70%;
                 }
 
+                #btit{
+                    color: #333;
+                    text-align: center;
+                    font-size: 35px;
+                    margin-bottom: -3px;
+                }
+
                 div.chatinfo{
                     margin-left: 30px;
                     margin-right: 30px;
@@ -549,6 +556,13 @@
                 p{
                     padding-left: 100px;
                     padding-right: 100px;
+                }
+
+                #btit{
+                    color: #333;
+                    text-align: center;
+                    font-size: 45px;
+                    margin-bottom: -3px;
                 }
 
                 #left{
@@ -1137,9 +1151,8 @@
             <a class="sidenav1">zzChumo</a>
             <hr>
             <br>
-            <a onpointerdown="ripplet(arguments[0])" id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;Home</a>
-            <a onpointerdown="ripplet(arguments[0])" id="settings-side"><div class="material-icons">settings</div>&nbsp;&nbsp;Settings</a>
-            <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;About</a>
+            <a href="#" onpointerdown="ripplet(arguments[0])" id="home-side"><div class="material-icons">home</div>&nbsp;&nbsp;主页</a>
+            <a onpointerdown="ripplet(arguments[0])" id="about-side" onclick="alertOpen('alert2')"><div class="material-icons">account_circle</div>&nbsp;&nbsp;关于</a>
             <!--这里是侧边栏内容-->
         </div>
         <!--以下为弹窗1内容-->
@@ -1152,7 +1165,7 @@
         <!--以下为弹窗2内容-->
         <div id="alert2" class="gafalert">
             <div>关于</div>
-            <p>GS App Frame V3.02由<a href="mailto:gsguo001@foxmail.com">智障初墨</a>开发，致力于给HTML初学者群体带来一个轻量级的类Material Design网页框架。</p>
+            <p>本页面基于GS App Frame V3.12开发。</p>
             <br>
             <div class="alerta"><a onpointerdown="ripplet(arguments[0])" onClick="alertSideClose('alert2')">关闭</a></div>
         </div>
@@ -1163,7 +1176,7 @@
             <!--下面为正文内容-->
             <br>
             <br>
-            <p style="color: #333;text-align: center;font-size: 45px;margin-bottom: -3px;"><strong>智障初墨的个人主页</strong></p>
+            <p id="btit"><strong>智障初墨的个人主页</strong></p>
             <p style="color: #333;text-align: center;">被迫喜提休学大礼包 教育局你妈死了</p>
             <br>
             <br>
@@ -1259,11 +1272,7 @@
             <br>
             <br>
         </div>
-        <br>
-        <br>
         <div>
-            <br>
-            <br>
             <br>
             <p class="z">©版权所有。GS Team 2017-2022，保留一切权利。</p>
             <br>
