@@ -1,311 +1,271 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="theme-color" content="#555555">
+<meta name="theme-color" content="#aadead">
+<!--浏览器标题栏颜色，仅对Chrome Mobile，Chrome PWA（电脑版），微信小程序和其他支持该标签的浏览器有效。-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-<link rel="icon" href="index.png">
-<link rel="shortcut-icon" href="index.png">
-<html>
+<html id="tdkr" class="mdui-theme-auto">
     <head>
-        <title>hc百科，带你愉快入坑hc</title>
+        <link rel="icon" href="Demo.png">
+        <link rel="shortcut-icon" href="Demo.png">
+        <title>HC百科 | 首页</title>
+        <link rel="stylesheet" href="https://unpkg.com/mdui@2.0.3/mdui.css">
+        <!-- Filled -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Outlined -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <!-- Rounded -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+        <!-- Sharp -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+        <!-- Two Tone -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+        <!--<script src="https://unpkg.com/mdui@2.0.3/mdui.global.js"></script>-->
         <style>
-            body{
-                font-family: "Microsoft Yahei UI Light";
-                margin: 0;
-                letter-spacing: 2px;
+            /*For GAF V2/3*/
+            p.z{
+                text-align: center;
+                font-size: small;
+                color: #888;
+                position: static;
             }
-
-            p.a{
-                font-size: large;
-            }
-            
-            a{
-			text-decoration: none;
-		}
-
-        p.b{
-            padding-left: 20px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-right: 20px;
-            color: #333;
-        }
-
-        div.a{
-            text-align: center;
-            color: #ff3333;
-            background: #ffaaaa;
-            border: 2px solid #ff3333;
-            border-radius: 20px;
-            margin: 10px 20px;
-            padding: 15px 30px 30px;
-            box-shadow: 0px 3px  3px #00000066;
-        }
-
-        div.b{
-            text-align: center;
-            color: #3333ff;
-            background: #aaaaff;
-            border: 2px solid #3333ff;
-            border-radius: 20px;
-            margin: 10px 20px;
-            padding: 15px 30px 30px;
-            box-shadow: 0px 3px  3px #00000066;
-        }
-
-        div.d{
-            text-align: center;
-            font-size: small;
-            color: #333;
-            padding-top: 2px;
-            padding-bottom: 2px;
-        }
-
-        div.c{
-            padding-left: 20px;
-            padding-right: 20px;
-            font-size: large;
-        }
-
-        div.e{
-            color: #333333;
-        }
-
-        h1{
-            padding-left: 20px;
-            padding-right: 20px;
-            text-align: center;
-        }
-
-        a.a{
-            color: #ffffff;
-        }
-
-        a.c{
-            color: #555;
-            padding-left: 20px;
-            font-size: x-small;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        a.b{
-            color: #0090d8;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-		
-		ul {
-		    list-style-type: none;
-		    margin: 0;
-		    padding: 0;
-		    overflow: hidden;
-		    background-color: #555555;
-            position: fixed;
-            top: 0;
-            width: 100%;
-                    box-shadow: 0px 1px  1px rgba(0, 0, 0, 0.6);
-		}
-		
-		li {
-		    float: left;
-		}
-		
-		li a, .dropbtn {
-		    display: inline-block;
-		    color: white;
-		    text-align: center;
-		    padding: 14px 16px;
-		    text-decoration: none;
-		}
-		
-		li a:hover, .dropdown:hover, .dropbtn {
-		    background-color: #555;
-		}
-		
-		.dropdown {
-		    display: inline-block;
-		}
-		
-		.dropdown-content {
-		    display: none;
-		    position: absolute;
-		    background-color: #f9f9f9;
-		    min-width: 160px;
-		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		}
-		
-		.dropdown-content a {
-		    color: #11ffdd;
-		    padding: 12px 16px;
-		    text-decoration: none;
-		    display: block;
-		}
-		
-		.dropdown-content a:hover {background-color: #f1f1f1}
-		
-		.dropdown:hover .dropdown-content {
-		    display: block;
-		}
-
-        footer{
-            background: #eeeeee;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        img{
-            padding-left: 9px;
-            padding-right: 9px;
-            border: 0;
-        }
-
-        a.z{
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            color: #fff;
-            background-color: #11ffdd;
-        }
-
-        #panel{
-            padding: 20px;
-        }
-
-        div.e{
-            font-size: xx-large;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-
-        div.f{
-            font-size: small;
-        }
-
-        #panel{
-            display: none;
-        }
-
-        div.h{
-            padding-left: 5px;
-        }
-        
-        p.z{
-            text-align: center;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        a.e{
-            color: #66ccff;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        a.ee{
-            color: #2288bb;
-            padding: 5px 5px 5px 5px;
-        }
-
-        p.g{
-            color: #fff;
-            text-align: center;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidenav a:hover, .offcanvas a:focus{
-            color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
         </style>
-        <script>
-            function openNav(){
-                document.getElementById('mySidenav').style.width='250px';
+        <style>
+            body.bg{
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                width: unset;
             }
 
-            function closeNav(){
-                document.getElementById('mySidenav').style.width='0';
+            @font-face {
+                font-family: Roboto;
+                src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxK.woff2);
             }
-        </script>
+
+            @font-face{
+                font-family: 'Google Sans';
+                src: url(https://fonts.gstatic.com/s/googlesans/v58/4UasrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RPjIUvQ.woff2);
+            }
+
+            #sidecon{
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .center{
+                text-align: center;
+            }
+
+            .tsmall{
+                font-size: small;
+            }
+
+            .bcenter{
+                display: flex;
+                justify-content: center;
+            }
+
+            #sidebar::-webkit-scrollbar-track{
+                background-color: 00000000;
+            }
+
+            #sidebar::-webkit-scrollbar{
+                width: 3px;
+            }
+
+            #sidebar::-webkit-scrollbar-thumb{
+                background-color: #00000033;
+                border-radius: 50px;
+            }
+
+            #bg::-webkit-scrollbar-track{
+                background-color: #00000000;
+            }
+
+            #bg::-webkit-scrollbar{
+                width: 3px;
+            }
+
+            #bg::-webkit-scrollbar-thumb{
+                background-color: #00000033;
+                border-radius: 50px;
+            }
+
+            .round{
+                border-radius: 50px;
+            }
+        </style>
+        <style>
+            /*customize*/
+            body{
+                font-family: "Google Sans";
+            }
+
+            #sidebar{
+                font-family: none;
+            }
+
+            .img1{
+                width: 30%;
+                margin-left: 25px;
+            }
+
+            .pt{
+                font-size: large;
+                margin-left: 25px;
+            }
+
+            .c1{
+                width: 100%;
+                height: 100px;
+            }
+
+            footer{
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+            footer hr{
+                width: 90%;
+            }
+
+            @media (prefers-color-scheme: light){
+                footer{
+                    background: #ffd9e055;
+                }
+            }
+
+            @media (prefers-color-scheme: dark){
+                footer{
+                    background: #3f0018;
+                }
+            }
+        </style>
     </head>
-    <body>
-        <ul>
-            <li><a onclick="openNav()">&#9776;</a></li>
-            <li><a href="#">HC百科</a></li>
-        </ul>
-        <br>
-        <br>
-        <br>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">首页</a>
-            <a href="list.html">文档</a>
-            <a href="story.html">故事</a>
+
+    <body id="bg">
+        <mdui-dialog close-on-overlay-click id="alert0">
+            <span slot="headline">你说的对</span>
+            <span slot="description">但事情还是发生了...</span>
+            <mdui-button slot="action" variant="text" onclick="closeAlert('alert0')">取消</mdui-button>
+            <mdui-button slot="action" variant="tonal" onclick="closeAlert('alert0')">确定</mdui-button>
+        </mdui-dialog>
+
+        <mdui-top-app-bar scroll-behavior="elevate">
+            <mdui-button-icon icon="menu" id="_menu" onclick="openNav('sidebar')"></mdui-button-icon>
+            <mdui-top-app-bar-title id="_title">HC百科</mdui-top-app-bar-title>
+            <div style="flex-grow: 1">
+                <mdui-dropdown>
+                    <mdui-button-icon slot="trigger" icon="more_vert"></mdui-button-icon>
+                    <mdui-menu id="menu1">
+                        <mdui-menu-item onclick="_href('https://www.zzchat.cf')">关于初墨</mdui-menu-item>
+                    </mdui-menu>
+                </mdui-dropdown>
+            </div>
+        </mdui-top-app-bar>
+
+        <mdui-navigation-drawer close-on-overlay-click id="sidebar">
+            <mdui-list id="sidecon">
+                <mdui-list-item icon="home" rounded active>首页</mdui-list-item>
+                <mdui-list-item icon="article" onclick="_href('https://www.zzchat.cf/wiki/list.html')" rounded>文档</mdui-list-item>
+                <mdui-list-item icon="edit" onclick="_href('https://www.zzchat.cf/wiki/story.html')" rounded>故事</mdui-list-item>
+            </mdui-list>
+        </mdui-navigation-drawer>
+
+        <div class="mdui-prose">
+            <h1 class="center">欢迎来到HC百科！</h1>
+
+            <p>这里是hc百科，全HC第一个Hack.Chat百科全书。</p>
+            <p>这个wiki由<a href="https://www.zzchat.cf">智障初墨</a>创建。创建本站的目的是能让新人快速了解hc，让用户能够快速查阅聊天时所需的资料，让好奇宝宝了解hc历史上的大事记。</p>
+            <p>初墨不可能知道任何一件有关hc的事情，而且他的空闲时间比较少。所以，我们希望各位用户能够积极投稿，尽可能的完善这个wiki。</p>
+            <p>你可以投稿<a class="http://www.zzchat.cf/wiki/list.html">wiki文章</a>和<a href="https://www.zzchat.cf/wiki/story.html">短篇小说/故事</a>。</p>
+            <p>投稿请将稿件投至<a href="mailto:gstchumo@gmail.com">gstchumo@gmail.com</a>。</p>
+            <p>从2022/1/31起，所有未标注知识共享协议的投稿将被默认为使用<a href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议并进行审查。</p>
         </div>
-        <h1>欢迎来到HC百科！</h1>
-        <div class="a">
-            <div class="c"><strong>紧急|必看</strong></div>
+
+        <br>
+        <br>
+        <br>
+
+        <footer>
             <br>
-            <div class="d">最近，一个名为Detele的hc用户在聊天室大范围刷屏、侮辱聊天室用户。HC Wiki官方组目前已经将该事件公布在该网站上，<a class="ee" href="notice.html">点击此处即可查看</a>。<br>注：该页面没有透露当事人昵称以外的所以个人信息，请先考虑好再在<a class="ee" href="#">百度贴吧</a>发表你的意见。</div>
-        </div>
-        <br>
-        <div class="b">
-            <div class="c"><strong>活动|Detele事件征稿活动</strong></div>
+            <div class="mdui-prose">
+                <p class="z">
+                    该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。<br>
+                    本wiki为静态站点，无法在线投稿。请将稿件投至<a href="mailto:gstchumo@gmail.com">gstchumo@gmail.com</a>。
+                </p>
+            </div>
+            <hr>
+            <div class="mdui-prose">
+                <p class="z">
+                    该页面遵守<a href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议
+                </p>
+            </div>
             <br>
-            <div class="d">看完了上面的事件，你有什么想法？你有没有被Delete困扰过？你觉得Detele是个什么样的人？把它写下来，投稿到下文的邮箱里，告诉我们该事件更多的细节或者Delete曾经做过的事情。</div>
-        </div>
-        <br>
-        <p class="z">这里是hc百科，全HC第一个Hack.Chat百科全书。</p>
-        <p class="z">这个wiki由<a class="e" href="../index.html">智障初墨</a>创建。创建本站的目的是能让新人快速了解hc，让用户能够快速查阅聊天时所需的资料，让好奇宝宝了解hc历史上的大事记。</p>
-        <p class="z">初墨不可能知道任何一件有关hc的事情，而且他的空闲时间比较少。所以，我们希望各位用户能够积极投稿，尽可能的完善这个wiki。</p>
-        <p class="z">你可以投稿<a class="e" href="list.html">wiki文章</a>和<a class="e" href="story.html">短篇小说/故事</a>。</p>
-        <p class="z">投稿请将稿件投至<a class="e" href="mailto:gsguo001@foxmail.com">gsguo001@foxmail.com</a>。</p>
-        <p class="z">从2022/1/31起，所有未标注知识共享协议的投稿将被默认为使用CC BY-NC 3.0协议并进行审查。</p>
-        <br>
-        <br>
-        <br>
-        </body>
-    <footer>
-        <br>
-        <div class="d">该页面版权归属原作者，请先参考该页面所使用的协议后再做你要做的事情。</div>
-        <div class="d">本wiki为静态站点，无法在线投稿。请将稿件投至gsguo001@foxmail.com。</div>
-        <hr>
-        <div class="d">该页面遵守<a class="e" href="https://creativecommons.org/licenses/by-nc/3.0/deed.zh">CC BY-NC 3.0</a>协议</div>
-        <br>
-    </footer>
+        </footer>
+    </body>
+
+    <script>
+        //customize
+        document.addEventListener('visibilitychange',function(){
+            if(document.visibilityState=='hidden'){
+                normal_title=document.title;
+                document.title='应用摸鱼中...';
+            }
+            else document.title=normal_title;
+        });    //当用户焦点离开时显示的网页标题
+    </script>
+    <script>
+        //functions
+        const sleep=(stime)=>new Promise((sexec)=>setTimeout(sexec,stime));
+
+        const openNav=(id)=>{
+            document.getElementById(id).open=true;
+        }
+
+        const openAlert=async(id)=>{
+            document.getElementById(id).open=true;
+            //if(document.documentElement.clientWidth>1000){
+                await sleep(0.0001);
+                document.getElementById('bg').style.width='unset';
+            /*}else{
+                return null;
+            }*/
+        }
+
+        const closeAlert=(id)=>{
+            document.getElementById(id).open=false;
+        }
+
+        const _href=(url)=>{
+            window.location.href=url;
+        }
+
+        const fullscreen=()=>{
+            if(document.fullscreen==false){
+                document.getElementById('tdkr').requestFullscreen();
+            }else{
+                document.exitFullscreen();
+            }
+        }
+    </script>
+    <script>
+        //settings
+        const snv=document.getElementById('sidebar');
+        const _menu=document.getElementById('_menu');
+        const _title=document.getElementById('_title');
+        if(document.documentElement.clientWidth>1000){
+            snv.modal=false;
+            snv.open=true;
+            snv.style.marginTop='64px';
+            _menu.style.display='none';
+            _title.style.paddingLeft='5px';
+        }else{
+            snv.modal=true;
+        }
+    </script>
+    <script type="module">
+        //module
+        import 'https://unpkg.com/mdui@2.0.3/mdui.esm.js';
+        import { setColorScheme } from 'https://unpkg.com/mdui@2.0.3/mdui.esm.js';
+        setColorScheme('#ff0077');
+    </script>
 </html>
