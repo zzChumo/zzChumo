@@ -1,6 +1,7 @@
 一个普通的网页前端。擅长HTML和CSS。  
 
-会JavaScript但不完全会，属于那种怎么屎山怎么来的。  
+会JavaScript但不完全会，属于那种怎么屎山怎么来的。 
+  
 不会写Kotlin，所有的Android项目均为DeepSeek辅助生成和博客尸块拼接而成。
   
 摆烂中，项目维护啥的爱咋咋吧。 
